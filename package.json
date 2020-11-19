@@ -1,0 +1,29 @@
+{
+  "name": "aphshalloffame.com",
+  "version": "1.0.0",
+  "description": "code base for aphshalloffame.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tumulty-Web-Services/aphshalloffame.com.git"
+  },
+  "keywords": [
+    "next.js",
+    "mongodb",
+    "react"
+  ],
+  "author": "tumultywebservices,llc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tumulty-Web-Services/aphshalloffame.com/issues"
+  },
+  "homepage": "https://github.com/Tumulty-Web-Services/aphshalloffame.com#readme",
+  "dependencies": {
+    "next": "^10.0.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
