@@ -1,0 +1,12 @@
+.navBlue {
+  font-weight:bold;
+  color: #539DC2 !important;
+}
+
+.navBlue > a {
+  color: #539DC2 !important;
+}
+
+.activeLink {
+  border-bottom: 3px solid #539DC2;
+}

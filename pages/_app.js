@@ -1,6 +1,8 @@
 import Router from 'next/router'
 import Head from 'next/head'
 import NProgress from 'nprogress'
+import SiteContainer from '../layouts/SiteContainer'
+import Header from '../components/Header'
 
 /**
 *
@@ -33,9 +35,12 @@ export default function App({ Component, pageProps, posts }) {
         <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       </Head>
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <SiteContainer>
+        <Header />
+        <main className="w-100">
+          <Component {...pageProps} />
+        </main>
+      </SiteContainer>
     </>
   );
 }

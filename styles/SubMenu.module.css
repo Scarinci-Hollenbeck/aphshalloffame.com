@@ -1,0 +1,10 @@
+.subMenuTitle > strong, .subMenuTitle > button {
+  color: #386982 !important;
+  font-size: 1.37rem;
+}
+
+.subMenuTitle > button {
+  color: #386982 !important;
+  font-size: 1.15rem;
+  font-weight:bold;
+}
