@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-import Image from 'next/Image'
+import Image from 'next/image'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -28,18 +28,22 @@ export default function Home() {
           <Col sm={12} md={{ span: 6, offset: 2}} className={styles.subMenuTitle}>
             <Button
               onClick={() => setTab('latest')}
-              variant="link">
+              variant="link"
+              className={(tab === 'latest') ? styles.activeBtn : styles.subMenuBtn}
+            >
                 LATEST
             </Button>
             <Button
               variant="link"
               onClick={() => setTab('about')}
+              className={(tab === 'about') ? styles.activeBtn : styles.subMenuBtn}
             >
               ABOUT
             </Button>
             <Button
               variant="link"
               onClick={() => setTab('mission statement')}
+              className={(tab === 'mission statement') ? styles.activeBtn : styles.subMenuBtn}
             >
               MISSION STATEMENT
             </Button>

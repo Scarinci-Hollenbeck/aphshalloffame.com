@@ -20,14 +20,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-
-/**
- * 
- * Track pageview when route is changed
- */
-Router.events.on('routeChangeComplete', (url) => gtag.pageview(url));
-
-export default function App({ Component, pageProps, posts }) {
+export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
