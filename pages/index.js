@@ -52,7 +52,10 @@ export default function Home() {
       </SubMenu>
       <Row className="mx-2 mt-2 content">
         <Col sm={12} md={6} className="p-4">
-          {(tab === 'latest') && <div>latest content</div>}
+          {(tab === 'latest') && <div>
+            #386982
+            
+            </div>}
           {(tab === 'about') && <div>about content</div>}
           {(tab === 'mission statement') && <div>mission statement content</div>}
         </Col>
@@ -73,4 +76,19 @@ export default function Home() {
       </Row>
     </Container>
   )
+}
+
+export async function getStaticProps() {
+ 
+  const res = await fetch(`${process.env.BASE_URL}/api/get-message`)
+  const message = await res.json()
+
+  console.log(message)
+
+  
+  return {
+    props: {
+      message: []
+    },
+  }
 }
