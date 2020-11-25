@@ -24,7 +24,7 @@ export default async function getMembers(req, res) {
 
       return res.status(200).json({
         status: 200,
-        message: 'Here are all the members',
+        message: `Here are all the members from the year ${year}`,
         data: members,
       });
     } catch (error) {
