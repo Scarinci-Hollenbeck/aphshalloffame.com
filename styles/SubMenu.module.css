@@ -3,6 +3,16 @@
   font-size: 1.37rem;
 }
 
+.membersTitle {
+  text-align: center;
+
+}
+.membersTitle > strong {
+  font-size: 2rem;
+  font-family: Georgia,'Times New Roman',Times,serif;
+  color: #386982 !important;
+}
+
 .subMenuBtn:hover,
 .activeBtn:hover {
   cursor: pointer;

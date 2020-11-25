@@ -1,46 +1,46 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react'
-import Image from 'next/image'
+import Link from 'next/link'
 import useSWR from 'swr'
-import Masonry from 'react-masonry-css'
-import styles from '../styles/MasonryCSS.module.css'
-import { setThumbnail } from '../utils/helpers'
+import styles from 'styles/MemberGallery.module.css'
+import { setThumbnail } from 'utils/helpers'
 
+//https://codepen.io/jhermansen/pen/YqEReZ
 export default function MemberGrid() {
-  const [showCaption, setShowCaption] = useState(false)
+  const [ year, setYear ] = useState('all')
+  const dimension = 100
 
   const { data: members, error: memberErr } = useSWR(
-    '/api/get-members',
+    `/api/get-members/${year}`,
     (url) => fetch(url).then((r) => r.json())
   )
+
+
+
   if (memberErr) return <div>failed to load</div>
   if (!members) return <div>loading...</div>
   return (
-    <>
-      <Masonry
-        breakpointCols={5}
-        className={styles.myMasonryGrid}
-        columnClassName={styles.myMasonryGridColumn}
-      >
-        {members.data.map((m) => (
-          <div key={m._id}>
-            <Image
-              src={setThumbnail(m.image)}
-              alt={m.name}
-              width={200}
-              height={250}
-              layout="intrinsic"
-              onMouseEnter={() => setShowCaption(true)}
-              // onMouseExit={() => setShowCaption(false)}
-            />
-            <span style={{ display: showCaption ? 'initial' : 'none' }}>
-              {m.name}
-              <br />
-              {`Inducted: ${m.inducted}`}
-            </span>
-          </div>
-        ))}
-      </Masonry>
-    </>
+    <div className={styles.imgGrid}> 
+     {members.data.map((m) => (
+       <Link href={`/inductee/${m._id}`}>
+          <a className={styles.imgLink}>
+            <figure className={styles.figCaption}>
+              <img
+                  key={m._id}
+                  src={setThumbnail(m.image)}
+                  width={120}
+                  height={150}
+                  alt={m.name}
+                />
+              <figcaption>
+                {m.name}
+                <br/>
+                {`Inducted ${m.inducted}`}
+              </figcaption>
+            </figure>
+          </a>       
+        </Link>       
+      ))}
+    </div>
   )
 }

@@ -75,8 +75,13 @@ export default function Home() {
           />
         </Col>
       </Row>
-      <Row className="mx-2 content-no-border">
+      <Row className="mx-2 pt-5 content-no-border">
         <Col sm={12}>
+          <h3 className={styles.membersTitle}>
+            <strong>
+              Hall of Fame Members
+            </strong>
+          </h3>
           <MemberGrid />
         </Col>
       </Row>
