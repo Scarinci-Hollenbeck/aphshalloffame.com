@@ -3,26 +3,31 @@
   font-size: 1.37rem;
 }
 
-.subMenuBtn:hover, .activeBtn:hover {
+.subMenuBtn:hover,
+.activeBtn:hover {
   cursor: pointer;
-  color: #59A7CF;
+  color: #59a7cf;
   border: 0;
 }
 
-.subMenuBtn:active, .activeBtn:active, .subMenuBtn:focus, .activeBtn:focus {
+.subMenuBtn:active,
+.activeBtn:active,
+.subMenuBtn:focus,
+.activeBtn:focus {
   border: 0;
   outline: 0;
 }
 
-.activeBtn, .subMenuBtn {
+.activeBtn,
+.subMenuBtn {
   font-size: 1.15rem;
-  font-weight:bold;
+  font-weight: bold;
   margin-left: 0;
   margin-right: 0;
 }
 
 .activeBtn {
-  color: #59A7CF;
+  color: #59a7cf;
 }
 
 .subMenuBtn {

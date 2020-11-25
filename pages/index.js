@@ -6,44 +6,53 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import SubMenu from '../layouts/SubMenu'
+import MemberGrid from '../components/MemberGrid'
 import styles from '../styles/SubMenu.module.css'
 
 export default function Home() {
   const [tab, setTab] = useState('latest')
-  console.log(`%c tab: ${tab}`, 'color: orange; background-color: black; font-size: 1.3rem')
+
   return (
     <Container>
       <Head>
         <title>Asbury Park High School Hall of Fame</title>
-      </Head>      
+      </Head>
       <SubMenu>
         <Row>
           <Col sm={12} md={2}>
             <h3 className={styles.subMenuTitle}>
-              <strong>
-                Welcome  
-              </strong>
+              <strong>Welcome</strong>
             </h3>
           </Col>
-          <Col sm={12} md={{ span: 6, offset: 2}} className={styles.subMenuTitle}>
+          <Col
+            sm={12}
+            md={{ span: 6, offset: 2 }}
+            className={styles.subMenuTitle}
+          >
             <Button
               onClick={() => setTab('latest')}
               variant="link"
-              className={(tab === 'latest') ? styles.activeBtn : styles.subMenuBtn}
+              className={
+                tab === 'latest' ? styles.activeBtn : styles.subMenuBtn
+              }
             >
-                LATEST
+              LATEST
             </Button>
             <Button
               variant="link"
               onClick={() => setTab('about')}
-              className={(tab === 'about') ? styles.activeBtn : styles.subMenuBtn}
+              className={tab === 'about' ? styles.activeBtn : styles.subMenuBtn}
             >
               ABOUT
             </Button>
             <Button
               variant="link"
               onClick={() => setTab('mission statement')}
-              className={(tab === 'mission statement') ? styles.activeBtn : styles.subMenuBtn}
+              className={
+                tab === 'mission statement'
+                  ? styles.activeBtn
+                  : styles.subMenuBtn
+              }
             >
               MISSION STATEMENT
             </Button>
@@ -52,12 +61,9 @@ export default function Home() {
       </SubMenu>
       <Row className="mx-2 mt-2 content">
         <Col sm={12} md={6} className="p-4">
-          {(tab === 'latest') && <div>
-            #386982
-            
-            </div>}
-          {(tab === 'about') && <div>about content</div>}
-          {(tab === 'mission statement') && <div>mission statement content</div>}
+          {tab === 'latest' && <div>#386982</div>}
+          {tab === 'about' && <div>about content</div>}
+          {tab === 'mission statement' && <div>mission statement content</div>}
         </Col>
         <Col sm={12} md={6} className="p-4">
           <Image
@@ -69,26 +75,11 @@ export default function Home() {
           />
         </Col>
       </Row>
-      <Row className="mx-2">
+      <Row className="mx-2 content-no-border">
         <Col sm={12}>
-        Hall of Fame member grid component
+          <MemberGrid />
         </Col>
       </Row>
     </Container>
   )
-}
-
-export async function getStaticProps() {
- 
-  const res = await fetch(`${process.env.BASE_URL}/api/get-message`)
-  const message = await res.json()
-
-  console.log(message)
-
-  
-  return {
-    props: {
-      message: []
-    },
-  }
 }
