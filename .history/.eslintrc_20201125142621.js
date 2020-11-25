@@ -18,6 +18,5 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/no-named-as-default-member': 'off',
-    'import/no-unresolved': 'off',
   },
-};
+}

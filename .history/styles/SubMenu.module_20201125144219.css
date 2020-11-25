@@ -8,7 +8,7 @@
 }
 .membersTitle > strong {
   font-size: 2rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia,'Times New Roman',Times,serif;
   color: #386982 !important;
 }
 
@@ -44,7 +44,6 @@
 }
 
 .GalleryNav {
-  width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
+  width: 100%l
+  border: 3px solid yellow;
 }

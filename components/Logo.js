@@ -23,5 +23,5 @@ export default function Logo() {
         `}
       </style>
     </div>
-  )
+  );
 }

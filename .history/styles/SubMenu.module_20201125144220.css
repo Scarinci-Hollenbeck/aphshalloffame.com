@@ -45,6 +45,5 @@
 
 .GalleryNav {
   width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
+  border: 3px solid yellow;
 }

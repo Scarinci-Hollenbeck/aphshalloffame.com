@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 export default function Profile() {
   return (
@@ -8,5 +8,5 @@ export default function Profile() {
       </Head>
       A persons profile will go here..
     </div>
-  )
+  );
 }

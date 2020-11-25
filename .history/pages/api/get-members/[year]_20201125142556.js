@@ -1,17 +1,17 @@
-import dbConnect from 'utils/db-connect';
-import Members from 'models/Members';
+import dbConnect from 'utils/db-connect'
+import Members from 'models/Members'
 
 export default async function getMembers(req, res) {
   if (req.method === 'GET') {
-    await dbConnect();
+    await dbConnect()
     try {
-      let members;
-      const { year } = req.query;
+      let members
+      const { year } = req.query
 
       if (year === 'all') {
-        members = await Members.find({});
+        members = await Members.find({})
       } else {
-        members = await Members.find({ inducted: year });
+        members = await Members.find({ inducted: year })
       }
 
       if (members.length < 0) {
@@ -19,18 +19,18 @@ export default async function getMembers(req, res) {
           status: 404,
           message: 'There was an error! No members were found',
           data: [],
-        });
+        })
       }
 
       return res.status(200).json({
         status: 200,
         message: 'Here are all the members',
         data: members,
-      });
+      })
     } catch (error) {
-      return res.status(error.status || 500).end(error.message);
+      return res.status(error.status || 500).end(error.message)
     }
   }
 
-  return false;
+  return false
 }

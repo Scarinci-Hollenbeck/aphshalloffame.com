@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 export default function Donate() {
   return (
@@ -6,5 +6,5 @@ export default function Donate() {
       <Head>Donate</Head>
       Donate Page
     </div>
-  )
+  );
 }

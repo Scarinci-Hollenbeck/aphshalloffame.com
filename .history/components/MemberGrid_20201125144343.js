@@ -1,45 +1,45 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
-import Link from 'next/link';
-import useSWR from 'swr';
-import Button from 'react-bootstrap/Button';
-import styles from 'styles/MemberGallery.module.css';
-import { setThumbnail } from 'utils/helpers';
-import stylesMenu from '../styles/SubMenu.module.css';
+import React, { useState } from 'react'
+import Link from 'next/link'
+import useSWR from 'swr'
+import Button from 'react-bootstrap/Button'
+import styles from 'styles/MemberGallery.module.css'
+import { setThumbnail } from 'utils/helpers'
+import stylesMenu from '../styles/SubMenu.module.css'
 
 export default function MemberGrid() {
-  const [year, setYear] = useState('all');
+  const [year, setYear] = useState('all')
 
   const { data: members, error: memberErr } = useSWR(
     `/api/get-members/${year}`,
-    (url) => fetch(url).then((r) => r.json()),
-  );
+    (url) => fetch(url).then((r) => r.json())
+  )
 
-  if (memberErr) return <div>failed to load</div>;
-  if (!members) return <div>loading...</div>;
+  if (memberErr) return <div>failed to load</div>
+  if (!members) return <div>loading...</div>
   return (
     <>
       {/** navigation begin */}
-      <div className={stylesMenu.GalleryNav}>
+      <div className={styles.GalleryNav}>
         <Button
           onClick={() => setYear('all')}
           variant="link"
-          className={year === 'all' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn}
+          className={year === 'all' ? styles.activeBtn : styles.subMenuBtn}
         >
           ALL
         </Button>
         <Button
           variant="link"
           onClick={() => setYear('2018')}
-          className={year === '2018' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn}
+          className={year === '2018' ? styles.activeBtn : styles.subMenuBtn}
         >
           2018
         </Button>
         <Button
           variant="link"
           onClick={() => setYear('2016')}
-          className={year === '2016' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn}
+          className={year === '2016' ? styles.activeBtn : styles.subMenuBtn}
         >
           2016
         </Button>
@@ -68,5 +68,5 @@ export default function MemberGrid() {
         ))}
       </div>
     </>
-  );
+  )
 }
