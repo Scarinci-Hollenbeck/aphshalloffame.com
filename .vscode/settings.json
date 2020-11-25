@@ -1,3 +1,4 @@
 {
-  "editor.fontFamily": "'cascadia code'"
+  "editor.fontFamily": "'cascadia code'",
+  "editor.tabSize": 2
 }

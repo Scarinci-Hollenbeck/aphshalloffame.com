@@ -5,12 +5,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import SubMenu from 'layouts/SubMenu';
-import MemberGrid from 'components/MemberGrid';
-import About from 'components/About';
-import Latest from 'components/Latest';
-import MissionStatement from 'components/MissionStatement'
-import styles from 'styles/SubMenu.module.css';
+import SubMenu from '../layouts/SubMenu';
+import MemberGrid from '../components/MemberGrid';
+import About from '../components/About';
+import styles from '../styles/SubMenu.module.css';
 
 export default function Home() {
   const [tab, setTab] = useState('latest');
@@ -64,14 +62,7 @@ export default function Home() {
       </SubMenu>
       <Row className="mx-2 mt-2 content">
         <Col sm={12} md={6} className="p-4">
-          {tab === 'latest' && (
-            <>
-              <h3 className={styles.membersTitle}>
-                <strong>Latest From ASPHS Hall of Fame</strong>
-              </h3>
-              <Latest />
-            </>
-          )}
+          {tab === 'latest' && <div>#386982</div>}
           {tab === 'about' && (
             <>
               <h3 className={styles.membersTitle}>
@@ -80,14 +71,7 @@ export default function Home() {
               <About />
             </>
           )}
-          {tab === 'mission statement' && (
-            <>
-              <h3 className={styles.membersTitle}>
-                <strong>Mission Statement</strong>
-              </h3>
-              <MissionStatement />
-            </>
-          )}
+          {tab === 'mission statement' && <div>mission statement content</div>}
         </Col>
         <Col sm={12} md={6} className="p-4">
           <Image

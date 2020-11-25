@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button';
 import SubMenu from 'layouts/SubMenu';
 import MemberGrid from 'components/MemberGrid';
 import About from 'components/About';
-import Latest from 'components/Latest';
 import MissionStatement from 'components/MissionStatement'
 import styles from 'styles/SubMenu.module.css';
 
