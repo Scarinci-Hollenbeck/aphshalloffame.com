@@ -25,21 +25,27 @@ export default function MemberGrid() {
         <Button
           onClick={() => setYear('all')}
           variant="link"
-          className={year === 'all' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn}
+          className={
+            year === 'all' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
+          }
         >
           ALL
         </Button>
         <Button
           variant="link"
           onClick={() => setYear('2018')}
-          className={year === '2018' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn}
+          className={
+            year === '2018' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
+          }
         >
           2018
         </Button>
         <Button
           variant="link"
           onClick={() => setYear('2016')}
-          className={year === '2016' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn}
+          className={
+            year === '2016' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
+          }
         >
           2016
         </Button>
