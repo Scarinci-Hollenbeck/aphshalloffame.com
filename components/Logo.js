@@ -1,4 +1,5 @@
-import Link from 'next/link'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import Link from 'next/link';
 
 export default function Logo() {
   return (
