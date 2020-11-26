@@ -1,8 +1,14 @@
+import Link from 'next/link'
+
 export default function Logo() {
   return (
     <div>
-      <h1 className="mb-0">Asbury Park High School</h1>
-      <h2 className="mt-0">Distinguished Alumni Hall of Fame</h2>
+      <Link href="/">
+        <a>
+          <h1 className="mb-0">Asbury Park High School</h1>
+          <h2 className="mt-0">Distinguished Alumni Hall of Fame</h2>
+        </a>
+      </Link>
       <style jsx>
         {`
           div {
