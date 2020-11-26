@@ -1,6 +1,6 @@
 .imgGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 0px;
   margin-left: 3%;
   margin-right: 2%;
@@ -46,14 +46,19 @@ figure.figCaption figcaption {
   transition: all 0.5s;
 }
 
-@media only screen and (min-width: 750px) {
+@media (min-width: 300px) {
+  .imgGrid {
+    grid-template-columns: repeat(2, 0fr);
+  }
+}
+@media (min-width: 750px) {
   .imgGrid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 /* Bigger than Phones(laptop / desktop) */
-@media only screen and (min-width: 970px) {
+@media (min-width: 970px) {
   .imgGrid {
     grid-template-columns: repeat(8, 0fr);
   }

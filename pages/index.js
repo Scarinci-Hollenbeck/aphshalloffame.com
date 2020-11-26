@@ -39,14 +39,14 @@ export default function Home() {
                 tab === 'latest' ? styles.activeBtn : styles.subMenuBtn
               }
             >
-              LATEST
+              Latest
             </Button>
             <Button
               variant="link"
               onClick={() => setTab('about')}
               className={tab === 'about' ? styles.activeBtn : styles.subMenuBtn}
             >
-              ABOUT
+              About
             </Button>
             <Button
               variant="link"
@@ -57,7 +57,7 @@ export default function Home() {
                   : styles.subMenuBtn
               }
             >
-              MISSION STATEMENT
+              Mission Statement
             </Button>
           </Col>
         </Row>

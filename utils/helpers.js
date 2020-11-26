@@ -9,3 +9,9 @@ export function setThumbnail(imgLink) {
     imgLink.length,
   )}`;
 }
+
+export async function createUniqueArr(arr) {
+  return arr.filter(
+    (thing, index, self) => index === self.findIndex((t) => t.year === thing.year),
+  );
+}

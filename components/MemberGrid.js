@@ -16,8 +16,13 @@ export default function MemberGrid() {
     (url) => fetch(url).then((r) => r.json()),
   );
 
-  if (memberErr) return <div>failed to load</div>;
-  if (!members) return <div>loading...</div>;
+  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) => fetch(url).then((r) => r.json()));
+
+  if (memberErr) return <div>failed to members</div>;
+  if (yearsErr) return <div>failed to years</div>;
+  if (!members) return <div>loading members...</div>;
+  if (!years) return <div>loading years...</div>;
+
   return (
     <>
       {/** navigation begin */}
@@ -29,35 +34,28 @@ export default function MemberGrid() {
             year === 'all' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
           }
         >
-          ALL
+          All
         </Button>
-        <Button
-          variant="link"
-          onClick={() => setYear('2018')}
-          className={
-            year === '2018' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
-          }
-        >
-          2018
-        </Button>
-        <Button
-          variant="link"
-          onClick={() => setYear('2016')}
-          className={
-            year === '2016' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
-          }
-        >
-          2016
-        </Button>
+        {years.data.map((y) => (
+          <Button
+            key={y.year}
+            variant="link"
+            onClick={() => setYear(y.year)}
+            className={
+              year === y.year ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
+            }
+          >
+            {y.year}
+          </Button>
+        ))}
       </div>
       {/** navigation end */}
       <div className={styles.imgGrid}>
         {members.data.map((m) => (
-          <Link href={`/inductee/${m._id}`}>
+          <Link href={`/inductee/${m._id}`} key={m._id}>
             <a className={styles.imgLink}>
               <figure className={styles.figCaption}>
                 <img
-                  key={m._id}
                   src={setThumbnail(m.image)}
                   width={120}
                   height={150}
