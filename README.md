@@ -12,3 +12,4 @@ This repository contains the code base for the website [http://aphshalloffame.co
 6. Ask Pete M for Events page details (or take down till we get it)
 7. Set up stripe for Donate page
 8. Set up Kwes forms for Contact page
+9. Push to hosting
