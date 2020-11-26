@@ -77,7 +77,7 @@ export default function Profile({ bio }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const bioId = params.id;
   const allMembers = await fetch(
     `${process.env.BASE_URL}/api/get-members/all`,
@@ -89,16 +89,5 @@ export async function getStaticProps({ params }) {
     props: {
       bio: bio[0],
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const allMembers = await fetch(
-    `${process.env.BASE_URL}/api/get-members/all`,
-  ).then((res) => res.json());
-
-  return {
-    paths: allMembers.data.map((node) => `/inductee/${node._id}`) || [],
-    fallback: true,
   };
 }
