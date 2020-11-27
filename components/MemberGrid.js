@@ -56,7 +56,7 @@ export default function MemberGrid() {
             <a className={styles.imgLink}>
               <figure className={styles.figCaption}>
                 <img
-                  src={setThumbnail(m.image)}
+                  src={setThumbnail(m.image, 120)}
                   width={120}
                   height={150}
                   alt={m.name}

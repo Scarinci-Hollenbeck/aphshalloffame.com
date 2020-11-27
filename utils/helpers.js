@@ -1,17 +1,21 @@
 /* eslint-disable import/prefer-default-export */
-export function setThumbnail(imgLink) {
+export function setThumbnail(imgLink, width) {
   if (imgLink === null) {
-    return 'https://via.placeholder.com/120';
+    return `https://via.placeholder.com/${width}`;
   }
 
-  return `${imgLink.slice(0, 60)}/c_scale,w_120${imgLink.slice(
+  return `${imgLink.slice(0, 60)}/c_scale,w_${width}${imgLink.slice(
     60,
     imgLink.length,
   )}`;
 }
 
-export async function createUniqueArr(arr) {
-  return arr.filter(
-    (thing, index, self) => index === self.findIndex((t) => t.year === thing.year),
-  );
+export function setProfileImage(link, options) {
+  if (link === null) {
+    return 'https://via.placeholder.com/500';
+  }
+
+  return `${options}${link.slice(60, link.length)}`;
 }
+
+export const createMarkup = (content) => ({ __html: content });
