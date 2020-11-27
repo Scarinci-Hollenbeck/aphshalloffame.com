@@ -2,7 +2,7 @@
 
 This repository contains the code base for the website [http://aphshalloffame.com/](http://aphshalloffame.com/).
 
-# To Do:
+## To Do:
 
 1. Finish uploading members
 2. Fix all pictures to be 500x500 and re-upload them to cloudinary
