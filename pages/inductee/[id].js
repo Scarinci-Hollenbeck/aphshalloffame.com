@@ -8,14 +8,13 @@ import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import memberStyles from 'styles/Biography.module.css';
-import { createMarkup, setProfileImage } from 'utils/helpers';
+import { createMarkup } from 'utils/helpers';
 
 export default function Profile({ bio }) {
   const {
     biography, image, name, inducted,
   } = bio;
   const bioClass = bio.class;
-  const bioImage = setProfileImage(image, '/c_scale,e_shadow:40,r_15,w_350');
 
   return (
     <Container>
@@ -64,7 +63,7 @@ export default function Profile({ bio }) {
         >
           <div className={memberStyles.m6}>
             <Image
-              src={bioImage}
+              src={`/c_scale,e_shadow:40,r_15,w_350/${image}`}
               alt={name}
               width="350"
               height="456"

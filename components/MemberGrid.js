@@ -2,10 +2,10 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import useSWR from 'swr';
 import Button from 'react-bootstrap/Button';
 import styles from 'styles/MemberGallery.module.css';
-import { setThumbnail } from 'utils/helpers';
 import stylesMenu from '../styles/SubMenu.module.css';
 
 export default function MemberGrid() {
@@ -55,12 +55,22 @@ export default function MemberGrid() {
           <Link href={`/inductee/${m._id}`} key={m._id}>
             <a className={styles.imgLink}>
               <figure className={styles.figCaption}>
-                <img
-                  src={setThumbnail(m.image, 120)}
-                  width={120}
-                  height={150}
-                  alt={m.name}
-                />
+                {m.image !== null ? (
+                  <Image
+                    src={`/c_scale,w_120${m.image}`}
+                    width={120}
+                    height={150}
+                    alt={m.name}
+                  />
+                ) : (
+                  <img
+                    src="https://dummyimage.com/120x150/#1212/fff.png&text=No+Image+Found"
+                    width={120}
+                    height={150}
+                    alt={m.name}
+                  />
+                )}
+
                 <figcaption>
                   {m.name}
                   <br />
