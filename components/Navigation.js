@@ -39,8 +39,6 @@ export default function Navigation() {
             <NavDropdown.Item href="/ceremony/2005">2005</NavDropdown.Item>
             <NavDropdown.Item href="/ceremony/2007">2007</NavDropdown.Item>
             <NavDropdown.Item href="/ceremony/2010">2010</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2012">2012</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2014">2014</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link
             className={`${styles.navBlue} ${
