@@ -7,7 +7,7 @@ const CeremonySchema = new Schema({
       year: { type: String, required: false },
       image: { type: String, required: false },
       alt: { type: String, required: false },
-    }]
+    }],
 });
 
 export default mongoose.models.Ceremony
