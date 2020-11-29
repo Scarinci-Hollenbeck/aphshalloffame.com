@@ -11,12 +11,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
+import GalleryGrid from 'components/GalleryGrid';
 
 export default function Ceremony({ year, device }) {
-  const { data: ceremony, error: ceremonyErr } = useSWR(
-    `/api/get-ceremony/${year}`,
-    (url) => fetch(url).then((r) => r.json()),
-  );
+  const {
+    data: ceremony,
+    error: ceremonyErr,
+  } = useSWR(`/api/get-ceremony/${year}`, (url) => fetch(url).then((r) => r.json()));
 
   if (ceremonyErr) return <div>failed to ceremony photos</div>;
   if (!ceremony) return <div>loading ceremony photos...</div>;
@@ -24,18 +25,18 @@ export default function Ceremony({ year, device }) {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      items: 4,
+      slidesToSlide: 1,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      items: 3,
+      slidesToSlide: 1,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      slidesToSlide: 1,
     },
   };
 
@@ -54,7 +55,6 @@ export default function Ceremony({ year, device }) {
             <h3 className={styles.subMenuTitle}>
               <strong>
                 Ceremony:
-                {' '}
                 {year}
               </strong>
             </h3>
@@ -68,12 +68,10 @@ export default function Ceremony({ year, device }) {
             arrows
             deviceType={device}
             autoPlaySpeed={3000}
-            centerMode
-            dotListClass=""
+            centerMode={false}
             draggable
             focusOnSelect={false}
             infinite
-            itemClass="mx-auto"
             keyBoardControl
             minimumTouchDrag={80}
             renderButtonGroupOutside={false}
@@ -95,7 +93,7 @@ export default function Ceremony({ year, device }) {
           ;.
         </Col>
         <Col sm={12}>
-          Grid gallery view will go here...
+          <GalleryGrid year={year} slides={ceremony.data[0].photos} />
         </Col>
       </Row>
     </Container>
@@ -115,7 +113,15 @@ export async function getServerSideProps({ params, req }) {
     device = 'tablet';
   }
 
-  if (ua.isDesktop || ua.isChrome || ua.isFirefox || ua.isSafari || ua.isIE || ua.isMac || ua.isWindows) {
+  if (
+    ua.isDesktop
+    || ua.isChrome
+    || ua.isFirefox
+    || ua.isSafari
+    || ua.isIE
+    || ua.isMac
+    || ua.isWindows
+  ) {
     device = 'desktop';
   }
 

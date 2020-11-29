@@ -1,0 +1,25 @@
+.downloadLink {
+  margin-right: 10px;
+  display: inline-block;
+  color: white;
+  font-family: 'Roboto Condensed Light';
+}
+.removeBtnStyles {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+}
+.zoomInLink {
+  display: inline-block;
+  margin-bottom: 1.1em;
+  margin-right: 10px;
+  color: purple;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+.zoomInLink:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+.white {
+  color: #fff !important;
+}
