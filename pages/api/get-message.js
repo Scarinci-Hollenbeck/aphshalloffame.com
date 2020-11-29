@@ -1,5 +1,5 @@
-import dbConnect from '../../utils/db-connect';
-import Message from '../../models/Message';
+import dbConnect from 'utils/db-connect';
+import Message from 'models/Message';
 
 export default async function getMessage(req, res) {
   if (req.method === 'GET') {

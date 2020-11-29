@@ -1,13 +1,44 @@
+/* eslint-disable max-len */
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
 import Head from 'next/head';
+import Image from 'next/image';
+import useSWR from 'swr';
+import Carousel from 'react-multi-carousel';
+import { useUserAgent } from 'next-useragent';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 
-export default function Ceremony({ photos, year }) {
+export default function Ceremony({ year, device }) {
+  const { data: ceremony, error: ceremonyErr } = useSWR(
+    `/api/get-ceremony/${year}`,
+    (url) => fetch(url).then((r) => r.json()),
+  );
+
+  if (ceremonyErr) return <div>failed to ceremony photos</div>;
+  if (!ceremony) return <div>loading ceremony photos...</div>;
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
+
   return (
     <Container>
       <Head>
@@ -30,10 +61,38 @@ export default function Ceremony({ photos, year }) {
           </Col>
         </Row>
       </SubMenu>
-      <Row className="mx-2 mt-2 content">
+      <Row className="mx-auto mt-2 pt-5 content">
         <Col sm={12}>
-          Carousel view will go here...
-          {JSON.stringify(photos)}
+          <Carousel
+            additionalTransfrom={0}
+            arrows
+            deviceType={device}
+            autoPlaySpeed={3000}
+            centerMode
+            dotListClass=""
+            draggable
+            focusOnSelect={false}
+            infinite
+            itemClass="mx-auto"
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderButtonGroupOutside={false}
+            renderDotsOutside
+            responsive={responsive}
+          >
+            {ceremony.data[0].photos.map((p) => (
+              <Image
+                key={p._id}
+                src={p.image}
+                height={p.height}
+                width={p.width}
+                alt={p.alt}
+                layout="intrinsic"
+                className="mx-3"
+              />
+            ))}
+          </Carousel>
+          ;.
         </Col>
         <Col sm={12}>
           Grid gallery view will go here...
@@ -43,12 +102,27 @@ export default function Ceremony({ photos, year }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params, req }) {
+  let device = 'desktop';
+  const ua = useUserAgent(req.headers['user-agent']);
   const { year } = params;
+
+  if (ua.isIphone || ua.isAndroid) {
+    device = 'mobile';
+  }
+
+  if (ua.isIpad || ua.isChromeOS) {
+    device = 'tablet';
+  }
+
+  if (ua.isDesktop || ua.isChrome || ua.isFirefox || ua.isSafari || ua.isIE || ua.isMac || ua.isWindows) {
+    device = 'desktop';
+  }
+
   return {
     props: {
       year,
-      photos: [],
+      device,
     },
   };
 }

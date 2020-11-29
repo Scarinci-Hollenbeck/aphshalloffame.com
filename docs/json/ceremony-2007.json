@@ -1,42 +1,58 @@
 [
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/1_glchdv.jpg",
-    "alt": "Janice Keener & Robin Wilson"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/1_glchdv.jpg",
+    "alt": "Janice Keener & Robin Wilson",
+    "width": "317",
+    "height": "472"
   },
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/2_m9ro8i.jpg",
-    "alt": "Marilyn Tomaino & Madleine Ruocco"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/2_m9ro8i.jpg",
+    "alt": "Marilyn Tomaino & Madleine Ruocco",
+    "width": "317",
+    "height": "470"
   },
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/3_w7izjx.jpg",
-    "alt": "Dr. Stephen Hoffman & Ira Kreizman"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/3_w7izjx.jpg",
+    "alt": "Dr. Stephen Hoffman & Ira Kreizman",
+    "width": "317",
+    "height": "468"
   },
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/4_yaeitj.jpg",
-    "alt": "Ira Kreizman & Ronald Baron"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/4_yaeitj.jpg",
+    "alt": "Ira Kreizman & Ronald Baron",
+    "width": "317",
+    "height": "471"
   },
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/5_n58cd3.jpg",
-    "alt": "Lorraine Nonnenberg & Judge Leah Ruskin"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/5_n58cd3.jpg",
+    "alt": "Lorraine Nonnenberg & Judge Leah Ruskin",
+    "width": "317",
+    "height": "471"
   },
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/6_p53f0h.jpg",
-    "alt": "Oliver Jones & Kraig Sanders"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/6_p53f0h.jpg",
+    "alt": "Oliver Jones & Kraig Sanders",
+    "width": "317",
+    "height": "471"
   },
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/7_lha4hg.jpg",
-    "alt": "2007 Inductees"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/7_lha4hg.jpg",
+    "alt": "2007 Inductees",
+    "width": "719",
+    "height": "431"
   },
   {
     "year": "2007",
-    "image": "https://res.cloudinary.com/tumulty-web-services/image/upload/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/8_s4oebj.jpg",
-    "alt": "The Committee: (Sitting) Joan Kreizman, Carl Williams, Sharon Brown, Janice Keener (Standing) Stanley Smith, Marilyn Tomaino, Ira Kreizman, Alan McKeon, Oliver Jones, Lorraine Nonnenberg, Henry Johnson"
+    "image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/8_s4oebj.jpg",
+    "alt": "The Committee: (Sitting) Joan Kreizman, Carl Williams, Sharon Brown, Janice Keener (Standing) Stanley Smith, Marilyn Tomaino, Ira Kreizman, Alan McKeon, Oliver Jones, Lorraine Nonnenberg, Henry Johnson",
+    "width": "669",
+    "height": "471"
   }
 ]

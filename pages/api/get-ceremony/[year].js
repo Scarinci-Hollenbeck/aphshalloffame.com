@@ -1,12 +1,12 @@
 import dbConnect from 'utils/db-connect';
-import Ceremony from 'models/Ceremony';
+import Ceremonies from 'models/Ceremonies';
 
 export default async function getCeremony(req, res) {
   if (req.method === 'GET') {
     await dbConnect();
     try {
       const { year } = req.query;
-      const ceremonies = await Ceremony.find({ ceremony: year });
+      const ceremonies = await Ceremonies.find({ ceremony: year });
 
       if (ceremonies.length < 0) {
         return res.status(404).json({
