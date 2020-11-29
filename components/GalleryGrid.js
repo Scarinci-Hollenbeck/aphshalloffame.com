@@ -17,7 +17,7 @@ export default function GalleryGrid({ slides, year }) {
             />
             <LightBoxView
               image={slide.image}
-              fileName={`ceremony-${year}-photo-${index}.jpg`}
+              fileName={`ceremony-${year}-photo-${index}.png`}
             />
           </div>
         ))}

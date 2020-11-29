@@ -9,9 +9,11 @@ export default async function getMembers(req, res) {
       const { year } = req.query;
 
       if (year === 'all') {
-        members = await Members.find({});
+        members = await Members.find({}).sort({ lastName: 'ASC' }).exec();
       } else {
-        members = await Members.find({ inducted: year });
+        members = await Members.find({ inducted: year })
+          .sort({ lastName: 'ASC' })
+          .exec();
       }
 
       if (members.length < 0) {

@@ -6,7 +6,8 @@ import Image from 'next/image';
 import useSWR from 'swr';
 import Button from 'react-bootstrap/Button';
 import styles from 'styles/MemberGallery.module.css';
-import stylesMenu from '../styles/SubMenu.module.css';
+import stylesMenu from 'styles/SubMenu.module.css';
+import figStyles from 'styles/Figures.module.css';
 
 export default function MemberGrid() {
   const [year, setYear] = useState('all');
@@ -52,33 +53,22 @@ export default function MemberGrid() {
       {/** navigation end */}
       <div className={styles.imgGrid}>
         {members.data.map((m) => (
-          <Link href={`/inductee/${m._id}`} key={m._id}>
-            <a className={styles.imgLink}>
-              <figure className={styles.figCaption}>
-                {m.image !== null ? (
-                  <Image
-                    src={`/c_scale,w_120${m.image}`}
-                    width={120}
-                    height={150}
-                    alt={m.name}
-                  />
-                ) : (
-                  <img
-                    src="https://dummyimage.com/120x150/#1212/fff.png&text=No+Image+Found"
-                    width={120}
-                    height={150}
-                    alt={m.name}
-                  />
-                )}
-
-                <figcaption>
-                  {m.name}
-                  <br />
-                  {`Inducted ${m.inducted}`}
-                </figcaption>
-              </figure>
-            </a>
-          </Link>
+          <figure className={figStyles.memberFigure} key={m._id}>
+            <Image
+              src={`/c_scale,w_120${m.image}`}
+              width={120}
+              height={150}
+              alt={m.name}
+            />
+            <figcaption>
+              <Link href={`/inductee/${m._id}`}>
+                <a className={styles.imgLink}>
+                  <h4>{m.name}</h4>
+                  <p>{`Inducted ${m.inducted}`}</p>
+                </a>
+              </Link>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </>

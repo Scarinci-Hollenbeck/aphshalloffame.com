@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
+import pageStyle from 'styles/Ceremony.module.css';
 import GalleryGrid from 'components/GalleryGrid';
 
 export default function Ceremony({ year, device }) {
@@ -90,9 +91,8 @@ export default function Ceremony({ year, device }) {
               />
             ))}
           </Carousel>
-          ;.
         </Col>
-        <Col sm={12}>
+        <Col sm={12} className={pageStyle.borderTop}>
           <GalleryGrid year={year} slides={ceremony.data[0].photos} />
         </Col>
       </Row>
