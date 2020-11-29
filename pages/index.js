@@ -67,7 +67,7 @@ export default function Home() {
           {tab === 'latest' && (
             <>
               <h3 className={styles.membersTitle}>
-                <strong>Latest From ASPHS Hall of Fame</strong>
+                <strong>ASPHS Hall of Fame</strong>
               </h3>
               <Latest />
             </>
