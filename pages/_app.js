@@ -10,9 +10,7 @@ import Header from 'components/Header';
  *
  * */
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-multi-carousel/lib/styles.css';
 import 'react-image-lightbox/style.css';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
 import 'nprogress/nprogress.css';
 import 'styles/styles.css';
 

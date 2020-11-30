@@ -29,6 +29,7 @@ export default function Contact() {
         <Col sm={12} className="p-4">
           <h3 className={contactStyles.title}>
             <strong>Get in touch</strong>
+          </h3>
             <div className={contactStyles.form}>
               <form action="https://kwes.io/api/foreign/forms/JIlKMx20k6Hctyn79F89" className="kwes-form d-print-none">                
                 <Row className="mb-3">
@@ -58,7 +59,6 @@ export default function Contact() {
                 <button className="btn btn-success w-25 mt-2" type="submit">Submit form</button>
               </form>
             </div>
-          </h3>
         </Col>       
       </Row>
     </Container>
