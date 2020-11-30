@@ -65,7 +65,7 @@ export default function MemberGrid() {
               alt={m.name}
             />
             <figcaption>
-              <Link href={`/inductee/${m._id}`}>
+              <Link href={`/inductee/${m.inducted}?name=${m.name}`}>
                 <a className={styles.imgLink}>
                   <h4>{m.name}</h4>
                   <p>{`Inducted ${m.inducted}`}</p>

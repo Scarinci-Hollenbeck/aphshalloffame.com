@@ -76,14 +76,14 @@ export default function Profile({ bio }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
-  const bioId = params.id;
+export async function getServerSideProps({ query }) {
+  const { name } = query
+
   const allMembers = await fetch(
     `${process.env.BASE_URL}/api/get-members/all`,
   ).then((res) => res.json());
 
-  const bio = allMembers.data.filter((a) => a._id === bioId);
-
+  const bio = allMembers.data.filter((a) => a.name === name );
   return {
     props: {
       bio: bio[0],
