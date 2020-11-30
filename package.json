@@ -27,6 +27,7 @@
   "homepage": "https://github.com/Tumulty-Web-Services/aphshalloffame.com#readme",
   "dependencies": {
     "bootstrap": "^4.5.3",
+    "kwesforms": "^2.0.3",
     "mongoose": "^5.10.15",
     "next": "^10.0.2",
     "next-useragent": "^2.3.1",
