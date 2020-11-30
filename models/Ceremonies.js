@@ -6,6 +6,7 @@ const CeremoniesSchema = new Schema({
     {
       year: { type: String, required: false },
       image: { type: String, required: false },
+      order: { type: Number, required: false },
       alt: { type: String, required: false },
       width: { type: String, required: false },
       height: { type: String, required: false },

@@ -13,7 +13,7 @@ import styles from 'styles/SubMenu.module.css';
 import pageStyle from 'styles/Ceremony.module.css';
 import GalleryGrid from 'components/GalleryGrid';
 import LoadingError from 'components/LoadingError';
-import LoadingSpinner from 'components/LoadingSpinner';
+import LoadingSpinner from 'components/LoadingSpinner'
 
 
 export default function Ceremony({ year }) {

@@ -9,7 +9,7 @@ export default function LoadingError() {
        <Alert variant="danger" onClose={() => setShow(false)}  className="my-5" dismissible>
         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         <p>
-          Try clearing your browser cache, and refresh the page. If there error contains please email tumultywebservices@gmail.com.
+          Try clearing your browser cache, and refresh the page. If there error continues please email tumultywebservices@gmail.com.
         </p>
       </Alert>
      )}

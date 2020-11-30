@@ -19,7 +19,10 @@ export default async function getCeremony(req, res) {
       return res.status(200).json({
         status: 200,
         message: `Here are all the photos from the ${year} ceremony`,
-        data: ceremonies,
+        data: [{
+          ceremony: ceremonies[0].ceremony,
+          photos: ceremonies[0].photos.sort((a, b) => a.order - b.order)
+        }],
       });
     } catch (error) {
       return res.status(error.status || 500).end(error.message);

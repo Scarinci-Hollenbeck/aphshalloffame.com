@@ -91,7 +91,7 @@ export default function Home() {
         </Col>
         <Col sm={12} md={6} className="p-4">
           <Image
-            src="/c_scale,e_shadow:40,r_20,w_800/v1605826428/asburyparkhighschoolhalloffame/asburyparkhighschool-original_bbs069.jpg"
+            src="/c_scale,r_8,w_800/v1605826428/asburyparkhighschoolhalloffame/asburyparkhighschool-original_bbs069.jpg"
             alt="Asbury Park High School"
             width="800"
             height="452"
