@@ -4,9 +4,8 @@ This repository contains the code base for the website [http://aphshalloffame.co
 
 ## To Do:
 
-1. Ask Peter M about Events and Donate Page (tell him about Stripe) content. Also, see if he can't send me hosting info again.
-2. Mobile Review
-3. Make a production branch and add domain to it
+1. Mobile Review
+2. Make a production branch and add domain to it
   * add google recaptcha to form
   * update all meta descriptions and titles
   * add google analytics and search console

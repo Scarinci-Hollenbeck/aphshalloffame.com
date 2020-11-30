@@ -1,6 +1,5 @@
 import Router from 'next/router';
 import Head from 'next/head';
-import Link from 'next/link';
 import NProgress from 'nprogress';
 import SiteContainer from 'layouts/SiteContainer';
 import Header from 'components/Header';
@@ -23,7 +22,7 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 export default function App({ Component, pageProps }) {
-  const date = new Date()
+  const date = new Date();
   return (
     <>
       <Head>
@@ -42,20 +41,10 @@ export default function App({ Component, pageProps }) {
         <footer className="mt-3 ml-4">
           <span className="d-block w-100 my-0">
             <small>
-              Asbury Park High School ©️ {date.getFullYear()}
-            </small>
-          </span>
-          <span className="d-block w-100 my-0">
-            <small>
-              Designed, developed, and manged with ❤️ by
+              Asbury Park High School ©️
               {' '}
-              <Link href="https://tumultywebservices.dev">
-                <a style={{color: "#346F55", fontWeight: 'bold'}}>
-                  Tumulty Web Services, LLC
-                </a>
-              </Link>        
+              {date.getFullYear()}
             </small>
-            
           </span>
         </footer>
       </SiteContainer>
