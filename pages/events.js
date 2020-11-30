@@ -4,7 +4,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
-import contactStyles from 'styles/Contact.module.css'
 
 export default function Donate() {
   return (
@@ -23,15 +22,9 @@ export default function Donate() {
       </SubMenu>
       <Row className="mx-2 mt-2 content">
         <Col sm={12} md={6} className="p-4">
-          {/* <h3 className={contactStyles.title}>
-            <strong>l</strong>
-          </h3> */}
           Upcoming event advertisement
         </Col>   
         <Col sm={12} md={6} className="p-4">
-          {/* <h3 className={contactStyles.title}>
-            <strong>l</strong>
-          </h3> */}
           Older event list
         </Col>       
       </Row>

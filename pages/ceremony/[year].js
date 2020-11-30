@@ -12,6 +12,9 @@ import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import pageStyle from 'styles/Ceremony.module.css';
 import GalleryGrid from 'components/GalleryGrid';
+import LoadingError from 'components/LoadingError';
+import LoadingSpinner from 'components/LoadingSpinner';
+
 
 export default function Ceremony({ year }) {
   const {
@@ -19,8 +22,8 @@ export default function Ceremony({ year }) {
     error: ceremonyErr,
   } = useSWR(`/api/get-ceremony/${year}`, (url) => fetch(url).then((r) => r.json()));
 
-  if (ceremonyErr) return <div>failed to ceremony photos</div>;
-  if (!ceremony) return <div>loading ceremony photos...</div>;
+  if (ceremonyErr) return <LoadingError />;
+  if (!ceremony) return <LoadingSpinner />;
 
 
   return (

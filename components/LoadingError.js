@@ -1,0 +1,18 @@
+import React, { useState } from 'react'
+import Alert from 'react-bootstrap/Alert'
+
+export default function LoadingError() {
+  const [show, setShow] = useState(true);
+  return (
+    <>
+     {show && (
+       <Alert variant="danger" onClose={() => setShow(false)}  className="my-5" dismissible>
+        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+        <p>
+          Try clearing your browser cache, and refresh the page. If there error contains please email tumultywebservices@gmail.com.
+        </p>
+      </Alert>
+     )}
+    </>
+  )
+}

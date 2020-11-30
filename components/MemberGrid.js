@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button';
 import styles from 'styles/MemberGallery.module.css';
 import stylesMenu from 'styles/SubMenu.module.css';
 import figStyles from 'styles/Figures.module.css';
+import LoadingError from './LoadingError'
+import LoadingSpinner from './LoadingSpinner'
 
 export default function MemberGrid() {
   const [year, setYear] = useState('all');
@@ -19,10 +21,10 @@ export default function MemberGrid() {
 
   const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) => fetch(url).then((r) => r.json()));
 
-  if (memberErr) return <div>failed to members</div>;
-  if (yearsErr) return <div>failed to years</div>;
-  if (!members) return <div>loading members...</div>;
-  if (!years) return <div>loading years...</div>;
+  if (memberErr || yearsErr) return <LoadingError />;
+  if (!members || !years) return <LoadingSpinner />;
+  
+
 
   return (
     <>

@@ -63,10 +63,10 @@ export default function Profile({ bio }) {
         >
           <div className={memberStyles.m6}>
             <Image
-              src={`/c_scale,e_shadow:40,r_15,w_350/${image}`}
+              src={`/c_scale,r_8,w_350/${image}`}
               alt={name}
               width="350"
-              height="456"
+              height="420"
               layout="intrinsic"
             />
           </div>
