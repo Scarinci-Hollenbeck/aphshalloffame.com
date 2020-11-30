@@ -4,8 +4,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import useSWR from 'swr';
-import Carousel from 'react-multi-carousel';
-import { useUserAgent } from 'next-useragent';
+import { Carousel } from 'react-responsive-carousel';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -14,7 +13,7 @@ import styles from 'styles/SubMenu.module.css';
 import pageStyle from 'styles/Ceremony.module.css';
 import GalleryGrid from 'components/GalleryGrid';
 
-export default function Ceremony({ year, device }) {
+export default function Ceremony({ year }) {
   const {
     data: ceremony,
     error: ceremonyErr,
@@ -23,23 +22,6 @@ export default function Ceremony({ year, device }) {
   if (ceremonyErr) return <div>failed to ceremony photos</div>;
   if (!ceremony) return <div>loading ceremony photos...</div>;
 
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4,
-      slidesToSlide: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
 
   return (
     <Container>
@@ -64,21 +46,7 @@ export default function Ceremony({ year, device }) {
       </SubMenu>
       <Row className="mx-auto mt-2 pt-5 content">
         <Col sm={12}>
-          <Carousel
-            additionalTransfrom={0}
-            arrows
-            deviceType={device}
-            autoPlaySpeed={3000}
-            centerMode={false}
-            draggable
-            focusOnSelect={false}
-            infinite
-            keyBoardControl
-            minimumTouchDrag={80}
-            renderButtonGroupOutside={false}
-            renderDotsOutside
-            responsive={responsive}
-          >
+        <Carousel>
             {ceremony.data[0].photos.map((p) => (
               <Image
                 key={p._id}
@@ -101,34 +69,11 @@ export default function Ceremony({ year, device }) {
 }
 
 export async function getServerSideProps({ params, req }) {
-  let device = 'desktop';
-  const ua = useUserAgent(req.headers['user-agent']);
   const { year } = params;
-
-  if (ua.isIphone || ua.isAndroid) {
-    device = 'mobile';
-  }
-
-  if (ua.isIpad || ua.isChromeOS) {
-    device = 'tablet';
-  }
-
-  if (
-    ua.isDesktop
-    || ua.isChrome
-    || ua.isFirefox
-    || ua.isSafari
-    || ua.isIE
-    || ua.isMac
-    || ua.isWindows
-  ) {
-    device = 'desktop';
-  }
 
   return {
     props: {
-      year,
-      device,
+      year: year
     },
   };
 }

@@ -5,7 +5,7 @@ This repository contains the code base for the website [http://aphshalloffame.co
 ## To Do:
 
 1. Finish uploading members
-2. Finalize Ceremony page (maybe replace Multi Carousel with React Carousel)
+2. Fix up any wonky pictures and missing images with text
 3. Add stylish loaders to SWR content
 4. Ask Peter M about Events and Donate Page (tell him about Stripe) content. Also, see if he can't send me hosting info again.
 5. Set up Kwes forms for Contact page

@@ -39,6 +39,7 @@
     "react-masonry-css": "^1.0.14",
     "react-multi-carousel": "^2.5.5",
     "react-photo-gallery": "^8.0.0",
+    "react-responsive-carousel": "^3.2.10",
     "swr": "^0.3.9"
   },
   "devDependencies": {
