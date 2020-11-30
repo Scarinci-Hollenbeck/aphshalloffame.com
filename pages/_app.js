@@ -39,16 +39,23 @@ export default function App({ Component, pageProps }) {
         <main className="w-100">
           <Component {...pageProps} />
         </main>
-        <footer>
-          <span className="d-block w-100">Asbury Park High School ©️ {date.getFullYear()}</span>
-          <span className="d-block w-100">
-            Designed, developed, and manged with ❤️ by
-            {' '}
-            <Link href="https://tumultywebservices.dev">
-              <a>
-                Tumulty Web Services, LLC
-              </a>
-            </Link>        
+        <footer className="mt-3 ml-4">
+          <span className="d-block w-100 my-0">
+            <small>
+              Asbury Park High School ©️ {date.getFullYear()}
+            </small>
+          </span>
+          <span className="d-block w-100 my-0">
+            <small>
+              Designed, developed, and manged with ❤️ by
+              {' '}
+              <Link href="https://tumultywebservices.dev">
+                <a style={{color: "#346F55", fontWeight: 'bold'}}>
+                  Tumulty Web Services, LLC
+                </a>
+              </Link>        
+            </small>
+            
           </span>
         </footer>
       </SiteContainer>
