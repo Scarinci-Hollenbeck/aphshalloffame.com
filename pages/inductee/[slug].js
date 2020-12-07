@@ -14,25 +14,16 @@ import LoadingError from 'components/LoadingError';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { createMarkup } from 'utils/helpers';
 
-export default function Profile() {
-  const router = useRouter();
-  const name = router.query.index;
-
-  const {
-    data: members,
-    error: memberErr,
-  } = useSWR(`/api/get-members/name/${name}`, (url) => fetch(url).then((r) => r.json()));
-
-  if (memberErr) return <LoadingError />;
-  if (!members) return <LoadingSpinner />;
-
+export default function Profile({ member }) {
   return (
+    <>
+      {member && (
     <Container>
       <Head>
-        <title>{`${members.data.name} - Asbury Park High School Hall of Fame`}</title>
+        <title>{`${member.name} - Asbury Park High School Hall of Fame`}</title>
         <meta
           name="description"
-          content={`${members.data.name} graduated from Asbury Park High School in ${members.data.class}, and was inducted to the Asbury Park High School Hall of Fame in ${members.data.inducted}.`}
+          content={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
         />
       </Head>
       <SubMenu>
@@ -51,20 +42,20 @@ export default function Profile() {
           className="p-4"
         >
           <h3>
-            <strong className={memberStyles.name}>{members.data.name}</strong>
+            <strong className={memberStyles.name}>{member.name}</strong>
           </h3>
           <div className={`${memberStyles.classInductedContainer} p-2 my-4`}>
             <p className="p-0 m-0">
               <strong>Class:</strong>
               {' '}
-              {members.data.class}
+              {member.class}
               {' '}
               <strong>Inducted:</strong>
               {' '}
-              {members.data.inducted}
+              {member.inducted}
             </p>
           </div>
-          <div dangerouslySetInnerHTML={createMarkup(members.data.biography)} />
+          <div dangerouslySetInnerHTML={createMarkup(member.biography)} />
         </Col>
         <Col
           sm={{ order: 'first', span: 12 }}
@@ -73,8 +64,8 @@ export default function Profile() {
         >
           <div className={memberStyles.m6}>
             <Image
-              src={`/c_scale,r_8,w_350/${members.data.image}`}
-              alt={members.data.name}
+              src={`/c_scale,r_8,w_350/${member.image}`}
+              alt={member.name}
               width="350"
               height="420"
               layout="intrinsic"
@@ -83,5 +74,31 @@ export default function Profile() {
         </Col>
       </Row>
     </Container>
-  );
+  )}
+  </>
+  )
 }
+
+export async function getStaticPaths() {
+  const res = await fetch(
+    `${process.env.BASE_URL}/api/get-members/all`,
+  ).then((data) => data.json());
+
+  return {
+    paths: res.data.map((name) => `/inductee/${name}`) || [],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+  const res = await fetch(
+    `${process.env.BASE_URL}/api/get-members/name/${slug}`,
+  ).then((data) => data.json());
+  return {
+    props: {
+      member:res.data
+    },
+  };
+}
+

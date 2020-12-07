@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 
-export default function Donate() {
+export default function Events() {
   return (
     <Container>
       <Head>
