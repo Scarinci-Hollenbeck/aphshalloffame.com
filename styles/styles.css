@@ -25,7 +25,8 @@ body {
   left: 0px;
 }
 
-.slick-next:before, .slick-prev:before {
+.slick-next:before,
+.slick-prev:before {
   font-size: 25px;
   opacity: 1;
   color: #000;

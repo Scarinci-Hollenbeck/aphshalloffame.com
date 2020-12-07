@@ -1,5 +1,5 @@
-import SyncLoader from "react-spinners/SyncLoader";
-import { css } from "@emotion/core";
+import SyncLoader from 'react-spinners/SyncLoader';
+import { css } from '@emotion/react';
 
 const override = css`
   margin-left: 44%;
@@ -9,11 +9,7 @@ const override = css`
 export default function LoadingSpinner() {
   return (
     <div className="my-5 py-5 d-block w-100">
-      <SyncLoader
-        css={override}
-        size={8}
-        color={"#539dc2"}
-      />
+      <SyncLoader css={override} size={8} color="#539dc2" />
     </div>
-  )
+  );
 }

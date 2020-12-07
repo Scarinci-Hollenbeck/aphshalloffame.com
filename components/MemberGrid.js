@@ -8,8 +8,8 @@ import Button from 'react-bootstrap/Button';
 import styles from 'styles/MemberGallery.module.css';
 import stylesMenu from 'styles/SubMenu.module.css';
 import figStyles from 'styles/Figures.module.css';
-import LoadingError from './LoadingError'
-import LoadingSpinner from './LoadingSpinner'
+import LoadingError from './LoadingError';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function MemberGrid() {
   const [year, setYear] = useState('all');
@@ -23,10 +23,6 @@ export default function MemberGrid() {
 
   if (memberErr || yearsErr) return <LoadingError />;
   if (!members || !years) return <LoadingSpinner />;
-
-  console.log(members)
-  
-
 
   return (
     <>
@@ -65,7 +61,7 @@ export default function MemberGrid() {
               alt={m.name}
             />
             <figcaption>
-              <Link href={`/inductee/${m.inducted}?name=${m.name}`}>
+              <Link href={`/inductee/${m.name}`}>
                 <a className={styles.imgLink}>
                   <h4>{m.name}</h4>
                   <p>{`Inducted ${m.inducted}`}</p>

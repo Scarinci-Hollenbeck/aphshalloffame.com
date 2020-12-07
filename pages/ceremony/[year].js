@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable max-len */
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
 import Head from 'next/head';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Slider from 'react-slick';
 import Container from 'react-bootstrap/Container';
@@ -13,20 +14,27 @@ import styles from 'styles/SubMenu.module.css';
 import pageStyle from 'styles/Ceremony.module.css';
 import GalleryGrid from 'components/GalleryGrid';
 import LoadingError from 'components/LoadingError';
-import LoadingSpinner from 'components/LoadingSpinner'
+import LoadingSpinner from 'components/LoadingSpinner';
 
 function Arrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", color: 'black', fontSize: '22px' }}
+      role="button"
+      tabIndex={0}
+      style={{
+        ...style, display: 'block', color: 'black', fontSize: '22px',
+      }}
+      onKeyPress={() => onClick}
       onClick={onClick}
     />
   );
 }
 
-export default function Ceremony({ year }) {
+export default function Ceremony() {
+  const router = useRouter();
+  const year = router.asPath.split('/').filter((a) => a !== '')[1];
   const {
     data: ceremony,
     error: ceremonyErr,
@@ -39,15 +47,14 @@ export default function Ceremony({ year }) {
     dots: false,
     fade: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
     autoplay: true,
     speed: 2000,
-    cssEase: "linear",
+    cssEase: 'linear',
     nextArrow: <Arrow />,
-    prevArrow: <Arrow />
+    prevArrow: <Arrow />,
   };
 
   return (
@@ -58,7 +65,7 @@ export default function Ceremony({ year }) {
           name="description"
           content={`Photos from the Asbury Park High School Hall of Fame ${year} induction ceremony.`}
         />
-        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
+        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       </Head>
       <SubMenu>
@@ -92,14 +99,4 @@ export default function Ceremony({ year }) {
       </Row>
     </Container>
   );
-}
-
-export async function getServerSideProps({ params, req }) {
-  const { year } = params;
-
-  return {
-    props: {
-      year: year
-    },
-  };
 }

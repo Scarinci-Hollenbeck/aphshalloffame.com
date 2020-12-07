@@ -17,17 +17,17 @@ export default function Donate() {
             <h3 className={styles.subMenuTitle}>
               <strong>Events</strong>
             </h3>
-          </Col>         
+          </Col>
         </Row>
       </SubMenu>
       <Row className="mx-2 mt-2 content">
         <Col sm={12} md={6} className="p-4">
           Upcoming event advertisement
-        </Col>   
+        </Col>
         <Col sm={12} md={6} className="p-4">
           Older event list
-        </Col>       
+        </Col>
       </Row>
     </Container>
-  )
+  );
 }

@@ -42,7 +42,6 @@ export default function App({ Component, pageProps }) {
           <span className="d-block w-100 my-0">
             <small>
               Asbury Park High School ©️
-              {' '}
               {date.getFullYear()}
             </small>
           </span>

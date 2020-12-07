@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
-import contactStyles from 'styles/Contact.module.css'
+import contactStyles from 'styles/Contact.module.css';
 
 export default function Donate() {
   return (
@@ -18,7 +18,7 @@ export default function Donate() {
             <h3 className={styles.subMenuTitle}>
               <strong>Donate</strong>
             </h3>
-          </Col>         
+          </Col>
         </Row>
       </SubMenu>
       <Row className="mx-2 mt-2 content">
@@ -26,8 +26,8 @@ export default function Donate() {
           <h3 className={contactStyles.title}>
             <strong>Help Asbury Park High School Hall of Fame grow</strong>
           </h3>
-        </Col>       
+        </Col>
       </Row>
     </Container>
-  )
+  );
 }
