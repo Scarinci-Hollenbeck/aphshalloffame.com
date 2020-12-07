@@ -50,8 +50,7 @@ export default function About() {
         In 2007, Marilyn Higginbothan Tomaino and Rita Abbott Abrams joined the
         committee. Fourteen new honorees were inducted into the Hall of Fame in
         ceremonies held at Branches in West Long Branch, while the Berkeley was
-        undergoing renovations.
-        {' '}
+        undergoing renovations.{' '}
       </p>
       <p>
         A generous contribution from the Hess Foundation and Norma Wilentz Hess,
@@ -73,5 +72,5 @@ export default function About() {
         Colby ,APHS,Class of 67.
       </p>
     </>
-  );
+  )
 }

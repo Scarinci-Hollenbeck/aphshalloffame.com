@@ -1,28 +1,30 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import useSWR from 'swr';
-import Button from 'react-bootstrap/Button';
-import styles from 'styles/MemberGallery.module.css';
-import stylesMenu from 'styles/SubMenu.module.css';
-import figStyles from 'styles/Figures.module.css';
-import LoadingError from './LoadingError';
-import LoadingSpinner from './LoadingSpinner';
+import React, { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import useSWR from 'swr'
+import Button from 'react-bootstrap/Button'
+import styles from 'styles/MemberGallery.module.css'
+import stylesMenu from 'styles/SubMenu.module.css'
+import figStyles from 'styles/Figures.module.css'
+import LoadingError from './LoadingError'
+import LoadingSpinner from './LoadingSpinner'
 
 export default function MemberGrid() {
-  const [year, setYear] = useState('all');
+  const [year, setYear] = useState('all')
 
   const { data: members, error: memberErr } = useSWR(
     `/api/get-members/${year}`,
-    (url) => fetch(url).then((r) => r.json()),
-  );
+    (url) => fetch(url).then((r) => r.json())
+  )
 
-  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) => fetch(url).then((r) => r.json()));
+  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) =>
+    fetch(url).then((r) => r.json())
+  )
 
-  if (memberErr || yearsErr) return <LoadingError />;
-  if (!members || !years) return <LoadingSpinner />;
+  if (memberErr || yearsErr) return <LoadingError />
+  if (!members || !years) return <LoadingSpinner />
 
   return (
     <>
@@ -72,5 +74,5 @@ export default function MemberGrid() {
         ))}
       </div>
     </>
-  );
+  )
 }

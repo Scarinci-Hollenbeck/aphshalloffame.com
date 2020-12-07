@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import kwesforms from 'kwesforms';
-import Head from 'next/head';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SubMenu from 'layouts/SubMenu';
-import styles from 'styles/SubMenu.module.css';
-import contactStyles from 'styles/Contact.module.css';
+import React, { useEffect } from 'react'
+import kwesforms from 'kwesforms'
+import Head from 'next/head'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import SubMenu from 'layouts/SubMenu'
+import styles from 'styles/SubMenu.module.css'
+import contactStyles from 'styles/Contact.module.css'
 
 export default function Contact() {
   // initalize kwesforms
-  useEffect(() => kwesforms.init());
+  useEffect(() => kwesforms.init())
   return (
     <Container>
       <Head>
@@ -105,5 +105,5 @@ export default function Contact() {
         </Col>
       </Row>
     </Container>
-  );
+  )
 }

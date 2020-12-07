@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose'
 
 const CeremoniesSchema = new Schema({
   ceremony: { type: String, required: false },
@@ -12,7 +12,7 @@ const CeremoniesSchema = new Schema({
       height: { type: String, required: false },
     },
   ],
-});
+})
 
-export default mongoose.models.Ceremonies
-  || mongoose.model('Ceremonies', CeremoniesSchema);
+export default mongoose.models.Ceremonies ||
+  mongoose.model('Ceremonies', CeremoniesSchema)

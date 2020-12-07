@@ -2,46 +2,51 @@
 /* eslint-disable max-len */
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import useSWR from 'swr';
-import Slider from 'react-slick';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SubMenu from 'layouts/SubMenu';
-import styles from 'styles/SubMenu.module.css';
-import pageStyle from 'styles/Ceremony.module.css';
-import GalleryGrid from 'components/GalleryGrid';
-import LoadingError from 'components/LoadingError';
-import LoadingSpinner from 'components/LoadingSpinner';
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import useSWR from 'swr'
+import Slider from 'react-slick'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import SubMenu from 'layouts/SubMenu'
+import styles from 'styles/SubMenu.module.css'
+import pageStyle from 'styles/Ceremony.module.css'
+import GalleryGrid from 'components/GalleryGrid'
+import LoadingError from 'components/LoadingError'
+import LoadingSpinner from 'components/LoadingSpinner'
 
 function Arrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props
   return (
     <div
       className={className}
       role="button"
       tabIndex={0}
       style={{
-        ...style, display: 'block', color: 'black', fontSize: '22px',
+        ...style,
+        display: 'block',
+        color: 'black',
+        fontSize: '22px',
       }}
       onKeyPress={() => onClick}
       onClick={onClick}
     />
-  );
+  )
 }
 
 export default function Ceremony() {
-  const router = useRouter();
-  const year = router.asPath.split('/').filter((a) => a !== '')[1];
+  const router = useRouter()
+  const year = router.asPath.split('/').filter((a) => a !== '')[1]
   const {
     data: ceremony,
     error: ceremonyErr,
-  } = useSWR(`/api/get-ceremony/${year}`, (url) => fetch(url).then((r) => r.json()));
+  } = useSWR(`/api/get-ceremony/${year}`, (url) =>
+    fetch(url).then((r) => r.json())
+  )
 
-  if (ceremonyErr) return <LoadingError />;
-  if (!ceremony) return <LoadingSpinner />;
+  if (ceremonyErr) return <LoadingError />
+  if (!ceremony) return <LoadingSpinner />
 
   const settings = {
     dots: false,
@@ -55,7 +60,7 @@ export default function Ceremony() {
     cssEase: 'linear',
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
-  };
+  }
 
   return (
     <Container>
@@ -65,8 +70,17 @@ export default function Ceremony() {
           name="description"
           content={`Photos from the Asbury Park High School Hall of Fame ${year} induction ceremony.`}
         />
-        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charset="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
       </Head>
       <SubMenu>
         <Row>
@@ -98,5 +112,5 @@ export default function Ceremony() {
         </Col>
       </Row>
     </Container>
-  );
+  )
 }

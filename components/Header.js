@@ -1,5 +1,5 @@
-import Logo from './Logo';
-import Navigation from './Navigation';
+import Logo from './Logo'
+import Navigation from './Navigation'
 
 export default function Header() {
   return (
@@ -14,5 +14,5 @@ export default function Header() {
         `}
       </style>
     </header>
-  );
+  )
 }

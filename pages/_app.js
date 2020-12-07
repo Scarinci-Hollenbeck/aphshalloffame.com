@@ -1,28 +1,28 @@
-import Router from 'next/router';
-import Head from 'next/head';
-import NProgress from 'nprogress';
-import SiteContainer from 'layouts/SiteContainer';
-import Header from 'components/Header';
+import Router from 'next/router'
+import Head from 'next/head'
+import NProgress from 'nprogress'
+import SiteContainer from 'layouts/SiteContainer'
+import Header from 'components/Header'
 
 /**
  *
  * 3rd Party Resources
  *
  * */
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-image-lightbox/style.css';
-import 'nprogress/nprogress.css';
-import 'styles/styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'react-image-lightbox/style.css'
+import 'nprogress/nprogress.css'
+import 'styles/styles.css'
 
 /**
  * Bind nprogress loader to app
  * */
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 export default function App({ Component, pageProps }) {
-  const date = new Date();
+  const date = new Date()
   return (
     <>
       <Head>
@@ -48,5 +48,5 @@ export default function App({ Component, pageProps }) {
         </footer>
       </SiteContainer>
     </>
-  );
+  )
 }

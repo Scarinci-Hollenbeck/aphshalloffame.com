@@ -1,10 +1,10 @@
-import Head from 'next/head';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SubMenu from 'layouts/SubMenu';
-import styles from 'styles/SubMenu.module.css';
-import contactStyles from 'styles/Contact.module.css';
+import Head from 'next/head'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import SubMenu from 'layouts/SubMenu'
+import styles from 'styles/SubMenu.module.css'
+import contactStyles from 'styles/Contact.module.css'
 
 export default function Donate() {
   return (
@@ -29,5 +29,5 @@ export default function Donate() {
         </Col>
       </Row>
     </Container>
-  );
+  )
 }

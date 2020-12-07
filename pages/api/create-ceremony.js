@@ -1,9 +1,9 @@
-import dbConnect from 'utils/db-connect';
-import Ceremonies from 'models/Ceremonies';
+import dbConnect from 'utils/db-connect'
+import Ceremonies from 'models/Ceremonies'
 
 export default async function createCeremony(req, res) {
   if (req.method === 'GET') {
-    await dbConnect();
+    await dbConnect()
     try {
       const ceremony = await new Ceremonies({
         ceremony: '2003',
@@ -114,17 +114,17 @@ export default async function createCeremony(req, res) {
             height: '396',
           },
         ],
-      }).save();
+      }).save()
 
       return res.status(200).json({
         status: 200,
         message: 'Ceremoney created',
         data: ceremony,
-      });
+      })
     } catch (error) {
-      return res.status(error.status || 500).end(error.message);
+      return res.status(error.status || 500).end(error.message)
     }
   }
 
-  return false;
+  return false
 }
