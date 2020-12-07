@@ -15,7 +15,7 @@ export default function MemberGrid() {
   const [year, setYear] = useState('all')
 
   const { data: members, error: memberErr } = useSWR(
-    `/api/get-members/${year}`,
+    `/api/get-members/year/${year}`,
     (url) => fetch(url).then((r) => r.json())
   )
 
