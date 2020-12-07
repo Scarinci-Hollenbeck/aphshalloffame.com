@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import Head from 'next/head'
-import Image from 'next/image'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import SubMenu from 'layouts/SubMenu'
-import MemberGrid from 'components/MemberGrid'
-import About from 'components/About'
-import Latest from 'components/Latest'
-import MissionStatement from 'components/MissionStatement'
-import styles from 'styles/SubMenu.module.css'
+import React, { useState } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import SubMenu from 'layouts/SubMenu';
+import MemberGrid from 'components/MemberGrid';
+import About from 'components/About';
+import Latest from 'components/Latest';
+import MissionStatement from 'components/MissionStatement';
+import styles from 'styles/SubMenu.module.css';
 
 export default function Home() {
-  const [tab, setTab] = useState('latest')
+  const [tab, setTab] = useState('latest');
 
   return (
     <Container>
@@ -108,5 +108,5 @@ export default function Home() {
         </Col>
       </Row>
     </Container>
-  )
+  );
 }

@@ -1,30 +1,30 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
-import Head from 'next/head'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import useSWR from 'swr'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import SubMenu from 'layouts/SubMenu'
-import styles from 'styles/SubMenu.module.css'
-import memberStyles from 'styles/Biography.module.css'
-import LoadingError from 'components/LoadingError'
-import LoadingSpinner from 'components/LoadingSpinner'
-import { createMarkup } from 'utils/helpers'
+import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import SubMenu from 'layouts/SubMenu';
+import styles from 'styles/SubMenu.module.css';
+import memberStyles from 'styles/Biography.module.css';
+import LoadingError from 'components/LoadingError';
+import LoadingSpinner from 'components/LoadingSpinner';
+import { createMarkup } from 'utils/helpers';
 
 export default function Profile() {
-  const router = useRouter()
-  const { name } = router.query
+  const router = useRouter();
+  const { name } = router.query;
 
   const { data: member, error: memberErr } = useSWR(
     `/api/get-members/${name}`,
-    (url) => fetch(url).then((r) => r.json())
-  )
+    (url) => fetch(url).then((r) => r.json()),
+  );
 
-  if (memberErr) return <LoadingError />
-  if (!member) return <LoadingSpinner />
+  if (memberErr) return <LoadingError />;
+  if (!member) return <LoadingSpinner />;
   return (
     <Container>
       <Head>
@@ -54,8 +54,13 @@ export default function Profile() {
           </h3>
           <div className={`${memberStyles.classInductedContainer} p-2 my-4`}>
             <p className="p-0 m-0">
-              <strong>Class:</strong> {member.data.class}{' '}
-              <strong>Inducted:</strong> {member.data.inducted}
+              <strong>Class:</strong>
+              {' '}
+              {member.data.class}
+              {' '}
+              <strong>Inducted:</strong>
+              {' '}
+              {member.data.inducted}
             </p>
           </div>
           <div dangerouslySetInnerHTML={createMarkup(member.data.biography)} />
@@ -77,5 +82,5 @@ export default function Profile() {
         </Col>
       </Row>
     </Container>
-  )
+  );
 }

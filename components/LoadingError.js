@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import Alert from 'react-bootstrap/Alert'
+import React, { useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
 
 export default function LoadingError() {
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(true);
   return (
     <>
       {show && (
@@ -15,11 +15,12 @@ export default function LoadingError() {
           <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
           <p>
             Try clearing your browser cache, and refresh the page. If there
-            error continues please email{' '}
+            error continues please email
+            {' '}
             <strong>tumultywebservices@gmail.com.</strong>
           </p>
         </Alert>
       )}
     </>
-  )
+  );
 }

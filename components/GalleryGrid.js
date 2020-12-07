@@ -1,13 +1,13 @@
 /* eslint-disable no-underscore-dangle */
-import Image from 'next/image'
-import styles from 'styles/GalleryGrid.module.css'
-import LightBoxView from './LightBoxView'
+import Image from 'next/image';
+import styles from 'styles/GalleryGrid.module.css';
+import LightBoxView from './LightBoxView';
 
 export default function GalleryGrid({ slides, year }) {
   return (
     <div className={styles.gallery}>
-      {slides.length > 0 &&
-        slides.map((slide, index) => (
+      {slides.length > 0
+        && slides.map((slide, index) => (
           <div key={slide._id} className={styles.galleryImage}>
             <Image
               src={slide.image}
@@ -22,5 +22,5 @@ export default function GalleryGrid({ slides, year }) {
           </div>
         ))}
     </div>
-  )
+  );
 }

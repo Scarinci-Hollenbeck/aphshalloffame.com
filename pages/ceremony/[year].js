@@ -2,22 +2,22 @@
 /* eslint-disable max-len */
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import useSWR from 'swr'
-import Slider from 'react-slick'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import SubMenu from 'layouts/SubMenu'
-import styles from 'styles/SubMenu.module.css'
-import pageStyle from 'styles/Ceremony.module.css'
-import GalleryGrid from 'components/GalleryGrid'
-import LoadingError from 'components/LoadingError'
-import LoadingSpinner from 'components/LoadingSpinner'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
+import Slider from 'react-slick';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import SubMenu from 'layouts/SubMenu';
+import styles from 'styles/SubMenu.module.css';
+import pageStyle from 'styles/Ceremony.module.css';
+import GalleryGrid from 'components/GalleryGrid';
+import LoadingError from 'components/LoadingError';
+import LoadingSpinner from 'components/LoadingSpinner';
 
 function Arrow(props) {
-  const { className, style, onClick } = props
+  const { className, style, onClick } = props;
   return (
     <div
       className={className}
@@ -32,21 +32,19 @@ function Arrow(props) {
       onKeyPress={() => onClick}
       onClick={onClick}
     />
-  )
+  );
 }
 
 export default function Ceremony() {
-  const router = useRouter()
-  const year = router.asPath.split('/').filter((a) => a !== '')[1]
+  const router = useRouter();
+  const year = router.asPath.split('/').filter((a) => a !== '')[1];
   const {
     data: ceremony,
     error: ceremonyErr,
-  } = useSWR(`/api/get-ceremony/${year}`, (url) =>
-    fetch(url).then((r) => r.json())
-  )
+  } = useSWR(`/api/get-ceremony/${year}`, (url) => fetch(url).then((r) => r.json()));
 
-  if (ceremonyErr) return <LoadingError />
-  if (!ceremony) return <LoadingSpinner />
+  if (ceremonyErr) return <LoadingError />;
+  if (!ceremony) return <LoadingSpinner />;
 
   const settings = {
     dots: false,
@@ -60,7 +58,7 @@ export default function Ceremony() {
     cssEase: 'linear',
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
-  }
+  };
 
   return (
     <Container>
@@ -112,5 +110,5 @@ export default function Ceremony() {
         </Col>
       </Row>
     </Container>
-  )
+  );
 }

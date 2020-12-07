@@ -20,4 +20,4 @@ module.exports = {
     'import/no-named-as-default-member': 'off',
     'import/no-unresolved': 'off',
   },
-}
+};

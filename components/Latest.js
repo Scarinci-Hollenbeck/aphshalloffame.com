@@ -6,5 +6,5 @@ export default function Latest() {
         <strong>Add a custom message here...</strong>
       </p>
     </>
-  )
+  );
 }

@@ -19,5 +19,5 @@ export default function MissionStatement() {
         has made to society.
       </p>
     </>
-  )
+  );
 }

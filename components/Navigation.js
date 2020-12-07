@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import styles from '../styles/Navigation.module.css'
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import styles from '../styles/Navigation.module.css';
 
 export default function Navigation() {
-  const router = useRouter()
-  const [active, setActive] = useState('')
-  const [preSetActive, setPreSetActive] = useState(true)
+  const router = useRouter();
+  const [active, setActive] = useState('');
+  const [preSetActive, setPreSetActive] = useState(true);
 
   useEffect(() => {
     if (preSetActive) {
-      setActive(router.asPath)
-      setPreSetActive(false)
+      setActive(router.asPath);
+      setPreSetActive(false);
     }
-  })
+  });
 
   return (
     <Navbar expand="lg">
@@ -67,5 +67,5 @@ export default function Navigation() {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  )
+  );
 }
