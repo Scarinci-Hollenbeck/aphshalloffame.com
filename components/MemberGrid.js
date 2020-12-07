@@ -14,10 +14,10 @@ import LoadingSpinner from './LoadingSpinner';
 export default function MemberGrid() {
   const [year, setYear] = useState('all');
 
-  const { data: members, error: memberErr } = useSWR(
-    `/api/get-members/year/${year}`,
-    (url) => fetch(url).then((r) => r.json()),
-  );
+  const {
+    data: members,
+    error: memberErr,
+  } = useSWR(`/api/get-members/year/${year}`, (url) => fetch(url).then((r) => r.json()));
 
   const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) => fetch(url).then((r) => r.json()));
 

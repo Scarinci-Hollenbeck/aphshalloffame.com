@@ -3,8 +3,6 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import useSWR from 'swr';
 import Slider from 'react-slick';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -13,8 +11,6 @@ import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import pageStyle from 'styles/Ceremony.module.css';
 import GalleryGrid from 'components/GalleryGrid';
-import LoadingError from 'components/LoadingError';
-import LoadingSpinner from 'components/LoadingSpinner';
 
 function Arrow(props) {
   const { className, style, onClick } = props;
@@ -35,17 +31,7 @@ function Arrow(props) {
   );
 }
 
-export default function Ceremony() {
-  const router = useRouter();
-  const year = router.asPath.split('/').filter((a) => a !== '')[1];
-  const {
-    data: ceremony,
-    error: ceremonyErr,
-  } = useSWR(`/api/get-ceremony/${year}`, (url) => fetch(url).then((r) => r.json()));
-
-  if (ceremonyErr) return <LoadingError />;
-  if (!ceremony) return <LoadingSpinner />;
-
+export default function Ceremony({ ceremony, photos }) {
   const settings = {
     dots: false,
     fade: true,
@@ -63,15 +49,15 @@ export default function Ceremony() {
   return (
     <Container>
       <Head>
-        <title>{`Asbury Park High School Hall of Fame - ${year} Ceremony`}</title>
+        <title>{`Asbury Park High School Hall of Fame - ${ceremony} Ceremony`}</title>
         <meta
           name="description"
-          content={`Photos from the Asbury Park High School Hall of Fame ${year} induction ceremony.`}
+          content={`Photos from the Asbury Park High School Hall of Fame ${ceremony} induction ceremony.`}
         />
         <link
           rel="stylesheet"
           type="text/css"
-          charset="UTF-8"
+          charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
@@ -86,7 +72,7 @@ export default function Ceremony() {
             <h3 className={styles.subMenuTitle}>
               <strong>
                 Ceremony:
-                {year}
+                {ceremony}
               </strong>
             </h3>
           </Col>
@@ -95,7 +81,7 @@ export default function Ceremony() {
       <Row className="mx-auto mt-2 pt-5 content">
         <Col sm={12}>
           <Slider {...settings}>
-            {ceremony.data[0].photos.map((p) => (
+            {photos.map((p) => (
               <img
                 key={p._id}
                 src={`https://res.cloudinary.com/tumulty-web-services/image/upload${p.image}`}
@@ -106,9 +92,35 @@ export default function Ceremony() {
           </Slider>
         </Col>
         <Col sm={12} className={pageStyle.borderTop}>
-          <GalleryGrid year={year} slides={ceremony.data[0].photos} />
+          <GalleryGrid year={ceremony} slides={photos} />
         </Col>
       </Row>
     </Container>
   );
+}
+
+export async function getStaticPaths() {
+  const years = await fetch(
+    `${process.env.BASE_URL}/api/get-ceremony/all`,
+  ).then((data) => data.json());
+
+  return {
+    paths: years.data.map((year) => `/ceremony/${year}`) || [],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { year } = params;
+  const res = await fetch(
+    `${process.env.BASE_URL}/api/get-ceremony/${year}`,
+  ).then((data) => data.json());
+  const { ceremony, photos } = res.data[0];
+
+  return {
+    props: {
+      ceremony,
+      photos,
+    },
+  };
 }
