@@ -122,5 +122,7 @@ export async function getStaticProps({ params }) {
       ceremony,
       photos,
     },
+    revalidate: 1,
+    notFound:true,
   };
 }

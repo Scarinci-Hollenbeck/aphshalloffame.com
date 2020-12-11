@@ -66,8 +66,8 @@ export default function Profile({ member }) {
             <Image
               src={`/c_scale,r_8,w_350/${member.image}`}
               alt={member.name}
-              width="350"
-              height="420"
+              width={350}
+              height={420}
               layout="intrinsic"
             />
           </div>
@@ -99,6 +99,7 @@ export async function getStaticProps({ params }) {
     props: {
       member:res.data
     },
+    revalidate: 1
   };
 }
 
