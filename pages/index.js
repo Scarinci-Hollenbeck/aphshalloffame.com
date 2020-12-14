@@ -99,6 +99,7 @@ export default function Home() {
           />
         </Col>
       </Row>
+      {/*
       {(tab === 'latest') && (
         <Row className="mx-2 content-no-border text-center">
           <Col sm={12}>
@@ -174,7 +175,7 @@ export default function Home() {
           </p>
           </Col>
         </Row>
-      )}
+      )} */}
       <Row className="mx-2 pt-4 content-no-border">
         <Col sm={12}>
           <h3 className={styles.membersTitle}>
