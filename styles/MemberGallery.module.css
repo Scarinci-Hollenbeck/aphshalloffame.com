@@ -60,6 +60,6 @@ figure.figCaption figcaption {
 /* Bigger than Phones(laptop / desktop) */
 @media (min-width: 970px) {
   .imgGrid {
-    grid-template-columns: repeat(8, 0fr);
+    grid-template-columns: repeat(9, 0fr);
   }
 }

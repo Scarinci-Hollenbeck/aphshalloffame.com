@@ -3,7 +3,7 @@ import Navigation from './Navigation';
 
 export default function Header() {
   return (
-    <header className="mx-4 mt-3 d-flex w-100 justify-content-between">
+    <header className="d-flex w-100 justify-content-between">
       <Logo />
       <Navigation />
       <style jsx>

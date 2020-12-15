@@ -16,13 +16,13 @@ export default function Home() {
   const [tab, setTab] = useState('latest');
 
   return (
-    <Container>
+    <Container className="mx-0 px-0">
       <Head>
         <title>Asbury Park High School Hall of Fame</title>
       </Head>
       <SubMenu>
-        <Row>
-          <Col sm={12} md={2}>
+        <Row className="mx-0">
+          <Col sm={12} md={2} className="mx-0 px-0">
             <h3 className={styles.subMenuTitle}>
               <strong>Welcome</strong>
             </h3>
@@ -63,15 +63,8 @@ export default function Home() {
         </Row>
       </SubMenu>
       <Row className="mx-2 mt-2 content">
-        <Col sm={12} md={6} className="p-4">
-          {tab === 'latest' && (
-            <>
-              <h3 className={styles.membersTitle}>
-                <strong>APHS Hall of Fame</strong>
-              </h3>
-              <Latest />
-            </>
-          )}
+        <Col sm={12} className="px-0">
+          {tab === 'latest' && <Latest />}
           {tab === 'about' && (
             <>
               <h3 className={styles.membersTitle}>
@@ -88,15 +81,6 @@ export default function Home() {
               <MissionStatement />
             </>
           )}
-        </Col>
-        <Col sm={12} md={6} className="p-4">
-          <Image
-            src="/c_scale,r_8,w_800/v1605826428/asburyparkhighschoolhalloffame/asburyparkhighschool-original_bbs069.jpg"
-            alt="Asbury Park High School"
-            width="800"
-            height="452"
-            layout="responsive"
-          />
         </Col>
       </Row>
       {/*

@@ -5,7 +5,7 @@ export default async function getYears(req, res) {
   if (req.method === 'GET') {
     await dbConnect();
     try {
-      const years = await Years.find({});
+      const years = await Years.find({}).sort({ year: 'ASC' }).exec();
 
       if (years.length < 0) {
         return res.status(404).json({

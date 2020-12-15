@@ -6,7 +6,9 @@ export default function Logo() {
     <div>
       <Link href="/">
         <a>
-          <h1 className="mb-0">Asbury Park High School</h1>
+          <h1 className="mt-2 mb-0">
+            <strong>Asbury Park High School</strong>
+          </h1>
           <h2 className="mt-0">Distinguished Alumni Hall of Fame</h2>
         </a>
       </Link>

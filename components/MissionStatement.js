@@ -18,7 +18,11 @@ export default function MissionStatement() {
         candidate&apos;s public service and to the contributions the candidate
         has made to society.
       </p>
-      <p>We believe that another portion of our mission is to aid current APHS students in achieving their higher education goals by helping to supply the financial aid which they so desperately need.</p>
+      <p>
+        We believe that another portion of our mission is to aid current APHS
+        students in achieving their higher education goals by helping to supply
+        the financial aid which they so desperately need.
+      </p>
     </>
   );
 }

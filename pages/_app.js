@@ -12,6 +12,7 @@ import Header from 'components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-image-lightbox/style.css';
 import 'nprogress/nprogress.css';
+import 'animate.css';
 import 'styles/styles.css';
 
 /**

@@ -123,6 +123,6 @@ export async function getStaticProps({ params }) {
       photos,
     },
     revalidate: 1,
-    notFound:true,
+    notFound: true,
   };
 }

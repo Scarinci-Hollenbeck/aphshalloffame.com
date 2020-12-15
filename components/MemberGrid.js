@@ -24,6 +24,8 @@ export default function MemberGrid() {
   if (memberErr || yearsErr) return <LoadingError />;
   if (!members || !years) return <LoadingSpinner />;
 
+  console.log(members);
+
   return (
     <>
       {/** navigation begin */}

@@ -5,7 +5,7 @@ export default async function getCeremony(req, res) {
   if (req.method === 'GET') {
     await dbConnect();
     try {
-      const members = await Members.find({});
+      const members = await Members.find({}).sort({ inducted: 'DESC' }).exec();
 
       if (members.length < 0) {
         return res.status(404).json({
