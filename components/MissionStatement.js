@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 export default function MissionStatement() {
   return (
-    <>
+    <div className="mx-4 mt-3 text-center">
       <p>
         Asbury Park High School has a rich history of graduating students who
         have played a meaningful role in our society. The Asbury Park High
@@ -23,6 +23,6 @@ export default function MissionStatement() {
         students in achieving their higher education goals by helping to supply
         the financial aid which they so desperately need.
       </p>
-    </>
+    </div>
   );
 }

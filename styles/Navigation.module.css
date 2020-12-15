@@ -8,5 +8,6 @@
 }
 
 .activeLink {
-  border-bottom: 3px solid #539dc2;
+  color: #386982 !important;
+  border-bottom: 3px solid#386982;
 }

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 export default function About() {
   return (
-    <>
+    <div className="mx-4 mt-3 text-center">
       <p>
         In the late 90&apos;s, Carl Williams, Mayor of Asbury Park and graduate
         of Asbury Park High School, conceived of a vehicle where the rich
@@ -72,6 +72,6 @@ export default function About() {
         Welch, accompanied by Grammy Award winning composer and musician, John
         Colby ,APHS,Class of 67.
       </p>
-    </>
+    </div>
   );
 }

@@ -57,10 +57,11 @@ export default function MemberGrid() {
         {members.data.map((m) => (
           <figure className={figStyles.memberFigure} key={m._id}>
             <Image
-              src={`/c_scale,w_120${m.image}`}
-              width={120}
-              height={150}
+              src={`/c_scale,w_200${m.image}`}
+              width={200}
+              height={250}
               alt={m.name}
+              layout="intrinsic"
             />
             <figcaption>
               <Link href={`/inductee/${m.name}`}>
