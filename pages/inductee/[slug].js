@@ -32,8 +32,8 @@ export default function Profile({ member }) {
             </Row>
           </SubMenu>
           <Row className="mx-2 mt-2 content">
-            <Col sm={12} md={6} className="p-4">
-              <div className={memberStyles.m6}>
+            <Col sm={12} md={5} className="pt-5">
+              <div className={memberStyles.profile}>
                 <Image
                   src={`/c_scale,r_8,w_350/${member.image}`}
                   alt={member.name}
@@ -43,24 +43,26 @@ export default function Profile({ member }) {
                 />
               </div>
             </Col>
-            <Col sm={12} md={6} className="p-4">
-              <h3>
-                <strong className={memberStyles.name}>{member.name}</strong>
-              </h3>
-              <div
-                className={`${memberStyles.classInductedContainer} p-2 my-4`}
-              >
-                <p className="p-0 m-0">
-                  <strong>Class:</strong>
-                  {' '}
-                  {member.class}
-                  {' '}
-                  <strong>Inducted:</strong>
-                  {' '}
-                  {member.inducted}
-                </p>
+            <Col sm={12} md={7} className="pt-5">
+              <div className="mr-4">
+                <h3>
+                  <strong className={memberStyles.name}>{member.name}</strong>
+                </h3>
+                <div
+                  className={`${memberStyles.classInductedContainer} p-2 my-4`}
+                >
+                  <p className="p-0 m-0">
+                    <strong>Class:</strong>
+                    {' '}
+                    {member.class}
+                    {' '}
+                    <strong>Inducted:</strong>
+                    {' '}
+                    {member.inducted}
+                  </p>
+                </div>
+                <div dangerouslySetInnerHTML={createMarkup(member.biography)} />
               </div>
-              <div dangerouslySetInnerHTML={createMarkup(member.biography)} />
             </Col>
           </Row>
         </Container>

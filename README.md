@@ -4,9 +4,7 @@ This repository contains the code base for the website [http://aphshalloffame.co
 
 ## To Do:
 
-1. Mobile Review
-2. Make a production branch and add domain to it
-
-- add google recaptcha to form
-- update all meta descriptions and titles
-- add google analytics and search console
+1. Clean up main banner
+2. Add overflow auto to all section
+3. Add margin at the bottom of the Member Grid
+   

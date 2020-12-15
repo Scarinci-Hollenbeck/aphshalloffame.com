@@ -8,9 +8,14 @@
   font-family: 'Merriweather',serif;
   background-color: #59a7cf;
   font-size: 1.543rem;
+
+}
+
+.classInductedContainer p {
   color: white;
 }
 
-.m6 {
-  margin: 4em;
+.profile {
+  margin-left: 4em;
+  margin-right: 4em;
 }

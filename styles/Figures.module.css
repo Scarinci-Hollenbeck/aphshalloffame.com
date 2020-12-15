@@ -2,12 +2,13 @@
   color: #fff;
   position: relative;
   overflow: hidden;
-  min-width: 120px;
-  max-width: 120px;
-  max-height: 150px;
+  min-width: 152.5px;
+  max-width: 152.5px;
+  max-height: 183px;
   width: 100%;
   background: #000000;
   text-align: left;
+  margin-bottom: 0;
 }
 .memberFigure * {
   -webkit-box-sizing: border-box;
