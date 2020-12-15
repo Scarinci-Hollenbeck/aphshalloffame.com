@@ -21,6 +21,7 @@ const ContentWrapper = styled.section`
 /* eslint-disable max-len */
 export default function Latest() {
   return (
+    <>
     <Wrapper>
       <div className={`${styles.content} animate__animated animate__fadeIn slow`}>
         <h3 className={`${styles.title} my-3`}>
@@ -28,7 +29,14 @@ export default function Latest() {
             APHS Distingished Hall of Fame
           </strong>
         </h3>
-        <p className={`${styles.subTitle} mt-4`}>
+        <p className={styles.tagLine}>
+          Welcome to the Asbury Park High School Distinguished Alumni Hall of
+          Fame.
+        </p>       
+      </div>
+    </Wrapper>
+      <div className="m-3 text-center">
+      <p>
           Welcome to the Asbury Park High School Distinguished Alumni Hall of
           Fame. Part of our mission is to recognize and honor those APHS
           graduates who have used the skills and knowledge which they acquired
@@ -38,7 +46,7 @@ export default function Latest() {
           too can be successful adults irrespective of their often difficult
           backgrounds.
         </p>
-        <p className={styles.tagLine}>
+        <p>
           <strong>
             A part of that task is for us to install a plaque in the hallway of
             the high school displaying a photo of the inductee together with a
@@ -47,6 +55,6 @@ export default function Latest() {
           </strong>
         </p>
       </div>
-    </Wrapper>
+    </>
   );
 }

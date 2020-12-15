@@ -2,7 +2,7 @@
   margin-right: 10px;
   display: inline-block;
   color: white;
-  font-family: 'Roboto Condensed Light';
+  font-family: 'Open Sans', serif;
 }
 .removeBtnStyles {
   background-color: rgba(255, 255, 255, 0);

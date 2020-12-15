@@ -16,18 +16,18 @@ export default function Logo() {
         {`
           div {
             text-align: center;
+            padding: 5px;
           }
           h1 {
             color: #386982;
-            font-size: 1.7rem;
-            font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue',
-              'Helvetica', 'Arial', sans-serif;
+            font-size: 1.8rem;
+            font-family: 'Open Sans Bold', 'Arial', sans-serif;
           }
 
           h2 {
             color: #59a7cf;
             font-size: 1.7rem;
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: 'Merriweather',serif;
           }
         `}
       </style>

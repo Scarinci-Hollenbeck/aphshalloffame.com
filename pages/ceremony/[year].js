@@ -72,6 +72,7 @@ export default function Ceremony({ ceremony, photos }) {
             <h3 className={styles.subMenuTitle}>
               <strong>
                 Ceremony:
+                {' '}
                 {ceremony}
               </strong>
             </h3>
@@ -112,6 +113,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { year } = params;
+
   const res = await fetch(
     `${process.env.BASE_URL}/api/get-ceremony/${year}`,
   ).then((data) => data.json());
@@ -123,6 +125,5 @@ export async function getStaticProps({ params }) {
       photos,
     },
     revalidate: 1,
-    notFound: true,
   };
 }

@@ -24,8 +24,6 @@ export default function MemberGrid() {
   if (memberErr || yearsErr) return <LoadingError />;
   if (!members || !years) return <LoadingSpinner />;
 
-  console.log(members);
-
   return (
     <>
       {/** navigation begin */}
@@ -48,9 +46,10 @@ export default function MemberGrid() {
               year === y.year ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
             }
           >
-            {y.year}
+            <strong>{y.year}</strong>
           </Button>
         ))}
+        <hr className="mt-0 mb-3" />
       </div>
       {/** navigation end */}
       <div className={styles.imgGrid}>
