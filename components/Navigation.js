@@ -32,7 +32,7 @@ export default function Navigation() {
           </Nav.Link>
           <NavDropdown
             className={styles.navBlue}
-            title="CEREMONYS"
+            title="CEREMONIES"
             id="basic-nav-dropdown"
           >
             <NavDropdown.Item href="/ceremony/2010">2010</NavDropdown.Item>
