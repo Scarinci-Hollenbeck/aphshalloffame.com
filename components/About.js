@@ -51,7 +51,6 @@ export default function About() {
         committee. Fourteen new honorees were inducted into the Hall of Fame in
         ceremonies held at Branches in West Long Branch, while the Berkeley was
         undergoing renovations.
-        {' '}
       </p>
       <p>
         A generous contribution from the Hess Foundation and Norma Wilentz Hess,
@@ -70,7 +69,7 @@ export default function About() {
         In 2012 we inducted 13 more distinguished alumni in a ceremony
         highlighted by the performance of gold record recording star Lenny
         Welch, accompanied by Grammy Award winning composer and musician, John
-        Colby ,APHS,Class of 67.
+        Colby, APHS, Class of 67.
       </p>
     </div>
   );
