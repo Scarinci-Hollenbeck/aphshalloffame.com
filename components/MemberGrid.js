@@ -12,7 +12,7 @@ import LoadingError from './LoadingError';
 import LoadingSpinner from './LoadingSpinner';
 
 export default function MemberGrid() {
-  const [year, setYear] = useState('all');
+  const [year, setYear] = useState('2020');
 
   const {
     data: members,
@@ -28,15 +28,6 @@ export default function MemberGrid() {
     <>
       {/** navigation begin */}
       <div className={stylesMenu.GalleryNav}>
-        <Button
-          onClick={() => setYear('all')}
-          variant="link"
-          className={
-            year === 'all' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
-          }
-        >
-          All
-        </Button>
         {years.data.map((y) => (
           <Button
             key={y.year}
@@ -49,6 +40,15 @@ export default function MemberGrid() {
             <strong>{y.year}</strong>
           </Button>
         ))}
+        <Button
+          onClick={() => setYear('all')}
+          variant="link"
+          className={
+            year === 'all' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
+          }
+        >
+          All
+        </Button>
         <hr className="mt-0 mb-3" />
       </div>
       {/** navigation end */}
