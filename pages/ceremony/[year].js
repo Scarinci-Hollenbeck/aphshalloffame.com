@@ -72,7 +72,6 @@ export default function Ceremony({ ceremony, photos }) {
             <h3 className={styles.subMenuTitle}>
               <strong>
                 Ceremony:
-                {' '}
                 {ceremony}
               </strong>
             </h3>

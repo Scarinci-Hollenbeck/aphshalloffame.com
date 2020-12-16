@@ -27,7 +27,7 @@ export default function Logo() {
           h2 {
             color: #59a7cf;
             font-size: 1.7rem;
-            font-family: 'Merriweather',serif;
+            font-family: 'Merriweather', serif;
           }
         `}
       </style>

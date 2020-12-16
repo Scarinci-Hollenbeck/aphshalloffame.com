@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';

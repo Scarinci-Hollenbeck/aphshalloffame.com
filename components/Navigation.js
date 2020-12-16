@@ -35,10 +35,10 @@ export default function Navigation() {
             title="CEREMONYS"
             id="basic-nav-dropdown"
           >
-            <NavDropdown.Item href="/ceremony/2003">2003</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2005">2005</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2007">2007</NavDropdown.Item>
             <NavDropdown.Item href="/ceremony/2010">2010</NavDropdown.Item>
+            <NavDropdown.Item href="/ceremony/2007">2007</NavDropdown.Item>
+            <NavDropdown.Item href="/ceremony/2005">2005</NavDropdown.Item>
+            <NavDropdown.Item href="/ceremony/2003">2003</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link
             className={`${styles.navBlue} ${
