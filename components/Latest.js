@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import styles from 'styles/Banner.module.css';
 
 const Wrapper = styled.section`
-  background: url(https://res.cloudinary.com/tumulty-web-services/image/upload/v1607992964/asburyparkhighschoolhalloffame/asbury-high-school-1250x526_wplohr.png)
+  background: url(/images/asbury-high-school-1250x526_wplohr.png)
     no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
