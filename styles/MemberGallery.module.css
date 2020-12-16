@@ -48,6 +48,12 @@ figure.figCaption figcaption {
   transition: all 0.5s;
 }
 
+.container {
+  overflow:hidden;
+  max-height: 915px;
+  overflow-y: auto;
+  margin-bottom: 3em;
+}
 @media (min-width: 300px) {
   .imgGrid {
     grid-template-columns: repeat(2, 0fr);

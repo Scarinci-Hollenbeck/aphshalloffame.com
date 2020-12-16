@@ -52,27 +52,30 @@ export default function MemberGrid() {
         <hr className="mt-0 mb-3" />
       </div>
       {/** navigation end */}
-      <div className={styles.imgGrid}>
-        {members.data.map((m) => (
-          <figure className={figStyles.memberFigure} key={m._id}>
-            <Image
-              src={`/c_scale,w_200${m.image}`}
-              width={200}
-              height={250}
-              alt={m.name}
-              layout="intrinsic"
-            />
-            <figcaption>
-              <Link href={`/inductee/${m.name}`}>
-                <a className={styles.imgLink}>
-                  <h4>{m.name}</h4>
-                  <p>{`Inducted ${m.inducted}`}</p>
-                </a>
-              </Link>
-            </figcaption>
-          </figure>
-        ))}
+      <div className={styles.container}>
+        <div className={styles.imgGrid}>
+          {members.data.map((m) => (
+            <figure className={figStyles.memberFigure} key={m._id}>
+              <Image
+                src={`/c_scale,w_200${m.image}`}
+                width={200}
+                height={250}
+                alt={m.name}
+                layout="intrinsic"
+              />
+              <figcaption>
+                <Link href={`/inductee/${m.name}`}>
+                  <a className={styles.imgLink}>
+                    <h4>{m.name}</h4>
+                    <p>{`Inducted ${m.inducted}`}</p>
+                  </a>
+                </Link>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
+
     </>
   );
 }
