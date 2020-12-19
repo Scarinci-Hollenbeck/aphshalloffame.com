@@ -40,6 +40,7 @@ export default function Profile({ member }) {
                   width={350}
                   height={420}
                   layout="intrinsic"
+                  loading="eager"
                 />
               </div>
             </Col>
