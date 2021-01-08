@@ -17,9 +17,9 @@ export default function MemberGrid() {
   const {
     data: members,
     error: memberErr,
-  } = useSWR(`/api/get-members-by-year/${year}`, (url) => fetch(url).then((r) => r.json()));
+  } = useSWR(`/.netlify/functions/get-members-by-year/${year}`, (url) => fetch(url).then((r) => r.json()));
 
-  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) => fetch(url).then((r) => r.json()));
+  const { data: years, error: yearsErr } = useSWR('/.netlify/functions/get-years', (url) => fetch(url).then((r) => r.json()));
 
   if (memberErr || yearsErr) return <LoadingError />;
   if (!members || !years) return <LoadingSpinner />;
