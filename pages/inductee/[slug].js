@@ -13,17 +13,17 @@ import dbConnect from 'utils/db-connect';
 import Members from 'models/Members';
 
 export default function Profile({ member }) {
-  const parseMember = JSON.parse(member);
+  console.log(member);
 
   return (
     <>
-      {parseMember[0] && (
+      {member && (
         <Container>
           <Head>
-            <title>{`${parseMember[0].name} - Asbury Park High School Hall of Fame`}</title>
+            <title>{`${member.name} - Asbury Park High School Hall of Fame`}</title>
             <meta
               name="description"
-              content={`${parseMember[0].name} graduated from Asbury Park High School in ${parseMember[0].class}, and was inducted to the Asbury Park High School Hall of Fame in ${parseMember[0].inducted}.`}
+              content={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
             />
           </Head>
           <SubMenu>
@@ -39,8 +39,8 @@ export default function Profile({ member }) {
             <Col sm={12} md={5} className="pt-5">
               <div className={memberStyles.profile}>
                 <Image
-                  src={`/c_scale,r_8,w_350/${parseMember[0].image}`}
-                  alt={parseMember[0].name}
+                  src={`/c_scale,r_8,w_350/${member.image}`}
+                  alt={member.name}
                   width={350}
                   height={420}
                   layout="intrinsic"
@@ -51,7 +51,7 @@ export default function Profile({ member }) {
             <Col sm={12} md={7} className="pt-5">
               <div className="mr-4">
                 <h3>
-                  <strong className={memberStyles.name}>{parseMember[0].name}</strong>
+                  <strong className={memberStyles.name}>{member.name}</strong>
                 </h3>
                 <div
                   className={`${memberStyles.classInductedContainer} p-2 my-4`}
@@ -59,14 +59,14 @@ export default function Profile({ member }) {
                   <p className="p-0 m-0">
                     <strong>Class:</strong>
                     {' '}
-                    {parseMember[0].class}
+                    {member.class}
                     {' '}
                     <strong>Inducted:</strong>
                     {' '}
-                    {parseMember[0].inducted}
+                    {member.inducted}
                   </p>
                 </div>
-                <div dangerouslySetInnerHTML={createMarkup(parseMember[0].biography)} />
+                <div dangerouslySetInnerHTML={createMarkup(member.biography)} />
               </div>
             </Col>
           </Row>
@@ -94,7 +94,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      member: JSON.stringify(member),
+      member: JSON.parse(JSON.stringify(member[0])),
     },
     revalidate: 1,
   };

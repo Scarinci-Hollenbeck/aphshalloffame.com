@@ -85,7 +85,7 @@ export default function Ceremony({ ceremony, photos }) {
       <Row className="mx-auto mt-2 pt-5 content">
         <Col sm={12}>
           <Slider {...settings}>
-            {JSON.parse(photos).map((p) => (
+            {photos.map((p) => (
               <img
                 key={p._id}
                 src={`https://res.cloudinary.com/tumulty-web-services/image/upload${p.image}`}
@@ -96,7 +96,7 @@ export default function Ceremony({ ceremony, photos }) {
           </Slider>
         </Col>
         <Col sm={12} className={pageStyle.borderTop}>
-          <GalleryGrid year={ceremony} slides={JSON.parse(photos)} />
+          <GalleryGrid year={ceremony} slides={photos} />
         </Col>
       </Row>
     </Container>
@@ -126,7 +126,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       ceremony,
-      photos: JSON.stringify(sortedPhotos),
+      photos: JSON.parse(JSON.stringify(sortedPhotos)),
     },
     revalidate: 1,
   };
