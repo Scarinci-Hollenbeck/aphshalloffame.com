@@ -122,7 +122,7 @@ export async function getStaticPaths() {
 
   return {
     paths: ceremonyYears.map((year) => encodeURI(`/ceremony/${year}`)) || [],
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -139,6 +139,5 @@ export async function getStaticProps({ params }) {
       ceremony,
       photos: JSON.parse(JSON.stringify(sortedPhotos)),
     },
-    revalidate: 1,
   };
 }
