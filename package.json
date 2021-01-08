@@ -7,6 +7,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
+    "postbuild": "next-on-netlify",
     "format": "yarn prettier --write .",
     "lint": "eslint . --fix"
   },
