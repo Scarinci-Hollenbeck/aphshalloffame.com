@@ -2,9 +2,11 @@ import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import contactStyles from 'styles/Contact.module.css';
+import eventPageStyles from 'styles/EventPage.module.css';
 
 export default function Donate() {
   return (
@@ -32,13 +34,17 @@ export default function Donate() {
           <p>On Thursday evening, October 14, 2021, the postponed 2020 Ceremony will take place and ten more outstanding alumni of Asbury Park High School will be inducted into the Distinguished Alumni Hall of Fame during the ninth induction ceremony dinner to be held at the Sheraton in Eatontown. </p>
           <p>The Hall of Fame Committee will be publishing a commemorative journal that will be distributed at the induction event.  By purchasing an ad in the journal, you will be honoring our Distinguished Alumni, and providing additional resources that will enable the Hall of Fame Committee to continue this valuable program.</p>
 
-          <h4 className="mt-4 mb-5">
+          <Button
+            variant="danger"
+            size="lg"
+            className={`${eventPageStyles.donationBtn} my-4 mx-auto d-block`}
+            href="/docs/InvitationInductionCeremony2020.docx"
+            download
+          >
             <strong>
-              <u>
-                Please, click here to download the order form
-              </u>
+              Download Donation Form
             </strong>
-          </h4>
+          </Button>
 
           <p>Please complete the form and submit, by September 20, 2021, with your payment, to Asbury Park High School Distinguished Hall of Fame: c/o Marilyn Tomaino, 102 Tanya Circle, Ocean, NJ 07712.</p>
 

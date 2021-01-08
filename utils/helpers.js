@@ -15,3 +15,7 @@ export const fetchImageForDownload = (imageUrl, fileName) => fetch(imageUrl)
     a.click();
     window.URL.revokeObjectURL(url);
   });
+
+export function printDoc() {
+  window.open('/docs/2020CeremonyInvitation.pdf', 'PRINT', 'height=2000,width=1000');
+}

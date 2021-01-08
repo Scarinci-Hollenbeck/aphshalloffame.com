@@ -1,9 +1,13 @@
 import Head from 'next/head';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
+import eventPageStyles from 'styles/EventPage.module.css';
+import { printDoc } from 'utils/helpers';
 
 export default function Events() {
   return (
@@ -21,11 +25,34 @@ export default function Events() {
         </Row>
       </SubMenu>
       <Row className="mx-2 mt-2 content">
-        <Col sm={12} md={6} className="p-4">
-          Upcoming event advertisement
-        </Col>
-        <Col sm={12} md={6} className="p-4">
-          Older event list
+        <Col sm={12}>
+          <h4 className="my-4 text-center">
+            <strong>
+              <u>Asbury Park High School Distinguishe Alumni Hall of Fame Induction Ceremony 2020</u>
+            </strong>
+          </h4>
+          <div className="d-flex flex-row mb-2">
+            <strong className="my-1 mr-2">Reservation</strong>
+            <Button variant="success" size="sm" onClick={() => printDoc()}>Print</Button>
+            {' '}
+          </div>
+
+          <iframe
+            title="Reservation - Asbury Park High School Distinguishe Alumni Hall of Fame Induction Ceremony 2020"
+            src="https://docs.google.com/document/d/e/2PACX-1vRUZqa2vluFQObv5fFC9UWnB7l4gs54O49KLRNu3DOZtZ23_x5VVyJ8ApI-z5neIA/pub?embedded=true"
+            className={`${eventPageStyles.invite} mx-auto d-block mb-4`}
+            id="invitation-2020"
+          />
+          <div className="d-flex flex-row mb-2">
+            <strong className="my-1 mr-2">Donation</strong>
+            <Button variant="success" size="sm" onClick={() => printDoc()}>Print</Button>
+            {' '}
+          </div>
+          <iframe
+            title="Donation - Asbury Park High School Distinguishe Alumni Hall of Fame Induction Ceremony 2020"
+            src="https://docs.google.com/document/d/e/2PACX-1vQQDOX6uv9Ff462FqLZ-WgBWySmABEi6UnYH6VeVV6yrC5m9WFPa2VOPtTRg0j7YQ/pub?embedded=true"
+            className={`${eventPageStyles.invite} mx-auto d-block mb-4`}
+          />
         </Col>
       </Row>
     </Container>

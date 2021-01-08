@@ -1,0 +1,19 @@
+.printBtn, .donationBtn {
+  width: 75px;
+  margin:0;
+  padding:0;
+}
+
+
+
+.invite {
+  height: 1000px;
+  width:100%;
+}
+
+@media (min-width:500px){
+
+  .donationBtn {
+    width: 350px;
+  }
+}
