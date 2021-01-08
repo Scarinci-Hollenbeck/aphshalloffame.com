@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,11 +9,22 @@ import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import memberStyles from 'styles/Biography.module.css';
+import LoadingSpinner from 'components/LoadingSpinner';
 import { createMarkup } from 'utils/helpers';
 import dbConnect from 'utils/db-connect';
 import Members from 'models/Members';
 
 export default function Profile({ member }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return (
+      <div className="my-5 py-5">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
   return (
     <>
       {member && (
@@ -80,19 +92,20 @@ export async function getStaticPaths() {
   const membersName = members.map((m) => m.name);
 
   return {
-    paths: membersName.map((name) => `/inductee/${encodeURIComponent(name)}`) || [],
-    fallback: false,
+    paths: membersName.map((name) => encodeURI(`/inductee/${name}`)) || [],
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
   await dbConnect();
   const { slug } = params;
-  const member = await Members.find({ name: decodeURIComponent(slug) });
+  const member = await Members.find({ name: decodeURI(slug) });
 
   return {
     props: {
       member: JSON.parse(JSON.stringify(member[0])),
-    }
+    },
+    revalidate: 1,
   };
 }
