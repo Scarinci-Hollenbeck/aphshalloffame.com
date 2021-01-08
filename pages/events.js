@@ -9,7 +9,7 @@ export default function Events() {
   return (
     <Container>
       <Head>
-        <title>Donate - Asbury Park High School Hall of Fame</title>
+        <title>Events - Asbury Park High School Hall of Fame</title>
       </Head>
       <SubMenu>
         <Row>

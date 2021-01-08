@@ -11,6 +11,10 @@ p {
   font-weight: 500;
 }
 
+strong {
+  font-weight: 900;
+}
+
 .content {
   border-top: 2px solid #444;
 }

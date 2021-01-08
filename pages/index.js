@@ -45,7 +45,7 @@ export default function Home() {
               onClick={() => setTab('about')}
               className={tab === 'about' ? styles.activeBtn : styles.subMenuBtn}
             >
-              About
+              History
             </Button>
             <Button
               variant="link"

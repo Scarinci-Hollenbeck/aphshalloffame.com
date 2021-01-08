@@ -19,6 +19,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-unresolved': 'off',
-    "linebreak-style": "off"
+    "linebreak-style": 'off',
+    'max-len': 'off'
   },
 };
