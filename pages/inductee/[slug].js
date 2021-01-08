@@ -80,7 +80,7 @@ export async function getStaticPaths() {
   const membersName = members.map((m) => m.name);
 
   return {
-    paths: membersName.map((name) => `/inductee/${name}`) || [],
+    paths: membersName.map((name) => `/inductee/${encodeURIComponent(name)}`) || [],
     fallback: true,
   };
 }
@@ -88,7 +88,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   await dbConnect();
   const { slug } = params;
-  const member = await Members.find({ name: slug });
+  const member = await Members.find({ name: decodeURIComponent(slug) });
 
   return {
     props: {

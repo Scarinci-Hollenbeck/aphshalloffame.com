@@ -110,7 +110,7 @@ export async function getStaticPaths() {
   const ceremonyYears = ceremonies.map((c) => c.ceremony);
 
   return {
-    paths: ceremonyYears.map((year) => `/ceremony/${year}`) || [],
+    paths: ceremonyYears.map((year) => `/ceremony/${encodeURIComponent(year)}`) || [],
     fallback: false,
   };
 }
@@ -119,7 +119,7 @@ export async function getStaticProps({ params }) {
   await dbConnect();
   const { year } = params;
 
-  const ceremonies = await Ceremonies.find({ ceremony: year });
+  const ceremonies = await Ceremonies.find({ ceremony: decodeURIComponent(year) });
   const { ceremony, photos } = ceremonies[0];
   const sortedPhotos = [].concat(photos.sort((a, b) => a.order - b.order));
 
