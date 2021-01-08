@@ -13,8 +13,6 @@ import dbConnect from 'utils/db-connect';
 import Members from 'models/Members';
 
 export default function Profile({ member }) {
-  console.log(member);
-
   return (
     <>
       {member && (
