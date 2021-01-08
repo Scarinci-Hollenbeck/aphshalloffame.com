@@ -9,7 +9,7 @@ exports.handler = async () => {
     });
     const db = connection.db(process.env.DB_NAME);
     const years = await db.collection('years');
-    const response = await years.find({}).toArray();
+    const response = await years.find({}).sort({ year: -1 }).toArray();
 
     return {
       statusCode: 200,
