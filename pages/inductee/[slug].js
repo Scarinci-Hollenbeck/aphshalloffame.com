@@ -81,7 +81,7 @@ export async function getStaticPaths() {
 
   return {
     paths: membersName.map((name) => `/inductee/${encodeURIComponent(name)}`) || [],
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -93,7 +93,6 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       member: JSON.parse(JSON.stringify(member[0])),
-    },
-    revalidate: 1,
+    }
   };
 }
