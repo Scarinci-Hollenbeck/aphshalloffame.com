@@ -1,5 +1,5 @@
-import dbConnect from 'utils/db-connect';
-import Members from 'models/Members';
+import dbConnect from '../../../utils/db-connect';
+import Members from '../../../models/Members';
 
 export default async function getMembers(req, res) {
   if (req.method === 'GET') {

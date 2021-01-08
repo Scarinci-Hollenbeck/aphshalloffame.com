@@ -1,5 +1,5 @@
-import dbConnect from 'utils/db-connect';
-import Years from 'models/Years';
+import dbConnect from '../../utils/db-connect';
+import Years from '../../models/Years';
 
 export default async function getYears(req, res) {
   if (req.method === 'GET') {
