@@ -9,17 +9,21 @@ import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import memberStyles from 'styles/Biography.module.css';
 import { createMarkup } from 'utils/helpers';
+import dbConnect from 'utils/db-connect';
+import Members from 'models/Members';
 
 export default function Profile({ member }) {
+  const parseMember = JSON.parse(member);
+
   return (
     <>
-      {member && (
+      {parseMember[0] && (
         <Container>
           <Head>
-            <title>{`${member.name} - Asbury Park High School Hall of Fame`}</title>
+            <title>{`${parseMember[0].name} - Asbury Park High School Hall of Fame`}</title>
             <meta
               name="description"
-              content={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
+              content={`${parseMember[0].name} graduated from Asbury Park High School in ${parseMember[0].class}, and was inducted to the Asbury Park High School Hall of Fame in ${parseMember[0].inducted}.`}
             />
           </Head>
           <SubMenu>
@@ -35,8 +39,8 @@ export default function Profile({ member }) {
             <Col sm={12} md={5} className="pt-5">
               <div className={memberStyles.profile}>
                 <Image
-                  src={`/c_scale,r_8,w_350/${member.image}`}
-                  alt={member.name}
+                  src={`/c_scale,r_8,w_350/${parseMember[0].image}`}
+                  alt={parseMember[0].name}
                   width={350}
                   height={420}
                   layout="intrinsic"
@@ -47,7 +51,7 @@ export default function Profile({ member }) {
             <Col sm={12} md={7} className="pt-5">
               <div className="mr-4">
                 <h3>
-                  <strong className={memberStyles.name}>{member.name}</strong>
+                  <strong className={memberStyles.name}>{parseMember[0].name}</strong>
                 </h3>
                 <div
                   className={`${memberStyles.classInductedContainer} p-2 my-4`}
@@ -55,14 +59,14 @@ export default function Profile({ member }) {
                   <p className="p-0 m-0">
                     <strong>Class:</strong>
                     {' '}
-                    {member.class}
+                    {parseMember[0].class}
                     {' '}
                     <strong>Inducted:</strong>
                     {' '}
-                    {member.inducted}
+                    {parseMember[0].inducted}
                   </p>
                 </div>
-                <div dangerouslySetInnerHTML={createMarkup(member.biography)} />
+                <div dangerouslySetInnerHTML={createMarkup(parseMember[0].biography)} />
               </div>
             </Col>
           </Row>
@@ -73,24 +77,24 @@ export default function Profile({ member }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    `${process.env.BASE_URL}/api/get-members/all`,
-  ).then((data) => data.json());
+  await dbConnect();
+  const members = await Members.find({}).sort({ inducted: 'DESC' }).exec();
+  const membersName = members.map((m) => m.name);
 
   return {
-    paths: res.data.map((name) => `/inductee/${name}`) || [],
+    paths: membersName.map((name) => `/inductee/${name}`) || [],
     fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
+  await dbConnect();
   const { slug } = params;
-  const res = await fetch(
-    `${process.env.BASE_URL}/api/get-members/name/${slug}`,
-  ).then((data) => data.json());
+  const member = await Members.find({ name: slug });
+
   return {
     props: {
-      member: res.data,
+      member: JSON.stringify(member),
     },
     revalidate: 1,
   };

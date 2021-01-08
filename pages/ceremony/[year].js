@@ -12,6 +12,9 @@ import styles from 'styles/SubMenu.module.css';
 import pageStyle from 'styles/Ceremony.module.css';
 import GalleryGrid from 'components/GalleryGrid';
 
+import dbConnect from 'utils/db-connect';
+import Ceremonies from 'models/Ceremonies';
+
 function Arrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -72,6 +75,7 @@ export default function Ceremony({ ceremony, photos }) {
             <h3 className={styles.subMenuTitle}>
               <strong>
                 Ceremony:
+                {' '}
                 {ceremony}
               </strong>
             </h3>
@@ -81,7 +85,7 @@ export default function Ceremony({ ceremony, photos }) {
       <Row className="mx-auto mt-2 pt-5 content">
         <Col sm={12}>
           <Slider {...settings}>
-            {photos.map((p) => (
+            {JSON.parse(photos).map((p) => (
               <img
                 key={p._id}
                 src={`https://res.cloudinary.com/tumulty-web-services/image/upload${p.image}`}
@@ -92,7 +96,7 @@ export default function Ceremony({ ceremony, photos }) {
           </Slider>
         </Col>
         <Col sm={12} className={pageStyle.borderTop}>
-          <GalleryGrid year={ceremony} slides={photos} />
+          <GalleryGrid year={ceremony} slides={JSON.parse(photos)} />
         </Col>
       </Row>
     </Container>
@@ -100,28 +104,29 @@ export default function Ceremony({ ceremony, photos }) {
 }
 
 export async function getStaticPaths() {
-  const years = await fetch(
-    `${process.env.BASE_URL}/api/get-ceremony/all`,
-  ).then((data) => data.json());
+  await dbConnect();
+
+  const ceremonies = await Ceremonies.find({});
+  const ceremonyYears = ceremonies.map((c) => c.ceremony);
 
   return {
-    paths: years.data.map((year) => `/ceremony/${year}`) || [],
+    paths: ceremonyYears.map((year) => `/ceremony/${year}`) || [],
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
+  await dbConnect();
   const { year } = params;
 
-  const res = await fetch(
-    `${process.env.BASE_URL}/api/get-ceremony/${year}`,
-  ).then((data) => data.json());
-  const { ceremony, photos } = res.data[0];
+  const ceremonies = await Ceremonies.find({ ceremony: year });
+  const { ceremony, photos } = ceremonies[0];
+  const sortedPhotos = [].concat(photos.sort((a, b) => a.order - b.order));
 
   return {
     props: {
       ceremony,
-      photos,
+      photos: JSON.stringify(sortedPhotos),
     },
     revalidate: 1,
   };
