@@ -33,7 +33,7 @@ export default function Events() {
           </h4>
           <div className="d-flex flex-row mb-2">
             <strong className="my-1 mr-2">Reservation</strong>
-            <Button variant="success" size="sm" onClick={() => printDoc()}>Print</Button>
+            <Button variant="success" size="sm" onClick={() => printDoc('/docs/2020CeremonyInvitation.pdf')}>Print</Button>
             {' '}
           </div>
 
@@ -45,13 +45,13 @@ export default function Events() {
           />
           <div className="d-flex flex-row mb-2 mt-4">
             <strong className="my-1 mr-2">Advertise with APHS</strong>
-            <Button variant="success" size="sm" onClick={() => printDoc()}>Print</Button>
+            <Button variant="success" size="sm" onClick={() => printDoc('/docs/2020AdvertiseCeremony.pdf')}>Print</Button>
             {' '}
           </div>
           <iframe
             title="Advertise - Asbury Park High School Distinguishe Alumni Hall of Fame Induction Ceremony 2020"
             src="https://docs.google.com/document/d/e/2PACX-1vQQDOX6uv9Ff462FqLZ-WgBWySmABEi6UnYH6VeVV6yrC5m9WFPa2VOPtTRg0j7YQ/pub?embedded=true"
-            className={eventPageStyles.invite}
+            className={eventPageStyles.advertisement}
           />
         </Col>
       </Row>

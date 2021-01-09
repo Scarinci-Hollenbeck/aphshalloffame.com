@@ -11,6 +11,11 @@
   width:93%;
 }
 
+.advertisement {
+  height: 886px;
+  width: 75%;
+}
+
 @media (min-width:500px){
 
   .donationBtn {
