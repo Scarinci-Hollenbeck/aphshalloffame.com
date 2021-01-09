@@ -13,6 +13,9 @@ const Wrapper = styled.section`
   justify-content: center;
   align-items: center;
   height:42vh;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 /* eslint-disable max-len */
