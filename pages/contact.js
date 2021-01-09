@@ -9,8 +9,6 @@ import styles from 'styles/SubMenu.module.css';
 import contactStyles from 'styles/Contact.module.css';
 
 export default function Contact() {
-  // initalize kwesforms
-  useEffect(() => kwesforms.init());
   return (
     <Container>
       <Head>
