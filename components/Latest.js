@@ -3,26 +3,14 @@ import styles from 'styles/Banner.module.css';
 import textStyles from 'styles/Text.module.css';
 
 const Wrapper = styled.section`
-  background: url(/images/asbury-high-school-1250x526_wplohr.png)
-    no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:42vh;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+
 `;
 
 /* eslint-disable max-len */
 export default function Latest() {
   return (
     <>
-      <Wrapper>
+      <div className={styles.banner}>
         <div
           className="animate__animated animate__fadeIn slow"
         >
@@ -36,7 +24,7 @@ export default function Latest() {
             become “Distinguished” adults in many different and varied fields!
           </p> */}
         </div>
-      </Wrapper>
+      </div>
       <div className="my-5 px-3 text-center">
         <p>
           Welcome to the Asbury Park High School Distinguished Alumni Hall of
