@@ -19,9 +19,15 @@ export default function Navigation() {
 
   return (
     <Navbar expand="lg">
+      <Navbar.Brand href="/" className={styles.header}>
+        <h1 className={`${styles.h1} mt-2 mb-0`}>
+          <strong>Asbury Park High School</strong>
+        </h1>
+        <h2 className={`${styles.h2} mt-0`}>Distinguished Alumni Hall of Fame</h2>
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="ml-auto">
           <Nav.Link
             className={`${styles.navBlue} ${
               active === '/' ? styles.activeLink : ''

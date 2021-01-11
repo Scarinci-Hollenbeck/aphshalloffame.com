@@ -46,3 +46,13 @@
 .GalleryNav {
   width: 100%;
 }
+
+/** Handle sub title navigation **/
+@media (max-width: 767px) {
+  .btnContainer > button {
+    margin: 0;
+    padding: 0;
+    margin-left: -12px;
+    display: block;
+  }  
+}

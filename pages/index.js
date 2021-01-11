@@ -29,7 +29,7 @@ export default function Home() {
           <Col
             sm={12}
             md={{ span: 6, offset: 2 }}
-            className={styles.subMenuTitle}
+            className={`${styles.subMenuTitle} ${styles.btnContainer}`}
           >
             <Button
               onClick={() => setTab('latest')}
