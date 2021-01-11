@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import contactStyles from 'styles/Contact.module.css';
-import eventPageStyles from 'styles/EventPage.module.css';
 
 export default function Donate() {
   return (
@@ -16,9 +15,9 @@ export default function Donate() {
       </Head>
       <SubMenu>
         <Row>
-          <Col sm={12} md={2}>
+          <Col sm={12} md={5}>
             <h3 className={styles.subMenuTitle}>
-              <strong>Donate</strong>
+              <strong>Make a donation</strong>
             </h3>
           </Col>
         </Row>
@@ -26,7 +25,7 @@ export default function Donate() {
       <Row className="mx-2 mt-2 content text-center">
         <Col sm={12} className="p-4">
           <h3 className={contactStyles.title}>
-            <strong>Help Asbury Park High School Hall of Fame grow</strong>
+            <strong>Help impact the lives of future hall of famers by donating now</strong>
           </h3>
         </Col>
         <Col sm={12}>
@@ -40,7 +39,8 @@ export default function Donate() {
             </strong>
           </h4>
           <Button
-            variant="success" size="lg"
+            variant="success"
+            size="lg"
             className="mt-4 mb-5"
           >
             <strong>

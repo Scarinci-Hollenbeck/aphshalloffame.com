@@ -28,8 +28,9 @@ export default function Events() {
         <Col sm={12}>
           <h4 className="my-4 text-center">
             <strong>
-              APHS Distinguishe Alumni Hall of Fame Induction Ceremony 2020
+              APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020
             </strong>
+            <small className="d-block w-100 mt-2">The Ceremony dinner will be Thursday, October 14, 2021</small>
           </h4>
           <div className="d-flex flex-row mb-2">
             <strong className="my-1 mr-2">Reservation</strong>
