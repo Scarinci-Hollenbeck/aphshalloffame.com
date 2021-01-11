@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:42vh;
+  height:526px;
 }
 
 
@@ -20,11 +20,11 @@
   }
 }
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .banner {
     height: 44vh;
   }
-}
+} */
 /** Banner Text **/
 .title {
   font-family: 'Open Sans Bold','Arial',sans-serif;
