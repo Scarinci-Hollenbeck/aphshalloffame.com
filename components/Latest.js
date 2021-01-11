@@ -1,10 +1,5 @@
-import styled from 'styled-components';
 import styles from 'styles/Banner.module.css';
 import textStyles from 'styles/Text.module.css';
-
-const Wrapper = styled.section`
-
-`;
 
 /* eslint-disable max-len */
 export default function Latest() {
