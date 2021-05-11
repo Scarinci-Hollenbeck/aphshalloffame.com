@@ -86,7 +86,7 @@ export default function Contact() {
               <button className="btn btn-success w-25 mt-2" type="submit">Submit form</button>
             </form>
           </div>
-        </Col>        
+        </Col>
       </Row>
     </Container>
   );

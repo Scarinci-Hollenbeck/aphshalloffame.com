@@ -98,11 +98,11 @@ export default function Ceremony({ ceremony, photos }) {
         <Col sm={12}>
           <Slider {...settings}>
             {photos.map((p) => (
-              <div key={p._id} style={{height: '350px'}}>
+              <div key={p._id} style={{ height: '350px' }}>
                 <img
                   src={`https://res.cloudinary.com/tumulty-web-services/image/upload${p.image}`}
                   alt={p.alt}
-                  className="mx-auto d-block"                
+                  className="mx-auto d-block"
                 />
               </div>
             ))}
