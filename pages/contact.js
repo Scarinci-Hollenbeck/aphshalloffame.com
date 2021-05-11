@@ -58,7 +58,7 @@ export default function Contact() {
           </div>
           <div className={contactStyles.form}>
             <p className="mb-3"><strong>Or fill out the form</strong></p>
-            <form name="contact" className="pl-3" netlify>
+            <form name="contact" className="pl-2" netlify={true}>
               <Row className="mb-3">
                 <Col sm={12} md={6} className="mx-0 px-1">
                   <input type="text" className="form-control mx-0" name="firstName" placeholder="First name" />

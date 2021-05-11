@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -48,13 +47,9 @@ export default function Profile({ member }) {
           <Row className="mx-2 mt-2 content">
             <Col sm={12} md={5} className="pt-5">
               <div className={memberStyles.profile}>
-                <Image
-                  src={`/c_scale,r_8,w_350/${member.image}`}
-                  alt={member.name}
-                  width={350}
-                  height={420}
-                  layout="intrinsic"
-                  loading="eager"
+                <img
+                  src={`https://res.cloudinary.com/tumulty-web-services/image/upload/c_scale,r_8/${member.image}`}
+                  alt={member.name}  
                 />
               </div>
             </Col>

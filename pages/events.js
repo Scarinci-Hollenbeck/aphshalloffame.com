@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
 import eventPageStyles from 'styles/EventPage.module.css';
-import { printDoc } from 'utils/helpers';
 
 export default function Events() {
   return (
@@ -33,9 +31,14 @@ export default function Events() {
             <small className="d-block w-100 mt-2">The Ceremony dinner will be Thursday, October 14, 2021</small>
           </h4>
           <div className="d-flex flex-row mb-2">
-            <strong className="my-1 mr-2">Reservation</strong>
-            <Button variant="success" size="sm" onClick={() => printDoc('/docs/2020CeremonyInvitation.pdf')}>Print</Button>
-            {' '}
+            <Button
+              variant="success"
+              size="sm"
+              href="/docs/2020CeremonyInvitation.pdf"
+              download
+            >
+              Print Reservation
+            </Button>
           </div>
 
           <iframe
@@ -45,9 +48,14 @@ export default function Events() {
             id="invitation-2020"
           />
           <div className="d-flex flex-row mb-2 mt-4">
-            <strong className="my-1 mr-2">Advertise with APHS</strong>
-            <Button variant="success" size="sm" onClick={() => printDoc('/docs/2020AdvertiseCeremony.pdf')}>Print</Button>
-            {' '}
+            <Button
+              variant="success"
+              size="sm"
+              href="/docs/2020AdvertiseCeremony.pdf"
+              download
+            >
+              Print Advertise Form
+            </Button>
           </div>
           <iframe
             title="Advertise - Asbury Park High School Distinguishe Alumni Hall of Fame Induction Ceremony 2020"

@@ -57,7 +57,7 @@ export default function MemberGrid() {
           {members.data.map((m) => (
             <figure className={figStyles.memberFigure} key={m._id}>
               <Image
-                src={`/c_scale,w_200${m.image}`}
+                src={`/c_scale,h_200${m.image}`}
                 width={200}
                 height={250}
                 alt={m.name}
