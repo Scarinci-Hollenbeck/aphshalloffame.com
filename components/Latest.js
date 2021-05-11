@@ -10,7 +10,7 @@ export default function Latest() {
           className="animate__animated animate__fadeIn slow"
         >
           <h3 className={styles.title}>
-            <strong>Asbury Park High School Distingished Hall of Fame</strong>
+            <strong>Asbury Park High School Distinguished Hall of Fame</strong>
           </h3>
           {/* <p className={styles.tagLine}>
             Welcome to the Asbury Park High School Distinguished Alumni Hall of
@@ -32,12 +32,10 @@ export default function Latest() {
           backgrounds.
         </p>
         <h4 className="mt-4">
-          <strong className={textStyles.pop}>
-            A part of that task is for us to install a plaque in the hallway of
-            the high school displaying a photo of the inductee together with a
-            brief description of their accomplishments so that the current
-            students can actually visualize who was inducted and why.
-          </strong>
+          A part of that task is for us to install a plaque in the hallway of
+          the high school displaying a photo of the inductee together with a
+          brief description of their accomplishments so that the current
+          students can actually visualize who was inducted and why.
         </h4>
       </div>
     </>
