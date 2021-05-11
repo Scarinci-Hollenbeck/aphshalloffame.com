@@ -49,7 +49,7 @@ export default function Profile({ member }) {
               <div className={memberStyles.profile}>
                 <img
                   src={`https://res.cloudinary.com/tumulty-web-services/image/upload/c_scale,r_8/${member.image}`}
-                  alt={member.name}  
+                  alt={member.name}
                 />
               </div>
             </Col>
