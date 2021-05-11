@@ -5,7 +5,7 @@ import { fetchImageForDownload } from 'utils/helpers';
 
 export default function LightBoxView({ image, fileName }) {
   const [open, setOpen] = useState(false);
-  const lightBoxLink = `https://res.cloudinary.com/tumulty-web-services/image/upload${image}`;
+  const lightBoxLink = `https://res.cloudinary.com/tumulty-web-services/image/upload/${image}`;
 
   function DownloadButton() {
     return (

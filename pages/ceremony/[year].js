@@ -99,10 +99,12 @@ export default function Ceremony({ ceremony, photos }) {
         <Col sm={12}>
           <Slider {...settings}>
             {photos.map((p) => (
-              <div key={p._id} style={{ height: '350px' }}>
+              <div key={p.altText} style={{ height: '500px' }}>
                 <img
                   src={`https://res.cloudinary.com/tumulty-web-services/image/upload/${p.image}`}
-                  alt={p.alt}
+                  alt={p.altText}
+                  height={p.height}
+                  width={p.width}
                   className="mx-auto d-block"
                 />
               </div>
@@ -147,16 +149,30 @@ export async function getStaticProps({ params }) {
 
   /** Serialize the response */
   const photos = request.map((photo) => ({
-    image: photo.url.replace('http://res.cloudinary.com/tumulty-web-services/image/upload/', ''),
     altText: photo.public_id,
     height: photo.height,
     width: photo.width,
-  })).sort((a, b) => ((a.height <= b.height) ? 1 : -1));
+  })).sort((a, b) => (((a.height > a.width) > (b.height > b.width)) ? 1 : -1));
+
+  /** fix the heights to be 350px on all photos */
+  const croppedPhotos = photos.map((photo) => {
+    const height = 500;
+    const imgCropped = cloudinary.image(photo.altText, {
+      height,
+      crop: 'scale',
+    });
+    const calculateWidth = height / (photo.height / photo.width);
+
+    photo.image = imgCropped.match(/'([^']+)'/)[1].replace('http://res.cloudinary.com/tumulty-web-services/image/upload/', '');
+    photo.width = parseInt(calculateWidth.toFixed(0), 10);
+    photo.height = height;
+    return photo;
+  });
 
   return {
     props: {
       ceremony: year,
-      photos,
+      photos: croppedPhotos,
     },
   };
 }
