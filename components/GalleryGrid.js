@@ -8,7 +8,7 @@ export default function GalleryGrid({ slides, year }) {
     <div className={styles.gallery}>
       {slides.length > 0
         && slides.map((slide, index) => (
-          <div key={slide._id} className={styles.galleryImage}>
+          <div key={slide.altText} className={styles.galleryImage}>
             <Image
               src={slide.image}
               alt={slide.altText}

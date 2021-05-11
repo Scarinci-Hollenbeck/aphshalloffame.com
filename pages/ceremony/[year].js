@@ -16,6 +16,8 @@ import LoadingSpinner from 'components/LoadingSpinner';
 import dbConnect from 'utils/db-connect';
 import Ceremonies from 'models/Ceremonies';
 
+const cloudinary = require('utils/cloudinary');
+
 function Arrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -55,7 +57,6 @@ export default function Ceremony({ ceremony, photos }) {
     adaptiveHeight: true,
     autoplay: true,
     speed: 2000,
-    adaptiveHeight: true,
     cssEase: 'linear',
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
@@ -100,7 +101,7 @@ export default function Ceremony({ ceremony, photos }) {
             {photos.map((p) => (
               <div key={p._id} style={{ height: '350px' }}>
                 <img
-                  src={`https://res.cloudinary.com/tumulty-web-services/image/upload${p.image}`}
+                  src={`https://res.cloudinary.com/tumulty-web-services/image/upload/${p.image}`}
                   alt={p.alt}
                   className="mx-auto d-block"
                 />
@@ -132,14 +133,30 @@ export async function getStaticProps({ params }) {
   await dbConnect();
   const { year } = params;
 
-  const ceremonies = await Ceremonies.find({ ceremony: decodeURI(year) });
-  const { ceremony, photos } = ceremonies[0];
-  const sortedPhotos = [].concat(photos.sort((a, b) => a.order - b.order));
+  // const ceremonies = await Ceremonies.find({ ceremony: decodeURI(year) });
+  // const { ceremony, photos } = ceremonies[0];
+  const request = await cloudinary.api
+    .resources({
+      resource_type: 'image',
+      type: 'upload',
+      prefix: `asburyparkhighschoolhalloffame/Ceremony/${year}`,
+      max_results: 500,
+      context: true,
+    })
+    .then((res) => res.resources);
+
+  /** Serialize the response */
+  const photos = request.map((photo) => ({
+    image: photo.url.replace('http://res.cloudinary.com/tumulty-web-services/image/upload/', ''),
+    altText: photo.public_id,
+    height: photo.height,
+    width: photo.width,
+  })).sort((a, b) => ((a.height <= b.height) ? 1 : -1));
 
   return {
     props: {
-      ceremony,
-      photos: JSON.parse(JSON.stringify(sortedPhotos)),
+      ceremony: year,
+      photos,
     },
   };
 }
