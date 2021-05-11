@@ -55,6 +55,7 @@ export default function Ceremony({ ceremony, photos }) {
     adaptiveHeight: true,
     autoplay: true,
     speed: 2000,
+    adaptiveHeight: true,
     cssEase: 'linear',
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
@@ -97,12 +98,13 @@ export default function Ceremony({ ceremony, photos }) {
         <Col sm={12}>
           <Slider {...settings}>
             {photos.map((p) => (
-              <img
-                key={p._id}
-                src={`https://res.cloudinary.com/tumulty-web-services/image/upload${p.image}`}
-                alt={p.alt}
-                className="mx-auto d-block w-50"
-              />
+              <div key={p._id} style={{height: '350px'}}>
+                <img
+                  src={`https://res.cloudinary.com/tumulty-web-services/image/upload${p.image}`}
+                  alt={p.alt}
+                  className="mx-auto d-block"                
+                />
+              </div>
             ))}
           </Slider>
         </Col>
