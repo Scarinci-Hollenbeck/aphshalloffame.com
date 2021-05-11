@@ -50,6 +50,7 @@ export default function Profile({ member }) {
                 <img
                   src={`https://res.cloudinary.com/tumulty-web-services/image/upload/c_scale,r_8/${member.image}`}
                   alt={member.name}
+                  style={{ maxWidth: '350px' }}
                 />
               </div>
             </Col>
