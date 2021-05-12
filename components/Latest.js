@@ -1,5 +1,4 @@
 import styles from 'styles/Banner.module.css';
-import textStyles from 'styles/Text.module.css';
 
 /* eslint-disable max-len */
 export default function Latest() {
@@ -10,7 +9,7 @@ export default function Latest() {
           className="animate__animated animate__fadeIn slow"
         >
           <h3 className={styles.title}>
-            <strong>Asbury Park High School Distinguished Hall of Fame</strong>
+            <strong className="text-white">Asbury Park High School Distinguished Hall of Fame</strong>
           </h3>
           {/* <p className={styles.tagLine}>
             Welcome to the Asbury Park High School Distinguished Alumni Hall of
