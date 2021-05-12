@@ -22,9 +22,12 @@
 }
 
 .h1 {
-  color: #386982;
   font-size: 1.1rem;
   font-family: 'Open Sans Bold', 'Arial', sans-serif;
+}
+
+.h1 > strong {
+  color: #386982;
 }
 
 .h2 {
