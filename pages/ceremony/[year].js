@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable max-len */
-/* eslint-disable react/no-danger */
-/* eslint-disable no-underscore-dangle */
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Slider from 'react-slick';
@@ -152,7 +148,12 @@ export async function getStaticProps({ params }) {
     altText: photo.public_id,
     height: photo.height,
     width: photo.width,
-  })).sort((a, b) => (((a.height > a.width) > (b.height > b.width)) ? 1 : -1));
+  })).sort((a, b) => {
+    if ((a.height < a.width) > (b.height < b.width)) {
+      return 1;
+    }
+    return -1;
+  });
 
   /** fix the heights to be 350px on all photos */
   const croppedPhotos = photos.map((photo) => {

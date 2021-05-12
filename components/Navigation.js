@@ -42,6 +42,7 @@ export default function Navigation() {
             id="basic-nav-dropdown"
           >
             <NavDropdown.Item href="/ceremony/2016">2016</NavDropdown.Item>
+            <NavDropdown.Item href="/ceremony/2014">2014</NavDropdown.Item>
             <NavDropdown.Item href="/ceremony/2010">2010</NavDropdown.Item>
             <NavDropdown.Item href="/ceremony/2007">2007</NavDropdown.Item>
             <NavDropdown.Item href="/ceremony/2005">2005</NavDropdown.Item>

@@ -31,7 +31,7 @@ export default function Contact() {
         </Col>
         <Col sm={12} md={8}>
           <div className="pr-4">
-            <p className="mb-3"><strong>Either email an member</strong></p>
+            <p className="mb-3"><strong>Either email a member</strong></p>
             <ListGroup variant="flush" className={contactStyles.listGroupWidth}>
               <ListGroup.Item>
                 <p className="mb-0"><strong>Ira Kreizman</strong></p>

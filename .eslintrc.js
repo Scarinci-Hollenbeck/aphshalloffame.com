@@ -22,5 +22,9 @@ module.exports = {
     'linebreak-style': 'off',
     'max-len': 'off',
     'func-names': 'off',
+    'no-param-reassign': 'off',
+    'jsx-a11y/control-has-associated-label': 'off',
+    'react/no-danger': 'off',
+    'no-underscore-dangle': 'off',
   },
 };
