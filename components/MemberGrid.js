@@ -6,7 +6,6 @@ import Image from 'next/image';
 import useSWR from 'swr';
 import Button from 'react-bootstrap/Button';
 import styles from 'styles/MemberGallery.module.css';
-import stylesMenu from 'styles/SubMenu.module.css';
 import figStyles from 'styles/Figures.module.css';
 import LoadingError from './LoadingError';
 import LoadingSpinner from './LoadingSpinner';
@@ -27,29 +26,24 @@ export default function MemberGrid() {
   return (
     <>
       {/** navigation begin */}
-      <div className={stylesMenu.GalleryNav}>
+      <div className="w-100 mt-4">
         {years.data.map((y) => (
           <Button
             key={y.year}
-            variant="link"
+            variant={(y.year === year) ? 'custom-primary' : 'outline-custom-primary'}
+            className="mb-2  mb-md-0 mr-3"
             onClick={() => setYear(y.year)}
-            className={
-              year === y.year ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
-            }
           >
-            <strong>{y.year}</strong>
+            {y.year}
           </Button>
         ))}
         <Button
           onClick={() => setYear('all')}
-          variant="link"
-          className={
-            year === 'all' ? stylesMenu.activeBtn : stylesMenu.subMenuBtn
-          }
+          variant={(year === 'all') ? 'custom-primary' : 'outline-custom-primary'}
         >
           All
         </Button>
-        <hr className="mt-0 mb-3" />
+        <hr className="my-3" />
       </div>
       {/** navigation end */}
       <div className={styles.container}>

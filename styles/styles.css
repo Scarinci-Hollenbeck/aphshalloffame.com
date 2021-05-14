@@ -83,6 +83,23 @@ strong {
   color: #000;
 }
 
+.btn-custom-primary {
+  color: #fff;
+  background-color: #59a7cf;
+  border-color: #59a7cf;
+}
+
+.btn-outline-custom-primary {
+  color: #386982;
+  border-color: #59a7cf;
+}
+
+.btn-outline-custom-primary:hover,.btn-outline-custom-primary:focus,.btn-outline-custom-primary:active {
+  color: #fff;
+  background-color: #59a7cf;
+  border-color: #59a7cf;
+}
+
 @media (min-width: 1200px) {
   .container,
   .container-lg,
