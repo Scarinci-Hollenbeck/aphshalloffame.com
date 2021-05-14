@@ -9,7 +9,7 @@ export default function Latest() {
           className="animate__animated animate__fadeIn slow"
         >
           <h3 className={styles.title}>
-            <strong className="text-white">Asbury Park High School Distinguished Hall of Fame</strong>
+            <strong className="text-white">Asbury Park High School Distinguished Alumni Hall of Fame</strong>
           </h3>
         </div>
       </div>

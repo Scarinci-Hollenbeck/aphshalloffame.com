@@ -63,11 +63,11 @@ export default function Profile({ member }) {
                   className={`${memberStyles.classInductedContainer} p-2 my-4`}
                 >
                   <p className="p-0 m-0">
-                    <strong>Class:</strong>
+                    <strong className="text-white">Class:</strong>
                     {' '}
                     {member.class}
                     {' '}
-                    <strong>Inducted:</strong>
+                    <strong className="text-white">Inducted:</strong>
                     {' '}
                     {member.inducted}
                   </p>

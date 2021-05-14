@@ -12,7 +12,7 @@ export default function About() {
         Each inductee into the Asbury Park High School Distinguished Alumni Hall of Fame is honored with a plaque featuring a photo and brief career highlights.  The plaques are mounted in the main corridor of the high school where they can be viewed by present day students who will hopefully be encouraged to emulated the success of prior students who came from similar backgrounds and overcame similar hardships.
       </p>
       <p>
-        By 2005, the committee expanded to include Alan McKean, Sharon Brown, Thomas DeSeno, Remo Strada and Stanley Smith.  Unfortunately, one of the charter members, Glady Johnson, passed away on 1/12/05.  The journal was dedicated to her memory recognizing her tremendous contribution to the APHA Hall of Fame.
+        By 2005, the committee expanded to include Alan McKean, Sharon Brown, Thomas DeSeno, Remo Strada and Stanley Smith.  Unfortunately, one of the charter members, Glady Johnson, passed away on 1/12/05.  The journal was dedicated to her memory recognizing her tremendous contribution to the APHS Hall of Fame.
       </p>
       <p>
         Nineteen alumni were inducted on 4/22/05, once again at the Berkeley Carteret Hotel.  Included in the group of inductees was the late Leon Hess, founder of Amerada Hess and owner of the N.Y. Jets, who graduated from APHS in 1931.
@@ -28,6 +28,7 @@ export default function About() {
         Paul Chaiet joined the Hall of Fame Committee in 2009.  Thirteen new honorees were inducted into the Hall of Fame during the ceremonies held on 5/10/10, once again at the Berkeley.  The induction ceremony was dedicated to the memory of Norma Hess, who unfortunately passed away earlier that year.
 
       </p>
+      <p>In 2010, Joe Curdup joined the committee.</p>
       <p>
         In 2012 we inducted 13 more distinguished alumni in a ceremony highlighted by the performance of gold record recording start, Lenny Welch, accompanied by Grammy Award-winning composer and musician, John Colby, APHS Class of ’67.
       </p>
