@@ -12,7 +12,7 @@ import LoadingError from './LoadingError';
 import LoadingSpinner from './LoadingSpinner';
 
 export default function MemberGrid() {
-  const [year, setYear] = useState('2020');
+  const [year, setYear] = useState('2021');
 
   const {
     data: members,
