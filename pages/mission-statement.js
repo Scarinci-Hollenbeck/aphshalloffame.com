@@ -6,10 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SubMenu from 'layouts/SubMenu';
 import MemberGrid from 'components/MemberGrid';
-import Latest from 'components/Latest';
+import MissionStatement from 'components/MissionStatement';
 import styles from 'styles/SubMenu.module.css';
 
-export default function Home() {
+export default function Mission() {
   return (
     <Container className="mx-0 px-0">
       <Head>
@@ -28,7 +28,7 @@ export default function Home() {
             className={`${styles.subMenuTitle} ${styles.btnContainer}`}
           >
             <Link href="/">
-              <a className={`${styles.activeBtn} ${styles.subMenuBtn}`}>
+              <a className={styles.subMenuBtn}>
                 Latest
               </a>
             </Link>
@@ -39,7 +39,7 @@ export default function Home() {
             </Link>
 
             <Link href="/mission-statement">
-              <a className={styles.subMenuBtn}>
+              <a className={`${styles.activeBtn} ${styles.subMenuBtn}`}>
                 Mission Statement
               </a>
             </Link>
@@ -48,7 +48,12 @@ export default function Home() {
       </SubMenu>
       <Row className="mx-2 mt-2 content">
         <Col sm={12} className="px-0">
-          <Latest />
+          <div className="my-4">
+            <h3 className={styles.membersTitle}>
+              <strong>Mission Statement</strong>
+            </h3>
+            <MissionStatement />
+          </div>
         </Col>
       </Row>
       <Row className="mx-2 pt-5 content-no-border">
