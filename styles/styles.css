@@ -49,13 +49,13 @@ body {
 
 p {
   font-size: 1.18rem;
-  color: #000;
+  color: inherit;
   font-weight: 500;
 }
 
 strong {
   font-weight: 900;
-  color: #000;
+  color: inherit;
 }
 
 .content {
