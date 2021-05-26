@@ -55,7 +55,7 @@
 .memberFigure h4 {
   font-size: 15px;
   text-align: center;
-  word-spacing: -0.15em;
+  /* word-spacing: -0.15em; */
   font-weight: 300;
   -webkit-transform: translate3d(30%, 0%, 0);
   transform: translate3d(30%, 0%, 0);
