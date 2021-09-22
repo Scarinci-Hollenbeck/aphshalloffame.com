@@ -36,7 +36,7 @@ export default function About() {
         In 2016, we added 13 new hall of Fame members from classes going all the way back to 1923, 1941 and 1943 and up until 1993.
       </p>
       <p>
-        Our last induction ceremony was held in 2018 at which time 12 alumni joined the ranks of the Hall of Fame. Susan Skokos became part of the committee.
+        Our last induction ceremony was held in 2018 at which time 12 alumni joined the ranks of the Hall of Fame. Susan Skokos became part of the committee in 2019.
       </p>
       <h4>
         <strong>

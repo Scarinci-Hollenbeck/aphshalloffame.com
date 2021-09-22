@@ -26,5 +26,6 @@ module.exports = {
     'jsx-a11y/control-has-associated-label': 'off',
     'react/no-danger': 'off',
     'no-underscore-dangle': 'off',
+    'react/jsx-boolean-value': 'off'
   },
 };
