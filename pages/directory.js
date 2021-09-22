@@ -4,15 +4,13 @@ import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
 import SubMenu from 'layouts/SubMenu';
 import styles from 'styles/SubMenu.module.css';
-import contactStyles from 'styles/Contact.module.css';
 import dbConnect from 'utils/db-connect';
 import Members from 'models/Members';
 
 export default function Directory({ members }) {
-  console.log(members)
+  console.log(members);
   return (
     <Container>
       <Head>
@@ -32,24 +30,37 @@ export default function Directory({ members }) {
           {members.map((member) => (
             <li key={member._id} className="mb-4">
               <Link href={`/inductee/${member.lastName}`}>
-                <p><strong>{member.name}</strong> - <small>Class: {member.class} | Inducted: {member.inducted}</small></p>
+                <p>
+                  <strong>{member.name}</strong>
+                  {' '}
+                  -
+                  {' '}
+                  <small>
+                    Class:
+                    {member.class}
+                    {' '}
+                    | Inducted:
+                    {member.inducted}
+                  </small>
+                </p>
               </Link>
             </li>
           ))}
         </ul>
       </Row>
-      <style jsx>{`
+      <style jsx>
+        {`
         li:hover {
           cursor:pointer;
           text-decoration: underline;
         }
       
-      `}</style>
+      `}
+      </style>
     </Container>
 
-  )
+  );
 }
-
 
 export async function getStaticProps() {
   await dbConnect();
@@ -58,6 +69,6 @@ export async function getStaticProps() {
   return {
     props: {
       members: JSON.parse(JSON.stringify(members)),
-    }
-  }
+    },
+  };
 }
