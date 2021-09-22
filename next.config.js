@@ -4,4 +4,5 @@ module.exports = {
     path: 'https://res.cloudinary.com/tumulty-web-services/image/upload',
   },
   target: 'serverless',
+  distDir: 'out',
 };
