@@ -1,7 +1,7 @@
-export default function Directory () {
+export default function Directory() {
   return (
     <div>
-       Directory...
+      Directory...
     </div>
-  )
+  );
 }
