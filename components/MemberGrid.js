@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Button from 'react-bootstrap/Button';
 import styles from 'styles/MemberGallery.module.css';
@@ -12,6 +13,7 @@ import LoadingSpinner from './LoadingSpinner';
 
 export default function MemberGrid() {
   const [year, setYear] = useState('2021');
+  const router = useRouter();
 
   const {
     data: members,
@@ -42,6 +44,9 @@ export default function MemberGrid() {
           variant={(year === 'all') ? 'custom-primary' : 'outline-custom-primary'}
         >
           All
+        </Button>
+        <Button onClick={() => router.push('/directory')} variant="outline-custom-primary mb-2  mb-md-0 ml-3">
+          Directory
         </Button>
         <hr className="my-3" />
       </div>

@@ -72,6 +72,14 @@ export default function Navigation() {
           >
             CONTACT
           </Nav.Link>
+          <Nav.Link
+            className={`${styles.navBlue} ${
+              active === '/directory' ? styles.activeLink : ''
+            } mx-1`}
+            href="/directory"
+          >
+            DIRECTORY
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
