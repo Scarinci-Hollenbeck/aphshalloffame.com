@@ -27,5 +27,6 @@ module.exports = {
     'react/no-danger': 'off',
     'no-underscore-dangle': 'off',
     'react/jsx-boolean-value': 'off',
+    'no-console': 'off',
   },
 };

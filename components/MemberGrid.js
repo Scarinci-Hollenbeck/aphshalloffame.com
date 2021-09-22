@@ -16,9 +16,9 @@ export default function MemberGrid() {
   const {
     data: members,
     error: memberErr,
-  } = useSWR(`/.netlify/functions/get-members-by-year/${year}`, (url) => fetch(url).then((r) => r.json()));
+  } = useSWR(`/api/get-members-by-year/${year}`, (url) => fetch(url).then((r) => r.json()));
 
-  const { data: years, error: yearsErr } = useSWR('/.netlify/functions/get-years', (url) => fetch(url).then((r) => r.json()));
+  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) => fetch(url).then((r) => r.json()));
 
   if (memberErr || yearsErr) return <LoadingError />;
   if (!members || !years) return <LoadingSpinner />;
@@ -27,7 +27,7 @@ export default function MemberGrid() {
     <>
       {/** navigation begin */}
       <div className="w-100 mt-4">
-        {years.data.map((y) => (
+        {years.response.map((y) => (
           <Button
             key={y.year}
             variant={(y.year === year) ? 'custom-primary' : 'outline-custom-primary'}
@@ -48,7 +48,7 @@ export default function MemberGrid() {
       {/** navigation end */}
       <div className={styles.container}>
         <div className={styles.imgGrid}>
-          {members.data.map((m) => (
+          {members.response.map((m) => (
             <figure className={figStyles.memberFigure} key={m._id}>
               <Image
                 src={`/c_scale,h_200${m.image}`}
