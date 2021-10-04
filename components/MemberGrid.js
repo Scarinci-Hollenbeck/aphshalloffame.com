@@ -63,7 +63,7 @@ export default function MemberGrid() {
                 layout="intrinsic"
               />
               <figcaption>
-                <Link href={encodeURI(`/inductee/${m.lastName}`)}>
+                <Link href={encodeURI(`/inductee/${m.slug}`)}>
                   <a className={styles.imgLink}>
                     <h4>{m.name}</h4>
                     <p>{`Inducted ${m.inducted}`}</p>

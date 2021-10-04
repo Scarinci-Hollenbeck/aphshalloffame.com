@@ -7,6 +7,7 @@ const MembersSchema = new Schema({
   inducted: { type: String, required: false },
   biography: { type: String, required: false },
   image: { type: String, required: false },
+  slug: { type: String, required: false },
 });
 
 export default mongoose.models.Members

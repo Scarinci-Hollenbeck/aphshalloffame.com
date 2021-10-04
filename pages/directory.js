@@ -29,7 +29,7 @@ export default function Directory({ members }) {
         <ul className="mt-4">
           {members.map((member) => (
             <li key={member._id} className="mb-4">
-              <Link href={`/inductee/${member.lastName}`}>
+              <Link href={`/inductee/${member.slug}`}>
                 <p>
                   <strong>{member.name}</strong>
                   {' '}

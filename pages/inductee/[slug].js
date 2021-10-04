@@ -85,10 +85,10 @@ export default function Profile({ member }) {
 export async function getStaticPaths() {
   await dbConnect();
   const members = await Members.find({}).sort({ inducted: 'DESC' }).exec();
-  const membersName = members.map((m) => m.lastName);
+  const membersSlug = members.map((m) => m.slug);
 
   return {
-    paths: membersName.map((name) => encodeURI(`/inductee/${name}`)) || [],
+    paths: membersSlug.map((slug) => encodeURI(`/inductee/${slug}`)) || [],
     fallback: 'blocking',
   };
 }
@@ -96,7 +96,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   await dbConnect();
   const { slug } = params;
-  const member = await Members.find({ lastName: decodeURI(slug) });
+  const member = await Members.find({ slug: decodeURI(slug) });
 
   return {
     props: {
