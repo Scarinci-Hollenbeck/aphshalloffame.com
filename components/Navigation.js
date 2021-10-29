@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { CEREMONY_YEARS } from 'utils/constants';
 import styles from '../styles/Navigation.module.css';
 
 export default function Navigation() {
@@ -41,12 +42,7 @@ export default function Navigation() {
             title="CEREMONIES"
             id="basic-nav-dropdown"
           >
-            <NavDropdown.Item href="/ceremony/2016">2016</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2014">2014</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2010">2010</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2007">2007</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2005">2005</NavDropdown.Item>
-            <NavDropdown.Item href="/ceremony/2003">2003</NavDropdown.Item>
+            {CEREMONY_YEARS.map((year) => <NavDropdown.Item key={year} href={`/ceremony/${year}`}>{year}</NavDropdown.Item>)}
           </NavDropdown>
           <Nav.Link
             className={`${styles.navBlue} ${

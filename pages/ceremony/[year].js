@@ -175,6 +175,6 @@ export async function getStaticProps({ params }) {
       ceremony: year,
       photos: croppedPhotos,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 }

@@ -10,7 +10,6 @@ import dbConnect from 'utils/db-connect';
 import Members from 'models/Members';
 
 export default function Directory({ members }) {
-  console.log(members);
   return (
     <Container>
       <Head>
@@ -70,5 +69,6 @@ export async function getStaticProps() {
     props: {
       members: JSON.parse(JSON.stringify(members)),
     },
+    revalidate: 1,
   };
 }
