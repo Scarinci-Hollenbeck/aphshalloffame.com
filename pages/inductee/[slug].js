@@ -102,6 +102,6 @@ export async function getStaticProps({ params }) {
     props: {
       member: JSON.parse(JSON.stringify(member[0])),
     },
-    revalidate: 1,
+    revalidate: (60 * 60) * 24,
   };
 }
