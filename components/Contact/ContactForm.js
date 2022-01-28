@@ -16,7 +16,7 @@ const ContactForm = () => {
         <form
           name="contact"
           className="pl-2 kwes-form"
-          action="https://kwesforms.com/api/foreign/forms/IPwLtcuh8oTCbZ7JmWMo"
+          action="https://kwesforms.com/api/foreign/forms/Q4NwgjLenYKwnAopWi4R"
         >
           <Row className="mb-3">
             <Col sm={12} md={6} className="mx-0 px-1">
