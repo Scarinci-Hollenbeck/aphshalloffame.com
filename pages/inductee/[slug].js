@@ -1,107 +1,75 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SubMenu from 'layouts/SubMenu';
-import styles from 'styles/SubMenu.module.css';
-import memberStyles from 'styles/Biography.module.css';
-import LoadingSpinner from 'components/LoadingSpinner';
-import { createMarkup } from 'utils/helpers';
-import dbConnect from 'utils/db-connect';
-import Members from 'models/Members';
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
+import PageContainer from 'layouts/PageContainer'
 
-export default function Profile({ member }) {
-  const router = useRouter();
+const { MongoClient } = require('mongodb')
+
+const LoadingSpinner = dynamic(() => import('components/LoadingSpinner'))
+const Biography = dynamic(() => import('components/Profile/Biography'))
+const ProfileImage = dynamic(() => import('components/Profile/ProfileImage'))
+
+const Profile = ({ member }) => {
+  const router = useRouter()
 
   if (router.isFallback) {
     return (
       <div className="my-5 py-5">
         <LoadingSpinner />
       </div>
-    );
+    )
   }
 
   return (
-    <>
-      {member && (
-        <Container>
-          <Head>
-            <title>{`${member.name} - Asbury Park High School Hall of Fame`}</title>
-            <meta
-              name="description"
-              content={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
-            />
-          </Head>
-          <SubMenu>
-            <Row>
-              <Col sm={12}>
-                <h3 className={styles.subMenuTitle}>
-                  <strong>Profile</strong>
-                </h3>
-              </Col>
-            </Row>
-          </SubMenu>
-          <Row className="mx-2 mt-2 content">
-            <Col sm={12} md={5} className="pt-5">
-              <div className={memberStyles.profile}>
-                <img
-                  src={`https://res.cloudinary.com/tumulty-web-services/image/upload/c_scale,r_8/${member.image}`}
-                  alt={member.name}
-                  style={{ maxWidth: '350px' }}
-                />
-              </div>
-            </Col>
-            <Col sm={12} md={7} className="pt-5">
-              <div className="mr-4">
-                <h3>
-                  <strong className={memberStyles.name}>{member.name}</strong>
-                </h3>
-                <div
-                  className={`${memberStyles.classInductedContainer} p-2 my-4`}
-                >
-                  <p className="p-0 m-0">
-                    <strong className="text-white">Class:</strong>
-                    {' '}
-                    {member.class}
-                    {' '}
-                    <strong className="text-white">Inducted:</strong>
-                    {' '}
-                    {member.inducted}
-                  </p>
-                </div>
-                <div dangerouslySetInnerHTML={createMarkup(member.biography)} />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      )}
-    </>
-  );
+    <PageContainer title="Profile">
+      <Head>
+        <title>{`${member.name} - Asbury Park High School Hall of Fame`}</title>
+        <meta
+          name="description"
+          content={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
+        />
+      </Head>
+
+      <ProfileImage image={member.image} name={member.name} />
+      <Biography {...member} />
+    </PageContainer>
+  )
 }
 
 export async function getStaticPaths() {
-  await dbConnect();
-  const members = await Members.find({}).sort({ inducted: 'DESC' }).exec();
-  const membersSlug = members.map((m) => m.slug);
+  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  const db = connection.db(process.env.DB_NAME)
+  const members = await db.collection('members').find({}).toArray()
+  const membersSlug = members.map(({ slug }) => slug)
 
   return {
     paths: membersSlug.map((slug) => encodeURI(`/inductee/${slug}`)) || [],
     fallback: 'blocking',
-  };
+  }
 }
 
 export async function getStaticProps({ params }) {
-  await dbConnect();
-  const { slug } = params;
-  const member = await Members.find({ slug: decodeURI(slug) });
-
+  const { slug } = params
+  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  const db = connection.db(process.env.DB_NAME)
+  const member = await db
+    .collection('members')
+    .find({ slug: decodeURI(slug) })
+    .toArray()
   return {
     props: {
       member: JSON.parse(JSON.stringify(member[0])),
     },
-    revalidate: (60 * 60) * 24,
-  };
+  }
 }
+
+export default Profile

@@ -12,12 +12,11 @@
   border-bottom: 3px solid#386982;
 }
 
-
 .header {
   margin: 0;
   padding: 0;
   text-align: center;
-  width:100;
+  width: 100;
   white-space: wrap;
 }
 
@@ -36,13 +35,11 @@
   font-family: 'Merriweather', serif;
 }
 
-
-
 @media (min-width: 1200px) {
   .h1 {
     font-size: 1.8rem;
   }
-  
+
   .h2 {
     font-size: 1.7rem;
   }

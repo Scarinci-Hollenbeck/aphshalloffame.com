@@ -1,29 +1,31 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import useSWR from 'swr';
-import Button from 'react-bootstrap/Button';
-import styles from 'styles/MemberGallery.module.css';
-import figStyles from 'styles/Figures.module.css';
-import LoadingError from './LoadingError';
-import LoadingSpinner from './LoadingSpinner';
+import React, { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import useSWR from 'swr'
+import Button from 'react-bootstrap/Button'
+import styles from 'styles/MemberGallery.module.css'
+import figStyles from 'styles/Figures.module.css'
+import LoadingError from '../LoadingError'
+import LoadingSpinner from '../LoadingSpinner'
 
-export default function MemberGrid() {
-  const [year, setYear] = useState('2021');
-  const router = useRouter();
+const MemberGrid = () => {
+  const [year, setYear] = useState('2021')
+  const router = useRouter()
 
-  const {
-    data: members,
-    error: memberErr,
-  } = useSWR(`/api/get-members-by-year/${year}`, (url) => fetch(url).then((r) => r.json()));
+  const { data: members, error: memberErr } = useSWR(
+    `/api/get-members-by-year/${year}`,
+    (url) => fetch(url).then((r) => r.json())
+  )
 
-  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) => fetch(url).then((r) => r.json()));
+  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) =>
+    fetch(url).then((r) => r.json())
+  )
 
-  if (memberErr || yearsErr) return <LoadingError />;
-  if (!members || !years) return <LoadingSpinner />;
+  if (memberErr || yearsErr) return <LoadingError />
+  if (!members || !years) return <LoadingSpinner />
 
   return (
     <>
@@ -32,7 +34,9 @@ export default function MemberGrid() {
         {years.response.map((y) => (
           <Button
             key={y.year}
-            variant={(y.year === year) ? 'custom-primary' : 'outline-custom-primary'}
+            variant={
+              y.year === year ? 'custom-primary' : 'outline-custom-primary'
+            }
             className="mb-2  mb-md-0 mr-3"
             onClick={() => setYear(y.year)}
           >
@@ -41,11 +45,14 @@ export default function MemberGrid() {
         ))}
         <Button
           onClick={() => setYear('all')}
-          variant={(year === 'all') ? 'custom-primary' : 'outline-custom-primary'}
+          variant={year === 'all' ? 'custom-primary' : 'outline-custom-primary'}
         >
           All
         </Button>
-        <Button onClick={() => router.push('/directory')} variant="outline-custom-primary mb-2  mb-md-0 ml-3">
+        <Button
+          onClick={() => router.push('/directory')}
+          variant="outline-custom-primary mb-2  mb-md-0 ml-3"
+        >
           Directory
         </Button>
         <hr className="my-3" />
@@ -75,5 +82,7 @@ export default function MemberGrid() {
         </div>
       </div>
     </>
-  );
+  )
 }
+
+export default MemberGrid

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Lightbox from 'react-image-lightbox';
-import styles from 'styles/LightBoxView.module.css';
-import { fetchImageForDownload } from 'utils/helpers';
+import React, { useState } from 'react'
+import Lightbox from 'react-image-lightbox'
+import styles from 'styles/LightBoxView.module.css'
+import { fetchImageForDownload } from 'utils/helpers'
 
-export default function LightBoxView({ image, fileName }) {
-  const [open, setOpen] = useState(false);
-  const lightBoxLink = `https://res.cloudinary.com/tumulty-web-services/image/upload/${image}`;
+const LightBoxView = ({ image, fileName }) => {
+  const [open, setOpen] = useState(false)
+  const lightBoxLink = `https://res.cloudinary.com/tumulty-web-services/image/upload/${image}`
 
   function DownloadButton() {
     return (
@@ -16,7 +16,7 @@ export default function LightBoxView({ image, fileName }) {
       >
         Download
       </button>
-    );
+    )
   }
 
   return (
@@ -43,5 +43,7 @@ export default function LightBoxView({ image, fileName }) {
         />
       )}
     </>
-  );
+  )
 }
+
+export default LightBoxView

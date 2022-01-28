@@ -1,22 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { CEREMONY_YEARS } from 'utils/constants';
-import styles from '../styles/Navigation.module.css';
+import React, { useState, useEffect, useContext } from 'react'
+import { useRouter } from 'next/router'
+import useSWR from 'swr'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import { CeremoniesContext } from 'contexts/CeremoniesContext'
+import styles from 'styles/Navigation.module.css'
 
-export default function Navigation() {
-  const router = useRouter();
-  const [active, setActive] = useState('');
-  const [preSetActive, setPreSetActive] = useState(true);
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+const Navigation = () => {
+  const router = useRouter()
+  const [active, setActive] = useState('')
+  const [preSetActive, setPreSetActive] = useState(true)
+  const { ceremonies, setCeremonies } = useContext(CeremoniesContext)
+  const { data, error } = useSWR('/api/get-years', fetcher)
+
+  useEffect(() => {
+    if (error) {
+      console.error(error)
+    }
+
+    if (data) {
+      const years = data?.response
+        .filter(({ year }) => year !== '2018' && year !== '2012')
+        .map(({ year }) => year)
+      setCeremonies(years)
+    }
+  }, [data, error])
 
   useEffect(() => {
     if (preSetActive) {
-      setActive(router.asPath);
-      setPreSetActive(false);
+      setActive(router.asPath)
+      setPreSetActive(false)
     }
-  });
+  })
 
   return (
     <Navbar expand="lg">
@@ -24,7 +42,9 @@ export default function Navigation() {
         <h1 className={`${styles.h1} mt-2 mb-0`}>
           <strong>Asbury Park High School</strong>
         </h1>
-        <h2 className={`${styles.h2} mt-0`}>Distinguished Alumni Hall of Fame</h2>
+        <h2 className={`${styles.h2} mt-0`}>
+          Distinguished Alumni Hall of Fame
+        </h2>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -42,7 +62,11 @@ export default function Navigation() {
             title="CEREMONIES"
             id="basic-nav-dropdown"
           >
-            {CEREMONY_YEARS.map((year) => <NavDropdown.Item key={year} href={`/ceremony/${year}`}>{year}</NavDropdown.Item>)}
+            {ceremonies.map((year) => (
+              <NavDropdown.Item key={year} href={`/ceremony/${year}`}>
+                {year}
+              </NavDropdown.Item>
+            ))}
           </NavDropdown>
           <Nav.Link
             className={`${styles.navBlue} ${
@@ -79,5 +103,7 @@ export default function Navigation() {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  );
+  )
 }
+
+export default Navigation

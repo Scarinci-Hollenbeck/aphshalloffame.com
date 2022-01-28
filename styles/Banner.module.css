@@ -1,7 +1,7 @@
 /** Banner Image **/
 .banner {
-  background: url(/images/asbury-high-school-1250x526_wplohr.png)
-  no-repeat center center;
+  background: url(/images/asbury-high-school-1250x526_wplohr.png) no-repeat
+    center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,10 +9,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:526px;
+  height: 526px;
 }
-
-
 
 @media (max-width: 768px) {
   .banner {
@@ -27,39 +25,35 @@
 } */
 /** Banner Text **/
 .title {
-  font-family: 'Open Sans Bold','Arial',sans-serif;
-  background: linear-gradient(0deg, rgba(0,0,0, .3275), rgba(0,0,0, .55));
+  font-family: 'Open Sans Bold', 'Arial', sans-serif;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3275), rgba(0, 0, 0, 0.55));
   line-height: 1.22;
-  padding-top:25px;
+  padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 10px;
   padding-right: 10px;
-  color:#ffffed;
+  color: #ffffed;
   font-size: 2rem;
   max-width: 100%;
-  text-align:center;
-  width:100%;
+  text-align: center;
+  width: 100%;
 }
-
-
 
 .title > strong {
-text-shadow: 4px 3px 0px rgba(0,0,0,.45), 
-               9px 8px 0px rgba(0,0,0,.15);
+  text-shadow: 4px 3px 0px rgba(0, 0, 0, 0.45), 9px 8px 0px rgba(0, 0, 0, 0.15);
 }
-
 
 @media (min-width: 992px) {
   .title {
     font-size: 3.2rem;
   }
-} 
+}
 
 @media (min-width: 1200px) {
   .title {
     font-size: 4.2rem;
   }
-} 
+}
 
 /* 
 

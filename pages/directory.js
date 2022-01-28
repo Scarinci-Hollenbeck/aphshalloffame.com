@@ -1,74 +1,49 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SubMenu from 'layouts/SubMenu';
-import styles from 'styles/SubMenu.module.css';
-import dbConnect from 'utils/db-connect';
-import Members from 'models/Members';
+import React from 'react'
+import Head from 'next/head'
+import dynamic from 'next/dynamic'
+import PageContainer from 'layouts/PageContainer'
 
-export default function Directory({ members }) {
+const { MongoClient } = require('mongodb')
+
+const MemberLink = dynamic(() => import('components/Directory/MemberLink'))
+
+const Directory = ({ members }) => {
   return (
-    <Container>
+    <PageContainer title="APHS Hall of Fame Member Directory">
       <Head>
         <title>Member Directory - Asbury Park High School Hall of Fame</title>
       </Head>
-      <SubMenu>
-        <Row>
-          <Col sm={12}>
-            <h3 className={styles.subMenuTitle}>
-              <strong>APHS Hall of Fame Member Directory</strong>
-            </h3>
-          </Col>
-        </Row>
-      </SubMenu>
-      <Row className="mx-2 mt-2 content">
-        <ul className="mt-4">
-          {members.map((member) => (
-            <li key={member._id} className="mb-4">
-              <Link href={`/inductee/${member.slug}`}>
-                <p>
-                  <strong>{member.name}</strong>
-                  {' '}
-                  -
-                  {' '}
-                  <small>
-                    Class:
-                    {member.class}
-                    {' '}
-                    | Inducted:
-                    {member.inducted}
-                  </small>
-                </p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Row>
+
+      <ul className="mt-4">
+        {members.map((member) => (
+          <MemberLink {...member} key={member._id} />
+        ))}
+      </ul>
       <style jsx>
         {`
-        li:hover {
-          cursor:pointer;
-          text-decoration: underline;
-        }
-      
-      `}
+          li:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        `}
       </style>
-    </Container>
-
-  );
+    </PageContainer>
+  )
 }
 
 export async function getStaticProps() {
-  await dbConnect();
-  const members = await Members.find({}).sort({ lastName: 'ASC' }).exec();
+  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  const db = connection.db(process.env.DB_NAME)
+  const members = await db.collection('members').find({}).toArray()
 
   return {
     props: {
       members: JSON.parse(JSON.stringify(members)),
     },
-    revalidate: (60 * 60) * 168,
-  };
+  }
 }
+
+export default Directory
