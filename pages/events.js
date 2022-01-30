@@ -9,7 +9,7 @@ const Events = ({ page }) => {
   const { title, details, forms } = page
   return (
     <PageContainer title="Events">
-      <SiteHead 
+      <SiteHead
         title="Events - Asbury Park High School Hall of Fame"
         metaDescription="APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020.The Ceremony dinner will be Thursday, October 14, 2021"
       />

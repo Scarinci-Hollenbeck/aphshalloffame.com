@@ -29,7 +29,7 @@ const Ceremony = ({ ceremony, photos }) => {
       <SiteHead
         title={`Asbury Park High School Hall of Fame - ${ceremony} Ceremony`}
         metaDescription={`Photos from the Asbury Park High School Hall of Fame ${ceremony} induction ceremony.`}
-        />
+      />
       <Col sm={12}>
         <GallerySlider photos={photos} />
       </Col>

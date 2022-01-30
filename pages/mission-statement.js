@@ -9,7 +9,7 @@ const TextContent = dynamic(() => import('components/shared/TextContent'))
 const MissionStatement = ({ page }) => {
   return (
     <HomeContainer>
-      <SiteHead 
+      <SiteHead
         title="Mission Statement - Asbury Park High School Hall of Fame"
         metaDescription=" Another and equally important portion of our mission is to instill in the current APHS students a feeling that they too can be successful adults irrespective of their often difficult backgrounds."
       />

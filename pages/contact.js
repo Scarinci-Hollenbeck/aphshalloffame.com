@@ -15,10 +15,10 @@ const Contact = ({ contactMembers }) => (
     <Head>
       <title></title>
     </Head>
-    <SiteHead 
-        title="Contact Us - Asbury Park High School Hall of Fame"
-        metaDescription="Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame"
-      />
+    <SiteHead
+      title="Contact Us - Asbury Park High School Hall of Fame"
+      metaDescription="Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame"
+    />
     <Title />
     <ContactMembers members={contactMembers} />
     <ContactForm />
