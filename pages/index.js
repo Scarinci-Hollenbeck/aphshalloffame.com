@@ -1,13 +1,13 @@
 import dynamic from 'next/dynamic'
 import HomeContainer from 'layouts/HomeContainer'
-import SiteHead from 'components/shared/SiteHead'
+import SEOHead from 'components/shared/SEOHead'
 import { Row, Col } from 'react-bootstrap'
 const { MongoClient } = require('mongodb')
 const Latest = dynamic(() => import('components/Home/Latest'))
 
 const Home = ({ page }) => (
   <HomeContainer>
-    <SiteHead
+    <SEOHead
       title="Asbury Park High School Hall of Fame"
       metaDescription="Welcome to the Asbury Park High School Distinguished Alumni Hall of Fame. Our mission is to recognize and honor those APHS graduates who as adults in many different and varied fields. "
     />

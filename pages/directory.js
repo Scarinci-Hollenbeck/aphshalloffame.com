@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import PageContainer from 'layouts/PageContainer'
-import SiteHead from 'components/shared/SiteHead'
+import SEOHead from 'components/shared/SEOHead'
 
 const { MongoClient } = require('mongodb')
 
@@ -10,7 +10,7 @@ const MemberLink = dynamic(() => import('components/Directory/MemberLink'))
 const Directory = ({ members }) => {
   return (
     <PageContainer title="APHS Hall of Fame Member Directory">
-      <SiteHead
+      <SEOHead
         title="Member Directory - Asbury Park High School Hall of Fame"
         metaDescription="Here is a list of all the distinguished members of Asbury Park High School Hall of Fame"
       />

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import HomeContainer from 'layouts/HomeContainer'
-import SiteHead from 'components/shared/SiteHead'
+import SEOHead from 'components/shared/SEOHead'
 import { Row, Col } from 'react-bootstrap'
 import styles from 'styles/SubMenu.module.css'
 const { MongoClient } = require('mongodb')
@@ -9,7 +9,7 @@ const TextContent = dynamic(() => import('components/shared/TextContent'))
 const MissionStatement = ({ page }) => {
   return (
     <HomeContainer>
-      <SiteHead
+      <SEOHead
         title="Mission Statement - Asbury Park High School Hall of Fame"
         metaDescription=" Another and equally important portion of our mission is to instill in the current APHS students a feeling that they too can be successful adults irrespective of their often difficult backgrounds."
       />

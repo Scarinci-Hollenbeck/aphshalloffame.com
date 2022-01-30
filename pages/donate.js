@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import SiteHead from 'components/shared/SiteHead'
+import SEOHead from 'components/shared/SEOHead'
 import PageContainer from 'layouts/PageContainer'
 const { MongoClient } = require('mongodb')
 
@@ -8,7 +8,7 @@ const Title = dynamic(() => import('components/Donate/Title'))
 
 const Donate = ({ pageContent }) => (
   <PageContainer title="Make a donation">
-    <SiteHead
+    <SEOHead
       title="Donate - Asbury Park High School Hall of Fame"
       metaDescription="The Distinguished Hall of Fame is a 501(c)3 non-profit corporation registered with the IRS and the State of New Jersey formed."
     />

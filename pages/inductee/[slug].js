@@ -4,7 +4,7 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import PageContainer from 'layouts/PageContainer'
-import SiteHead from 'components/shared/SiteHead'
+import SEOHead from 'components/shared/SEOHead'
 
 const { MongoClient } = require('mongodb')
 
@@ -25,7 +25,7 @@ const Profile = ({ member }) => {
 
   return (
     <PageContainer title="Profile">
-      <SiteHead
+      <SEOHead
         title={`${member.name} - Asbury Park High School Hall of Fame`}
         metaDescription={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
       />

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import Col from 'react-bootstrap/Col'
 import pageStyle from 'styles/Ceremony.module.css'
 import PageContainer from 'layouts/PageContainer'
-import SiteHead from 'components/shared/SiteHead'
+import SEOHead from 'components/shared/SEOHead'
 
 const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'))
 const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'))
@@ -26,7 +26,7 @@ const Ceremony = ({ ceremony, photos }) => {
 
   return (
     <PageContainer title={`Ceremony: ${ceremony}`}>
-      <SiteHead
+      <SEOHead
         title={`Asbury Park High School Hall of Fame - ${ceremony} Ceremony`}
         metaDescription={`Photos from the Asbury Park High School Hall of Fame ${ceremony} induction ceremony.`}
       />
