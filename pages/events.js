@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import PageContainer from 'layouts/PageContainer'
-
+import SiteHead from 'components/shared/SiteHead'
 const { MongoClient } = require('mongodb')
 const Title = dynamic(() => import('components/Events/Title'))
 const FormBlock = dynamic(() => import('components/Events/FormBlock'))
@@ -10,9 +10,10 @@ const Events = ({ page }) => {
   const { title, details, forms } = page
   return (
     <PageContainer title="Events">
-      <Head>
-        <title>Events - Asbury Park High School Hall of Fame</title>
-      </Head>
+      <SiteHead 
+        title="Events - Asbury Park High School Hall of Fame"
+        metaDescription="APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020.The Ceremony dinner will be Thursday, October 14, 2021"
+      />
       <Title title={title} details={details} />
       {forms && forms.map((form) => <FormBlock {...form} key={form.id} />)}
     </PageContainer>

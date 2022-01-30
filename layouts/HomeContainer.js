@@ -13,9 +13,6 @@ const MemberGridWrapper = dynamic(() =>
 const HomeContainer = ({ children }) => {
   return (
     <Container className="mx-0 px-0">
-      <Head>
-        <title>Asbury Park High School Hall of Fame</title>
-      </Head>
       <SubMenu>
         <Row className="mx-0">
           <Col sm={12} md={2} className="mx-0 px-0">

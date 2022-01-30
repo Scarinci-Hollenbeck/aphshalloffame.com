@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import PageContainer from 'layouts/PageContainer'
+import SiteHead from 'components/shared/SiteHead'
 
 const { MongoClient } = require('mongodb')
 
@@ -25,14 +26,10 @@ const Profile = ({ member }) => {
 
   return (
     <PageContainer title="Profile">
-      <Head>
-        <title>{`${member.name} - Asbury Park High School Hall of Fame`}</title>
-        <meta
-          name="description"
-          content={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
-        />
-      </Head>
-
+      <SiteHead
+        title={`${member.name} - Asbury Park High School Hall of Fame`}
+        metaDescription={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
+      />
       <ProfileImage image={member.image} name={member.name} />
       <Biography {...member} />
     </PageContainer>

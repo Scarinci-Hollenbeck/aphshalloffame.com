@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import SiteHead from 'components/shared/SiteHead'
 import Title from 'components/Contact/Title'
 import ContactMembers from 'components/Contact/ContactMembers'
 import PageContainer from 'layouts/PageContainer'
@@ -12,9 +13,12 @@ const ContactForm = dynamic(() => import('components/Contact/ContactForm'))
 const Contact = ({ contactMembers }) => (
   <PageContainer title="Contact">
     <Head>
-      <title>Contact Us - Asbury Park High School Hall of Fame</title>
+      <title></title>
     </Head>
-
+    <SiteHead 
+        title="Contact Us - Asbury Park High School Hall of Fame"
+        metaDescription="Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame"
+      />
     <Title />
     <ContactMembers members={contactMembers} />
     <ContactForm />
