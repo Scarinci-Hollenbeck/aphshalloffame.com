@@ -22,4 +22,6 @@
 }
 .white {
   color: #fff !important;
+  position: relative;
+  top: 20px;
 }

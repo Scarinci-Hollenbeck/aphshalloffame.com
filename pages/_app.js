@@ -12,8 +12,6 @@ import { CeremoniesProvider } from 'contexts/CeremoniesContext'
  *
  * */
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'animate.css/animate.min.css'
-import 'react-image-lightbox/style.css'
 import 'nprogress/nprogress.css'
 import 'styles/styles.css'
 
@@ -33,48 +31,6 @@ const SiteHead = () => (
       name="viewport"
     />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-    <link
-      rel="preload"
-      href="/fonts/OpenSans-Regular.ttf"
-      as="font"
-      crossOrigin=" "
-    />
-    <link
-      rel="preload"
-      href="/fonts/OpenSans-Italic.ttf"
-      as="font"
-      crossOrigin=" "
-    />
-    <link
-      rel="preload"
-      href="/fonts/OpenSans-Bold.ttf"
-      as="font"
-      crossOrigin=" "
-    />
-    <link
-      rel="preload"
-      href="/fonts/Merriweather-Regular.ttf"
-      as="font"
-      crossOrigin=" "
-    />
-    <link
-      rel="preload"
-      href="/fonts/Merriweather-Italic.ttf"
-      as="font"
-      crossOrigin=" "
-    />
-    <link
-      rel="preload"
-      href="/fonts/Merriweather-Bold.ttf"
-      as="font"
-      crossOrigin=" "
-    />
-    <link
-      rel="preload"
-      href="/fonts/Lucida-Calligra-Italic.ttf"
-      as="font"
-      crossOrigin=" "
-    />
   </Head>
 )
 

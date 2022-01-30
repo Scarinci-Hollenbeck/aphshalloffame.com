@@ -1,4 +1,5 @@
 import TextContent from 'components/shared/TextContent'
+import 'animate.css/animate.min.css'
 import styles from 'styles/Banner.module.css'
 
 /* eslint-disable max-len */
