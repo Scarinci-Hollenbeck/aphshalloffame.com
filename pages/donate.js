@@ -13,7 +13,8 @@ const Donate = ({ pageContent }) => (
       <title>Donate - Asbury Park High School Hall of Fame</title>
     </Head>
     <Title />
-    {pageContent && pageContent.map((page) => <ContentBlock {...page} key={page.id} />)}
+    {pageContent &&
+      pageContent.map((page) => <ContentBlock {...page} key={page.id} />)}
   </PageContainer>
 )
 
@@ -23,17 +24,14 @@ export const getStaticProps = async () => {
     useUnifiedTopology: true,
   })
   const db = connection.db(process.env.DB_NAME)
-  const reqPage = await db
-    .collection('donate')
-    .find({})
-    .toArray()
+  const reqPage = await db.collection('donate').find({}).toArray()
 
   const pageContent = reqPage.map(({ _id, btnUrl, btnLabel, content }) => ({
     id: _id,
     content,
     url: btnUrl,
-    label: btnLabel
-  }));
+    label: btnLabel,
+  }))
 
   return {
     props: {

@@ -1,7 +1,6 @@
 import TextContent from 'components/shared/TextContent'
 import styles from 'styles/Banner.module.css'
 
-
 /* eslint-disable max-len */
 const Latest = ({ content }) => (
   <>

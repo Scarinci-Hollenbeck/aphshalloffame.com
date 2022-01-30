@@ -111,4 +111,4 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export default Ceremony 
+export default Ceremony

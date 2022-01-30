@@ -9,11 +9,11 @@ const FormBlock = ({ btnLabel, btnUrl, formUrl, formTitle, formId }) => (
       </Button>
     </div>
     <iframe
-          title={formTitle}
-          src={formUrl}
-          className={eventPageStyles.invite}
-          id={formId}
-        />
+      title={formTitle}
+      src={formUrl}
+      className={eventPageStyles.invite}
+      id={formId}
+    />
   </Col>
 )
 

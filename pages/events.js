@@ -25,10 +25,7 @@ export const getStaticProps = async () => {
     useUnifiedTopology: true,
   })
   const db = connection.db(process.env.DB_NAME)
-  const reqPage = await db
-    .collection('events')
-    .find({})
-    .toArray()
+  const reqPage = await db.collection('events').find({}).toArray()
 
   return {
     props: {
