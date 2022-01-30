@@ -1,7 +1,6 @@
 /** Banner Image **/
 .banner {
-  background: url(/images/asbury-high-school-1250x526_wplohr.png) no-repeat
-    center center;
+  background: url(/images/homepage-banner.webp) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
