@@ -17,7 +17,7 @@ import 'react-image-lightbox/style.css'
 import 'nprogress/nprogress.css'
 import 'styles/styles.css'
 
-const Footer = dynamic(() => import('components/Footer'))
+const Footer = dynamic(() => import('components/shared/Footer'))
 
 /**
  * Bind nprogress loader to app

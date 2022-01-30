@@ -2,10 +2,10 @@ import dynamic from 'next/dynamic'
 import HomeContainer from 'layouts/HomeContainer'
 import { Row, Col } from 'react-bootstrap'
 import styles from 'styles/SubMenu.module.css'
+const { MongoClient } = require('mongodb')
+const TextContent = dynamic(() => import('components/shared/TextContent'))
 
-const Content = dynamic(() => import('components/MissionStatement/Content'))
-
-const MissionStatement = () => {
+const MissionStatement = ({ page }) => {
   return (
     <HomeContainer>
       <Row className="mx-2 mt-2 content">
@@ -14,12 +14,29 @@ const MissionStatement = () => {
             <h3 className={styles.membersTitle}>
               <strong>Mission Statement</strong>
             </h3>
-            <Content />
+            <TextContent content={page.missionStatement} />
           </div>
         </Col>
       </Row>
     </HomeContainer>
   )
+}
+
+export const getStaticProps = async () => {
+  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  const db = connection.db(process.env.DB_NAME)
+  const reqPage = await db
+    .collection('home')
+    .find({})
+    .toArray()
+  return {
+    props: {
+      page: JSON.parse(JSON.stringify(reqPage[0])),
+    },
+  }
 }
 
 export default MissionStatement

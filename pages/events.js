@@ -32,7 +32,6 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      // pageContent: 
       page: JSON.parse(JSON.stringify(reqPage[0])),
     },
   }
