@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
 import SiteHead from 'components/shared/SiteHead'
 import PageContainer from 'layouts/PageContainer'
-
 const { MongoClient } = require('mongodb')
 
 const ContentBlock = dynamic(() => import('components/Donate/ContentBlock'))

@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-danger */
 /* eslint-disable no-underscore-dangle */
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import PageContainer from 'layouts/PageContainer'

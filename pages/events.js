@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import PageContainer from 'layouts/PageContainer'
 import SiteHead from 'components/shared/SiteHead'
