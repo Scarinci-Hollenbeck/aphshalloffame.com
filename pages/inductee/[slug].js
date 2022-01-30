@@ -54,7 +54,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const { slug } = params
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
