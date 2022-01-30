@@ -1,8 +1,10 @@
 import { Col } from 'react-bootstrap'
 import DonateButton from 'components/Donate/DonateButton'
-const ContentBlock = ({ label, url, children }) => (
+import { createMarkup } from 'utils/helpers'
+
+const ContentBlock = ({ label, url, content }) => (
   <Col sm={12}>
-    {children}
+    <span dangerouslySetInnerHTML={createMarkup(content)} />
     <DonateButton label={label} url={url} />
   </Col>
 )

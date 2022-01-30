@@ -31,7 +31,7 @@ const Directory = ({ members }) => {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

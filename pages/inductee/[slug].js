@@ -39,7 +39,7 @@ const Profile = ({ member }) => {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -54,7 +54,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = ({ params }) => {
   const { slug } = params
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,

@@ -1,12 +1,12 @@
 import { Col, Button } from 'react-bootstrap'
-const Title = () => (
+const Title = ({ title, details}) => (
   <Col sm={12}>
     <h4 className="my-4 text-center">
       <strong>
-        APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020
+       {title}
       </strong>
       <small className="d-block w-100 mt-2">
-        The Ceremony dinner will be Thursday, October 14, 2021
+        {details}
       </small>
     </h4>
   </Col>

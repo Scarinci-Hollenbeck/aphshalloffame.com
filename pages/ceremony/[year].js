@@ -12,7 +12,7 @@ const LoadingSpinner = dynamic(() => import('components/LoadingSpinner'))
 const { MongoClient } = require('mongodb')
 const cloudinary = require('utils/cloudinary')
 
-export default function Ceremony({ ceremony, photos }) {
+const Ceremony = ({ ceremony, photos }) => {
   const router = useRouter()
 
   if (router.isFallback) {
@@ -42,7 +42,7 @@ export default function Ceremony({ ceremony, photos }) {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -56,7 +56,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   const { year } = params
 
   const request = await cloudinary.api
@@ -110,3 +110,5 @@ export async function getStaticProps({ params }) {
     },
   }
 }
+
+export default Ceremony 
