@@ -72,6 +72,7 @@ const MemberGrid = () => {
                 height={250}
                 alt={name}
                 layout="intrinsic"
+                priority={true}
               />
               <figcaption>
                 <Link href={encodeURI(`/inductee/${slug}`)}>

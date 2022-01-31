@@ -1,8 +1,8 @@
 import PageContainer from 'layouts/PageContainer'
 
 const Page500 = () => (
-  <PageContainer title="Sorry there is an internal error">
-    <p>Sorry, there is an issue with this site. We are looking into it and well have the site working properly soon.</p>
+  <PageContainer title="500: Sorry, there is an issue with your request">
+    <p className="m-4">Sorry, there is an issue with our  website. We are looking into the issue and we&apos;ll have the site working properly soon.</p>
   </PageContainer>
 );
 
