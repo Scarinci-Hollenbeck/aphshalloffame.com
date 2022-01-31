@@ -15,18 +15,14 @@ const Directory = ({ members }) => {
         metaDescription="Here is a list of all the distinguished members of Asbury Park High School Hall of Fame"
       />
 
-      <ul className="mt-4">
+      <ul className="m-4">
         {members.map((member) => (
           <MemberLink {...member} key={member._id} />
         ))}
       </ul>
       <style jsx>
         {`
-          @media(min-width: 992px) {
-            ul {
-              margin-left: 2em;
-            }
-          }
+          
           li:hover {
             cursor: pointer;
             text-decoration: underline;

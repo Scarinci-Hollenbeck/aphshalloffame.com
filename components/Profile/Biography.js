@@ -4,7 +4,7 @@ import memberStyles from 'styles/Biography.module.css'
 import { createMarkup } from 'utils/helpers'
 
 const Biography = ({ class: memberClass, inducted, biography, name }) => (
-  <Col sm={12} md={7} className="pt-4">
+  <Col sm={12} lg={7} className="pt-4">
     <div className="me4">
       <h3>
         <strong className={memberStyles.name}>{name}</strong>

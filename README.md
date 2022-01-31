@@ -4,4 +4,5 @@ This repository contains the code base for the website [https://aphshalloffame.c
 
 ## TODO
 
-- migrate images over to new cloudinary account
+- Fix arrows on ceremony pages
+- Fix up mobile

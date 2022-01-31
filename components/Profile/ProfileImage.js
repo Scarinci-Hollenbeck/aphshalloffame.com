@@ -1,15 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import { Col } from 'react-bootstrap'
 import memberStyles from 'styles/Biography.module.css'
-import { CLOUDINARY_BASE_URL } from 'utils/constants';
 
-const ProfileImage = ({ slug, name }) => (
-  <Col sm={12} md={5} className="pt-5">
+const ProfileImage = ({ image }) => (
+  <Col sm={12} lg={5} className="pt-5">
     <div className={memberStyles.profile}>
-      <img
-        src={`${CLOUDINARY_BASE_URL}${slug}.webp`}
-        alt={name}
-        style={{ maxWidth: '350px' }}
+      <Image
+        {...image}
+        layout="intrinsic"
       />
     </div>
   </Col>
