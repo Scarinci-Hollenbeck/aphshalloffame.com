@@ -32,6 +32,7 @@ const GallerySlider = ({ photos }) => {
             height={p.height}
             width={p.width}
             layout="intrinsic"
+            priority={true}
           />
         </div>
       ))}

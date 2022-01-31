@@ -7,7 +7,9 @@ const ProfileImage = ({ image }) => (
     <div className={memberStyles.profile}>
       <Image
         {...image}
+        alt={image.alt}
         layout="intrinsic"
+        priority={true}
       />
     </div>
   </Col>
