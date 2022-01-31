@@ -2,7 +2,7 @@ import Router from 'next/router'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import NProgress from 'nprogress'
-import SSRProvider from 'react-bootstrap/SSRProvider';
+import SSRProvider from 'react-bootstrap/SSRProvider'
 import SiteContainer from 'layouts/SiteContainer'
 import Header from 'components/Header'
 import { CeremoniesProvider } from 'contexts/CeremoniesContext'
@@ -49,6 +49,5 @@ export default function App({ Component, pageProps }) {
         </SiteContainer>
       </CeremoniesProvider>
     </SSRProvider>
-
   )
 }

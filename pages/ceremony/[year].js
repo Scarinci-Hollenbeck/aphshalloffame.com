@@ -10,7 +10,6 @@ const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'))
 const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'))
 const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'))
 
-
 const cloudinary = require('utils/cloudinary')
 const { MongoClient } = require('mongodb')
 
@@ -45,7 +44,7 @@ export const getStaticPaths = async () => {
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  });
+  })
   const db = connection.db(process.env.DB_NAME)
   const ceremonyYears = await db.collection('years').find({}).toArray()
 
@@ -81,7 +80,6 @@ export const getStaticProps = async ({ params }) => {
       return -1
     })
 
-
   /** fix the heights to be 350px on all photos */
   const croppedPhotos = photos.map((photo) => {
     const height = 500
@@ -100,7 +98,7 @@ export const getStaticProps = async ({ params }) => {
     photo.width = parseInt(calculateWidth.toFixed(0), 10)
     photo.height = height
     return photo
-  });
+  })
 
   return {
     props: {

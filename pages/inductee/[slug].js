@@ -27,13 +27,19 @@ const Profile = ({ member, profileImage }) => {
         title={`${member.name} - Asbury Park High School Hall of Fame`}
         metaDescription={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
       />
-      {Object.keys(profileImage).length > 0 && <ProfileImage image={profileImage} />}
+      {Object.keys(profileImage).length > 0 && (
+        <ProfileImage image={profileImage} />
+      )}
       <Biography {...member} />
     </PageContainer>
   )
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getServerSideProps = async ({ params, res }) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=300, stale-while-revalidate=59'
+  )
   const { slug } = params
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -46,9 +52,11 @@ export const getServerSideProps = async ({ params }) => {
     .toArray()
 
   const request = await cloudinary.search
-    .expression(member[0]?.slug).execute().then((res) => res.resources);
+    .expression(member[0]?.slug)
+    .execute()
+    .then((res) => res.resources)
 
-  let profileImage = {};
+  let profileImage = {}
 
   if (request.length > 0) {
     profileImage = {
@@ -58,7 +66,6 @@ export const getServerSideProps = async ({ params }) => {
       alt: request[0]?.filename,
     }
   }
-
 
   return {
     props: {

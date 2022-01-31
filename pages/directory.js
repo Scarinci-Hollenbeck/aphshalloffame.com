@@ -22,7 +22,6 @@ const Directory = ({ members }) => {
       </ul>
       <style jsx>
         {`
-          
           li:hover {
             cursor: pointer;
             text-decoration: underline;

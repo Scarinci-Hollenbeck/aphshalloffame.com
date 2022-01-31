@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 require('dotenv').config()
 const { MongoClient } = require('mongodb')
 
@@ -17,6 +18,11 @@ const getYears = async () => {
 }
 
 export default async (req, res) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=300, stale-while-revalidate=59'
+  )
+
   try {
     const years = await getYears()
 

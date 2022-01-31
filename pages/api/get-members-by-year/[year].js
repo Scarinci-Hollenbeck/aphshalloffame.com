@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 require('dotenv').config()
 const { MongoClient } = require('mongodb')
 
@@ -52,9 +53,13 @@ const getMembersByYear = async (year) => {
 }
 
 export default async (req, res) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=300, stale-while-revalidate=59'
+  )
+
   try {
     const { year } = req.query
-
     const records = await getMembersByYear(year)
 
     if (records.statusCode === 404) {
