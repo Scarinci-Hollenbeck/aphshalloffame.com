@@ -1,7 +1,7 @@
 const Footer = () => {
   const date = new Date()
   return (
-    <footer className="mt-3 ml-4">
+    <footer className="mt-3 ms-4">
       <span className="d-block w-100 my-0">
         <small>
           Asbury Park High School ©️

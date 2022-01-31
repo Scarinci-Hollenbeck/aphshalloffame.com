@@ -8,8 +8,9 @@ import useSWR from 'swr'
 import Button from 'react-bootstrap/Button'
 import styles from 'styles/MemberGallery.module.css'
 import figStyles from 'styles/Figures.module.css'
-import LoadingError from '../LoadingError'
-import LoadingSpinner from '../LoadingSpinner'
+import LoadingError from '../shared/LoadingError'
+import LoadingSpinner from '../shared/LoadingSpinner'
+import { CLOUDINARY_BASE_URL } from 'utils/constants'
 
 const MemberGrid = () => {
   const [year, setYear] = useState('2021')
@@ -37,7 +38,7 @@ const MemberGrid = () => {
             variant={
               y.year === year ? 'custom-primary' : 'outline-custom-primary'
             }
-            className="mb-2  mb-md-0 mr-3"
+            className="mb-2  mb-md-0 me-3"
             onClick={() => setYear(y.year)}
           >
             {y.year}
@@ -51,7 +52,7 @@ const MemberGrid = () => {
         </Button>
         <Button
           onClick={() => router.push('/directory')}
-          variant="outline-custom-primary mb-2  mb-md-0 ml-3"
+          variant="outline-custom-primary mb-2  mb-md-0 ms-3"
         >
           Directory
         </Button>
@@ -60,20 +61,20 @@ const MemberGrid = () => {
       {/** navigation end */}
       <div className={styles.container}>
         <div className={styles.imgGrid}>
-          {members.response.map((m) => (
-            <figure className={figStyles.memberFigure} key={m._id}>
+          {members.response.map(({ name, slug, inducted, _id }) => (
+            <figure className={figStyles.memberFigure} key={_id}>
               <Image
-                src={`/c_scale,h_200${m.image}`}
+                src={`${CLOUDINARY_BASE_URL}${slug}.webp`}
                 width={200}
                 height={250}
-                alt={m.name}
+                alt={name}
                 layout="intrinsic"
               />
               <figcaption>
-                <Link href={encodeURI(`/inductee/${m.slug}`)}>
+                <Link href={encodeURI(`/inductee/${slug}`)}>
                   <a className={styles.imgLink}>
-                    <h4>{m.name}</h4>
-                    <p>{`Inducted ${m.inducted}`}</p>
+                    <h4>{name}</h4>
+                    <p>{`Inducted ${inducted}`}</p>
                   </a>
                 </Link>
               </figcaption>

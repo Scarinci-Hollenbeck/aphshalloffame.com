@@ -22,6 +22,11 @@ const Directory = ({ members }) => {
       </ul>
       <style jsx>
         {`
+          @media(min-width: 992px) {
+            ul {
+              margin-left: 2em;
+            }
+          }
           li:hover {
             cursor: pointer;
             text-decoration: underline;

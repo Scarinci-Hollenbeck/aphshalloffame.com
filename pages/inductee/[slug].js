@@ -8,7 +8,7 @@ import SEOHead from 'components/shared/SEOHead'
 
 const { MongoClient } = require('mongodb')
 
-const LoadingSpinner = dynamic(() => import('components/LoadingSpinner'))
+const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'))
 const Biography = dynamic(() => import('components/Profile/Biography'))
 const ProfileImage = dynamic(() => import('components/Profile/ProfileImage'))
 
@@ -29,7 +29,7 @@ const Profile = ({ member }) => {
         title={`${member.name} - Asbury Park High School Hall of Fame`}
         metaDescription={`${member.name} graduated from Asbury Park High School in ${member.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member.inducted}.`}
       />
-      <ProfileImage image={member.image} name={member.name} />
+      <ProfileImage slug={member.slug} name={member.name} />
       <Biography {...member} />
     </PageContainer>
   )
