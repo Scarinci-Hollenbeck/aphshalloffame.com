@@ -3,7 +3,7 @@ import contactStyles from 'styles/Contact.module.css'
 
 const ContactMembers = ({ members }) => (
   <Col sm={12}>
-    <div className="pr-4">
+    <div className="pe-4">
       <p className="mb-3">
         <strong>Either email a member</strong>
       </p>

@@ -14,7 +14,7 @@ const Latest = ({ content }) => (
         </h3>
       </div>
     </div>
-    <TextContent content={content} />\
+    <TextContent content={content} />
   </>
 )
 

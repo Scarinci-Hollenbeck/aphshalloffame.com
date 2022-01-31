@@ -5,7 +5,7 @@ import { createMarkup } from 'utils/helpers'
 
 const Biography = ({ class: memberClass, inducted, biography, name }) => (
   <Col sm={12} md={7} className="pt-4">
-    <div className="mr-4">
+    <div className="me4">
       <h3>
         <strong className={memberStyles.name}>{name}</strong>
       </h3>

@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import Arrow from 'components/Ceremony/Arrow'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { CLOUDINARY_BASE_URL } from 'utils/constants'
 const GallerySlider = ({ photos }) => {
   const settings = {
     dots: false,

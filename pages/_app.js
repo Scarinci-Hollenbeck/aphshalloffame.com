@@ -2,6 +2,7 @@ import Router from 'next/router'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import NProgress from 'nprogress'
+import SSRProvider from 'react-bootstrap/SSRProvider';
 import SiteContainer from 'layouts/SiteContainer'
 import Header from 'components/Header'
 import { CeremoniesProvider } from 'contexts/CeremoniesContext'
@@ -36,15 +37,18 @@ const SiteHead = () => (
 
 export default function App({ Component, pageProps }) {
   return (
-    <CeremoniesProvider>
-      <SiteHead />
-      <SiteContainer>
-        <Header />
-        <main className="w-100">
-          <Component {...pageProps} />
-        </main>
-        <Footer />
-      </SiteContainer>
-    </CeremoniesProvider>
+    <SSRProvider>
+      <CeremoniesProvider>
+        <SiteHead />
+        <SiteContainer>
+          <Header />
+          <main className="w-100">
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </SiteContainer>
+      </CeremoniesProvider>
+    </SSRProvider>
+
   )
 }

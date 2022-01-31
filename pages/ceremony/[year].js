@@ -8,7 +8,7 @@ import SEOHead from 'components/shared/SEOHead'
 
 const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'))
 const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'))
-const LoadingSpinner = dynamic(() => import('components/LoadingSpinner'))
+const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'))
 
 const { MongoClient } = require('mongodb')
 const cloudinary = require('utils/cloudinary')
@@ -56,19 +56,18 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const { year } = params
-
   const request = await cloudinary.api
     .resources({
       resource_type: 'image',
       type: 'upload',
-      prefix: `asburyparkhighschoolhalloffame/Ceremony/${year}`,
+      prefix: `site/ceremonies`,
       max_results: 500,
       context: true,
     })
     .then((res) => res.resources)
-
   /** Serialize the response */
   const photos = request
+    .filter((p) => p.public_id.includes(year))
     .map((photo) => ({
       altText: photo.public_id,
       height: photo.height,
@@ -80,6 +79,7 @@ export const getStaticProps = async ({ params }) => {
       }
       return -1
     })
+
 
   /** fix the heights to be 350px on all photos */
   const croppedPhotos = photos.map((photo) => {
@@ -99,7 +99,7 @@ export const getStaticProps = async ({ params }) => {
     photo.width = parseInt(calculateWidth.toFixed(0), 10)
     photo.height = height
     return photo
-  })
+  });
 
   return {
     props: {

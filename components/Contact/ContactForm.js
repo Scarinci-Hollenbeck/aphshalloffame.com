@@ -15,7 +15,7 @@ const ContactForm = () => {
         </p>
         <form
           name="contact"
-          className="pl-2 kwes-form"
+          className="ps-2 kwes-form"
           action="https://kwesforms.com/api/foreign/forms/Q4NwgjLenYKwnAopWi4R"
         >
           <Row className="mb-3">
