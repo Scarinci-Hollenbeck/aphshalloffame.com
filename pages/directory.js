@@ -39,7 +39,7 @@ export const getStaticProps = async () => {
   })
   const db = connection.db(process.env.DB_NAME)
   const members = await db.collection('members').find({}).toArray()
-
+  connection.close()
   return {
     props: {
       members: JSON.parse(JSON.stringify(members)),

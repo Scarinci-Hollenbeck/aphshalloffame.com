@@ -28,6 +28,9 @@ const MemberGrid = () => {
   if (memberErr || yearsErr) return <LoadingError />
   if (!members || !years) return <LoadingSpinner />
 
+  console.log(members);
+  console.log(CLOUDINARY_BASE_URL)
+
   return (
     <>
       {/** navigation begin */}
@@ -61,10 +64,10 @@ const MemberGrid = () => {
       {/** navigation end */}
       <div className={styles.container}>
         <div className={styles.imgGrid}>
-          {members.response.map(({ name, slug, inducted, _id }) => (
+          {members?.response.map(({ name, slug, inducted, _id }) => (
             <figure className={figStyles.memberFigure} key={_id}>
               <Image
-                src={`${CLOUDINARY_BASE_URL}${slug}.webp`}
+                src={`${CLOUDINARY_BASE_URL}${slug}.png`}
                 width={200}
                 height={250}
                 alt={name}

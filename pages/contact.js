@@ -32,7 +32,7 @@ export const getStaticProps = async () => {
     .collection('contactMembers')
     .find({})
     .toArray()
-
+    connection.close()
   return {
     props: {
       contactMembers: JSON.parse(JSON.stringify(contactMembers)),

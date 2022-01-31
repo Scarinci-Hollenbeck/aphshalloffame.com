@@ -32,7 +32,7 @@ export const getStaticProps = async () => {
     url: btnUrl,
     label: btnLabel,
   }))
-
+  connection.close()
   return {
     props: {
       pageContent: JSON.parse(JSON.stringify(pageContent)),

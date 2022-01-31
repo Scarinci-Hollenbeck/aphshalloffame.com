@@ -35,11 +35,21 @@ const Profile = ({ member, profileImage }) => {
   )
 }
 
-export const getServerSideProps = async ({ params, res }) => {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=300, stale-while-revalidate=59'
-  )
+export const getStaticPaths = async () => {
+  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  const db = connection.db(process.env.DB_NAME)
+  const allMembers = await db.collection('members').find({}).toArray()
+  connection.close()
+  return {
+    paths: allMembers.map(({ slug }) => encodeURI(`/inductee/${slug}`)) || [],
+    fallback: 'blocking',
+  }
+}
+
+export const getStaticProps = async ({ params }) => {
   const { slug } = params
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -66,7 +76,7 @@ export const getServerSideProps = async ({ params, res }) => {
       alt: request[0]?.filename,
     }
   }
-
+  connection.close()
   return {
     props: {
       member: JSON.parse(JSON.stringify(member[0])),

@@ -34,6 +34,7 @@ export const getStaticProps = async () => {
   })
   const db = connection.db(process.env.DB_NAME)
   const reqPage = await db.collection('home').find({}).toArray()
+  connection.close()
   return {
     props: {
       page: JSON.parse(JSON.stringify(reqPage[0])),

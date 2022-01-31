@@ -40,6 +40,7 @@ const getMembersByYear = async (year) => {
       .sort({ inducted: -1, lastName: 1 })
       .toArray()
 
+    connection.close()
     return {
       statusCode: 200,
       response,
@@ -53,11 +54,6 @@ const getMembersByYear = async (year) => {
 }
 
 export default async (req, res) => {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=300, stale-while-revalidate=59'
-  )
-
   try {
     const { year } = req.query
     const records = await getMembersByYear(year)
