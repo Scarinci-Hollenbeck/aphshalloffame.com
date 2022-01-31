@@ -1,15 +1,14 @@
 import { useRouter } from 'next/router'
-import { buildUrl } from 'cloudinary-build-url'
 import dynamic from 'next/dynamic'
 import PageContainer from 'layouts/PageContainer'
 import SEOHead from 'components/shared/SEOHead'
 
-const { MongoClient } = require('mongodb')
-const cloudinary = require('utils/cloudinary')
-
 const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'))
 const Biography = dynamic(() => import('components/Profile/Biography'))
 const ProfileImage = dynamic(() => import('components/Profile/ProfileImage'))
+
+const cloudinary = require('utils/cloudinary')
+const { MongoClient } = require('mongodb')
 
 const Profile = ({ member, profileImage }) => {
   const router = useRouter()
@@ -34,22 +33,7 @@ const Profile = ({ member, profileImage }) => {
   )
 }
 
-export const getStaticPaths = async () => {
-  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  const db = connection.db(process.env.DB_NAME)
-  const members = await db.collection('members').find({}).toArray()
-  const membersSlug = members.map(({ slug }) => slug)
-
-  return {
-    paths: membersSlug.map((slug) => encodeURI(`/inductee/${slug}`)) || [],
-    fallback: 'blocking',
-  }
-}
-
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const { slug } = params
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,

@@ -6,6 +6,7 @@ import Title from 'components/Contact/Title'
 import ContactMembers from 'components/Contact/ContactMembers'
 import PageContainer from 'layouts/PageContainer'
 
+
 const { MongoClient } = require('mongodb')
 
 const ContactForm = dynamic(() => import('components/Contact/ContactForm'))
@@ -26,7 +27,7 @@ export const getStaticProps = async () => {
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
+  });
   const db = connection.db(process.env.DB_NAME)
   const contactMembers = await db
     .collection('contactMembers')

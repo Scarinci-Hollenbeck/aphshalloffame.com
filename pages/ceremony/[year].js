@@ -10,8 +10,9 @@ const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'))
 const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'))
 const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'))
 
-const { MongoClient } = require('mongodb')
+
 const cloudinary = require('utils/cloudinary')
+const { MongoClient } = require('mongodb')
 
 const Ceremony = ({ ceremony, photos }) => {
   const router = useRouter()
@@ -44,7 +45,7 @@ export const getStaticPaths = async () => {
   const connection = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
+  });
   const db = connection.db(process.env.DB_NAME)
   const ceremonyYears = await db.collection('years').find({}).toArray()
 
