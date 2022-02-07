@@ -6,13 +6,12 @@ import { fetchImageForDownload } from 'utils/helpers'
 
 const LightBoxView = ({ image, fileName }) => {
   const [open, setOpen] = useState(false)
-  const lightBoxLink = `https://res.cloudinary.com/tumulty-web-services/image/upload/${image}`
 
   function DownloadButton() {
     return (
       <button
         type="button"
-        onClick={() => fetchImageForDownload(lightBoxLink, fileName)}
+        onClick={() => fetchImageForDownload(image, fileName)}
         className={`${styles.removeBtnStyles} ${styles.zoomInLink} ${styles.white}`}
       >
         Download
@@ -24,7 +23,7 @@ const LightBoxView = ({ image, fileName }) => {
     <>
       <button
         type="button"
-        onClick={() => fetchImageForDownload(lightBoxLink, fileName)}
+        onClick={() => fetchImageForDownload(image, fileName)}
         className={`${styles.removeBtnStyles} ${styles.zoomInLink}`}
       >
         Download
@@ -38,7 +37,7 @@ const LightBoxView = ({ image, fileName }) => {
       </button>
       {open && (
         <Lightbox
-          mainSrc={lightBoxLink}
+          mainSrc={image}
           onCloseRequest={() => setOpen(false)}
           toolbarButtons={[<DownloadButton key="download-button" />]}
         />

@@ -28,9 +28,6 @@ const MemberGrid = () => {
   if (memberErr || yearsErr) return <LoadingError />
   if (!members || !years) return <LoadingSpinner />
 
-  console.log(members);
-  console.log(CLOUDINARY_BASE_URL)
-
   return (
     <>
       {/** navigation begin */}

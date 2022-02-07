@@ -11,15 +11,15 @@
 .zoomInLink {
   display: inline-block;
   margin-bottom: 1.1em;
-  margin-right: 10px;
+  margin-right: 16px;
   color: purple;
-  text-decoration: underline;
   font-size: 1rem;
 }
 .zoomInLink:hover {
-  font-weight: bold;
   cursor: pointer;
+  text-decoration: underline;
 }
+
 .white {
   color: #fff !important;
   position: relative;

@@ -82,7 +82,7 @@ export const getStaticProps = async ({ params }) => {
 
   /** fix the heights to be 350px on all photos */
   const croppedPhotos = photos.map((photo) => {
-    const height = 500
+    const height = 400
     const imgCropped = cloudinary.image(photo.altText, {
       height,
       crop: 'scale',
@@ -92,7 +92,7 @@ export const getStaticProps = async ({ params }) => {
     photo.image = imgCropped
       .match(/'([^']+)'/)[1]
       .replace(
-        'http://res.cloudinary.com/tumulty-web-services/image/upload/',
+        'https://res.cloudinary.com/deamre9fk/site/Ceremony/',
         ''
       )
     photo.width = parseInt(calculateWidth.toFixed(0), 10)
