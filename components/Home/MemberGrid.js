@@ -1,16 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 import useSWR from 'swr'
 import Button from 'react-bootstrap/Button'
 import styles from 'styles/MemberGallery.module.css'
-import figStyles from 'styles/Figures.module.css'
 import LoadingError from '../shared/LoadingError'
 import LoadingSpinner from '../shared/LoadingSpinner'
-import { CLOUDINARY_BASE_URL } from 'utils/constants'
+
+const MemberImage = dynamic(() => import('./MemberImage'));
 
 const MemberGrid = () => {
   const [year, setYear] = useState('2021')
@@ -61,26 +60,7 @@ const MemberGrid = () => {
       {/** navigation end */}
       <div className={styles.container}>
         <div className={styles.imgGrid}>
-          {members?.response.map(({ name, slug, inducted, _id }) => (
-            <figure className={figStyles.memberFigure} key={_id}>
-              <Image
-                src={`${CLOUDINARY_BASE_URL}${slug}.png`}
-                width={200}
-                height={250}
-                alt={name}
-                layout="intrinsic"
-                priority={true}
-              />
-              <figcaption>
-                <Link href={encodeURI(`/inductee/${slug}`)}>
-                  <a className={styles.imgLink}>
-                    <h4>{name}</h4>
-                    <p>{`Inducted ${inducted}`}</p>
-                  </a>
-                </Link>
-              </figcaption>
-            </figure>
-          ))}
+          {members?.response.map(({ name, slug, inducted, _id }) => <MemberImage name={name} slug={slug} inducted={inducted} key={_id}/>)}
         </div>
       </div>
     </>
