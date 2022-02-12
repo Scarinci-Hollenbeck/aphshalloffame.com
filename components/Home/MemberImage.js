@@ -5,17 +5,17 @@ import figStyles from 'styles/Figures.module.css'
 import styles from 'styles/MemberGallery.module.css'
 
 const MemberImage = ({ name, slug, inducted }) => {
-  const imgBaseUrl = genCloudinaryUrl('/c_scale,w_200/');
+  const imgBaseUrl = genCloudinaryUrl('/c_scale,h_191/');
   const imgExtension = `${slug}.webp`;
   
   return (
     <figure className={figStyles.memberFigure}>
       <Image
         src={`${imgBaseUrl}${imgExtension}`}
-        width={200}
-        height={250}
+        width={153}
+        height={191}
         alt={name}
-        layout="intrinsic"
+        layout="fixed"
         priority={true}
       />
       <figcaption>

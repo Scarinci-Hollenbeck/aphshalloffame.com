@@ -6,10 +6,10 @@ import dynamic from 'next/dynamic'
 import useSWR from 'swr'
 import Button from 'react-bootstrap/Button'
 import styles from 'styles/MemberGallery.module.css'
-import LoadingError from '../shared/LoadingError'
-import LoadingSpinner from '../shared/LoadingSpinner'
 
 const MemberImage = dynamic(() => import('./MemberImage'));
+const LoadingError = dynamic(() => import('../shared/LoadingError'));
+const LoadingSpinner = dynamic(() => import('../shared/LoadingSpinner'));
 
 const MemberGrid = () => {
   const [year, setYear] = useState('2021')
