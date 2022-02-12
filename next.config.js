@@ -1,7 +1,8 @@
 module.exports = {
   images: {
     domains: ['res.cloudinary.com'],
-    minimumCacheTTL: 18000,
-    deviceSizes: [576, 768, 992, 1200, 1400],
+    minimumCacheTTL: 31536000,
+    deviceSizes: [575, 767, 991, 1199, 1435, 1599, 1919, 2559],
+    imageSizes: [320, 480, 640, 768, 924, 1180, 1436],
   },
 }
