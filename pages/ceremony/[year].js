@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import React, { Suspense } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import Col from 'react-bootstrap/Col'
@@ -6,9 +6,10 @@ import pageStyle from 'styles/Ceremony.module.css'
 import PageContainer from 'layouts/PageContainer'
 import SEOHead from 'components/shared/SEOHead'
 
-const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'))
-const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'))
-const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'))
+const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'), {ssr:false})
+const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'), { ssr: false })
+const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'), { ssr: false })
+
 
 const cloudinary = require('utils/cloudinary')
 const { MongoClient } = require('mongodb')
@@ -68,7 +69,7 @@ export const getStaticProps = async ({ params }) => {
   /** Serialize the response */
   const photos = request
     .filter(({ public_id }) => public_id.includes(year))
-    .map(({public_id, height, width, secure_url }) => ({
+    .map(({ public_id, height, width, secure_url }) => ({
       altText: public_id,
       height,
       width,
