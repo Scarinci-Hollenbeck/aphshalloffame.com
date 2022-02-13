@@ -7,7 +7,7 @@ import useSWR from 'swr'
 import Button from 'react-bootstrap/Button'
 import styles from 'styles/MemberGallery.module.css'
 
-const MemberImage = dynamic(() => import('./MemberImage'));
+const MemberImage = dynamic(() => import('./MemberImage'), { ssr: false });
 const LoadingError = dynamic(() => import('../shared/LoadingError'), { ssr: false });
 const LoadingSpinner = dynamic(() => import('../shared/LoadingSpinner'), { ssr: false });
 
