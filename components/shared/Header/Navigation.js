@@ -6,8 +6,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { CeremoniesContext } from 'contexts/CeremoniesContext'
 import styles from 'styles/Navigation.module.css'
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+import { fetcher } from 'utils/helpers'
 
 const Navigation = () => {
   const router = useRouter()
@@ -27,14 +26,14 @@ const Navigation = () => {
         .map(({ year }) => year)
       setCeremonies(years)
     }
-  }, [data, error])
+  }, [data, error, setCeremonies])
 
   useEffect(() => {
     if (preSetActive) {
       setActive(router.asPath)
       setPreSetActive(false)
     }
-  })
+  },[router.asPath, setActive, setPreSetActive, preSetActive])
 
   return (
     <Navbar expand="lg">

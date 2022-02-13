@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 import useSWR from 'swr'
 import Button from 'react-bootstrap/Button'
 import styles from 'styles/MemberGallery.module.css'
+import { fetcher } from 'utils/helpers'
 
 const MemberImage = dynamic(() => import('./MemberImage'), { ssr: false });
 const LoadingError = dynamic(() => import('../shared/LoadingError'), { ssr: false });
@@ -15,14 +16,8 @@ const MemberGrid = () => {
   const [year, setYear] = useState('2021')
   const router = useRouter()
 
-  const { data: members, error: memberErr } = useSWR(
-    `/api/get-members-by-year/${year}`,
-    (url) => fetch(url).then((r) => r.json())
-  )
-
-  const { data: years, error: yearsErr } = useSWR('/api/get-years', (url) =>
-    fetch(url).then((r) => r.json())
-  )
+  const { data: members, error: memberErr } = useSWR(`/api/get-members-by-year/${year}`, fetcher)
+  const { data: years, error: yearsErr } = useSWR('/api/get-years', fetcher)
 
   if (memberErr || yearsErr) return <LoadingError />
   if (!members || !years) return <LoadingSpinner />

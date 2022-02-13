@@ -1,41 +1,26 @@
 import Image from 'next/image'
-import Slider from 'react-slick'
-import Arrow from 'components/Ceremony/Arrow'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { Carousel } from 'react-bootstrap'
+import { aspectRatioConversion } from 'utils/helpers'
+
 const GallerySlider = ({ photos }) => {
-  const settings = {
-    dots: false,
-    fade: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    autoplay: true,
-    speed: 2000,
-    cssEase: 'linear',
-    nextArrow: <Arrow />,
-    prevArrow: <Arrow />,
-  }
   return (
-    <Slider {...settings}>
-      {photos.map((p) => (
-        <div
-          key={p.altText}
-          className="mx-auto d-block text-center"
-          style={{ height: '500px' }}
-        >
-          <Image
-            src={p.image}
-            alt={p.altText}
-            height={p.height}
-            width={p.width}
-            layout="intrinsic"
-            priority={true}
-          />
-        </div>
-      ))}
-    </Slider>
+    <div className="mx-auto w-100 text-center my-3 my-lg-5">
+      <Carousel fade variant="dark" indicators={false}>
+        {photos.map(({ altText, src }) => (
+          <Carousel.Item key={altText}>
+            <div style={{ minHeight: '60vh', width: "100%", position: 'relative'}}>
+            <Image
+              src={src}
+              alt={altText}
+              layout="fill"
+              priority={true}
+              objectFit="contain"
+            />
+            </div>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
   )
 }
 

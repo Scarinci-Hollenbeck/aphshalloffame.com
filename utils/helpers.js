@@ -20,3 +20,14 @@ export const fetchImageForDownload = (imageUrl, fileName) =>
 export function printDoc(doc) {
   window.open(doc, 'PRINT', 'height=2000,width=1000')
 }
+
+export const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+export const aspectRatioConversion = (width, height) => {
+  const aspectRatio = width / height;
+
+  return {
+    width: height * aspectRatio,
+    height
+  }
+}

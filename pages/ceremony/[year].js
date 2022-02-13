@@ -67,11 +67,12 @@ export const getStaticProps = async ({ params }) => {
     .then((res) => res.resources)
   /** Serialize the response */
   const photos = request
-    .filter((p) => p.public_id.includes(year))
-    .map((photo) => ({
-      altText: photo.public_id,
-      height: photo.height,
-      width: photo.width,
+    .filter(({ public_id }) => public_id.includes(year))
+    .map(({public_id, height, width, secure_url }) => ({
+      altText: public_id,
+      height,
+      width,
+      src: secure_url
     }))
     .sort((a, b) => {
       if (a.height < a.width > (b.height < b.width)) {
@@ -80,30 +81,13 @@ export const getStaticProps = async ({ params }) => {
       return -1
     })
 
-  /** fix the heights to be 350px on all photos */
-  const croppedPhotos = photos.map((photo) => {
-    const height = 400
-    const imgCropped = cloudinary.image(photo.altText, {
-      height,
-      crop: 'scale',
-    })
-    const calculateWidth = height / (photo.height / photo.width)
 
-    photo.image = imgCropped
-      .match(/'([^']+)'/)[1]
-      .replace(
-        'https://res.cloudinary.com/deamre9fk/site/Ceremony/',
-        ''
-      )
-    photo.width = parseInt(calculateWidth.toFixed(0), 10)
-    photo.height = height
-    return photo
-  })
+  console.log(photos);
 
   return {
     props: {
       ceremony: year,
-      photos: croppedPhotos,
+      photos,
     },
   }
 }

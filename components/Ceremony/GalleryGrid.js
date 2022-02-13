@@ -8,16 +8,16 @@ const LightBoxView = dynamic(() => import('./LightBoxView'), { ssr: false })
 const GalleryGrid = ({ slides, year }) => (
   <div className={styles.gallery}>
     {slides.length > 0 &&
-      slides.map((slide, index) => (
-        <div key={slide.altText} className={styles.galleryImage}>
+      slides.map(({ altText, src, height, width }, index) => (
+        <div key={altText} className={styles.galleryImage}>
           <Image
-            src={slide.image}
-            alt={slide.altText}
-            height={slide.height}
-            width={slide.width}
+            src={src}
+            alt={altText}
+            height={height}
+            width={width}
           />
           <LightBoxView
-            image={slide.image}
+            image={src}
             fileName={`ceremony-${year}-photo-${index}.png`}
           />
         </div>

@@ -4,7 +4,7 @@ import Head from 'next/head'
 import NProgress from 'nprogress'
 import SSRProvider from 'react-bootstrap/SSRProvider'
 import SiteContainer from 'layouts/SiteContainer'
-import Header from 'components/Header'
+import Header from 'components/shared/Header'
 import { CeremoniesProvider } from 'contexts/CeremoniesContext'
 
 /**

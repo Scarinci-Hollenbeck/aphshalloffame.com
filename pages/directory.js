@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import useSWR from 'swr'
 import PageContainer from 'layouts/PageContainer'
 import SEOHead from 'components/shared/SEOHead'
+import { fetcher } from 'utils/helpers'
 
 const MemberLink = dynamic(() => import('components/Directory/MemberLink'), { ssr: false })
 const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'), { ssr: false })
@@ -11,9 +12,7 @@ const LoadingError = dynamic(() => import('components/shared/LoadingError'), { s
 const Directory = () => {
   const [members, setMembers] = useState([])
 
-  const { data, error } = useSWR(`/api/get-members-by-year/all`, (url) =>
-    fetch(url).then((r) => r.json())
-  )
+  const { data, error } = useSWR(`/api/get-members-by-year/all`, fetcher)
 
   useEffect(() => {
     if (data?.response) {
