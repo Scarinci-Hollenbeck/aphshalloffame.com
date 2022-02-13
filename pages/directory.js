@@ -4,9 +4,9 @@ import useSWR from 'swr'
 import PageContainer from 'layouts/PageContainer'
 import SEOHead from 'components/shared/SEOHead'
 
-const MemberLink = dynamic(() => import('components/Directory/MemberLink'))
-const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'))
-const LoadingError = dynamic(() => import('components/shared/LoadingError'))
+const MemberLink = dynamic(() => import('components/Directory/MemberLink'), { ssr: false })
+const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'), { ssr: false })
+const LoadingError = dynamic(() => import('components/shared/LoadingError'), { ssr: false })
 
 const Directory = () => {
   const [members, setMembers] = useState([])

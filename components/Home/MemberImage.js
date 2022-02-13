@@ -5,7 +5,7 @@ import figStyles from 'styles/Figures.module.css'
 import styles from 'styles/MemberGallery.module.css'
 
 const MemberImage = ({ name, slug, inducted }) => {
-  const imgBaseUrl = genCloudinaryUrl('/c_scale,h_1/');
+  const imgBaseUrl = genCloudinaryUrl('/c_scale,h_191/');
   const imgExtension = `${slug}.webp`;
   
   return (

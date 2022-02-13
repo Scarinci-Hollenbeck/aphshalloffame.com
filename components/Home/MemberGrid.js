@@ -8,8 +8,8 @@ import Button from 'react-bootstrap/Button'
 import styles from 'styles/MemberGallery.module.css'
 
 const MemberImage = dynamic(() => import('./MemberImage'));
-const LoadingError = dynamic(() => import('../shared/LoadingError'));
-const LoadingSpinner = dynamic(() => import('../shared/LoadingSpinner'));
+const LoadingError = dynamic(() => import('../shared/LoadingError'), { ssr: false });
+const LoadingSpinner = dynamic(() => import('../shared/LoadingSpinner'), { ssr: false });
 
 const MemberGrid = () => {
   const [year, setYear] = useState('2021')

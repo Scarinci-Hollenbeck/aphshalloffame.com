@@ -3,7 +3,8 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import styles from 'styles/GalleryGrid.module.css'
 
-const LightBoxView = dynamic(() => import('./LightBoxView'))
+const LightBoxView = dynamic(() => import('./LightBoxView'), { ssr: false })
+
 const GalleryGrid = ({ slides, year }) => (
   <div className={styles.gallery}>
     {slides.length > 0 &&

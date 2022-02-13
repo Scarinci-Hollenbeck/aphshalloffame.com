@@ -15,7 +15,8 @@ const getMembersByYear = async (year) => {
       .find({})
       .sort({ inducted: -1, lastName: 1 })
       .toArray()
-
+      
+    connection.close()
     return {
       statusCode: 200,
       response,
@@ -28,6 +29,7 @@ const getMembersByYear = async (year) => {
       .sort({ inducted: -1, lastName: 1 })
       .toArray()
 
+    connection.close()
     return {
       statusCode: 200,
       response,
@@ -47,6 +49,7 @@ const getMembersByYear = async (year) => {
     }
   }
 
+  connection.close()
   return {
     statusCode: 404,
     response: [],
