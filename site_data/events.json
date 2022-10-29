@@ -1,0 +1,25 @@
+{
+	"_id": {
+		"$oid": "61f5e18979e187836a1b0a03"
+	},
+	"title": "APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020",
+	"details": "The Ceremony dinner will be Thursday, October 14, 2021",
+	"forms": [
+		{
+			"id": "",
+			"btnLabel": "Print Reservation",
+			"btnUrl": "/docs/2020CeremonyInvitation.pdf",
+			"formUrl": "https://docs.google.com/document/d/e/2PACX-1vRUZqa2vluFQObv5fFC9UWnB7l4gs54O49KLRNu3DOZtZ23_x5VVyJ8ApI-z5neIA/pub?embedded=true",
+			"formTitle": "Reservation - Asbury Park High School Distinguishe Alumni Hall of Fame Induction Ceremony 2020",
+			"formId": "invitation-2020"
+		},
+		{
+			"id": "",
+			"btnLabel": "Print Advertise Form",
+			"btnUrl": "/docs/2020AdvertiseCeremony.pdf",
+			"formUrl": "https://docs.google.com/document/d/e/2PACX-1vQQDOX6uv9Ff462FqLZ-WgBWySmABEi6UnYH6VeVV6yrC5m9WFPa2VOPtTRg0j7YQ/pub?embedded=true",
+			"formTitle": "Advertise - Asbury Park High School Distinguished Alumni Hall of Fame Induction Ceremony 2020",
+			"formId": "advertise-2020"
+		}
+	]
+}

@@ -5,14 +5,21 @@ import Col from 'react-bootstrap/Col'
 import pageStyle from 'styles/Ceremony.module.css'
 import PageContainer from 'layouts/PageContainer'
 import SEOHead from 'components/shared/SEOHead'
+import ceremonies from '../../db/ceremonies.json'
 
-const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'), {ssr:false})
-const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'), { ssr: false })
-const LoadingSpinner = dynamic(() => import('components/shared/LoadingSpinner'), { ssr: false })
-
+const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'), {
+  ssr: false,
+})
+const GallerySlider = dynamic(
+  () => import('components/Ceremony/GallerySlider'),
+  { ssr: false }
+)
+const LoadingSpinner = dynamic(
+  () => import('components/shared/LoadingSpinner'),
+  { ssr: false }
+)
 
 const cloudinary = require('utils/cloudinary')
-const { MongoClient } = require('mongodb')
 
 const Ceremony = ({ ceremony, photos }) => {
   const router = useRouter()
@@ -31,9 +38,9 @@ const Ceremony = ({ ceremony, photos }) => {
         title={`Asbury Park High School Hall of Fame - ${ceremony} Ceremony`}
         metaDescription={`Photos from the Asbury Park High School Hall of Fame ${ceremony} induction ceremony.`}
       />
-      <Col sm={12}>
+      {/* <Col sm={12}>
         <GallerySlider photos={photos} />
-      </Col>
+      </Col> */}
       <Col sm={12} className={pageStyle.borderTop}>
         <GalleryGrid year={ceremony} slides={photos} />
       </Col>
@@ -42,15 +49,10 @@ const Ceremony = ({ ceremony, photos }) => {
 }
 
 export const getStaticPaths = async () => {
-  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  const db = connection.db(process.env.DB_NAME)
-  const ceremonyYears = await db.collection('years').find({}).toArray()
-
   return {
-    paths: ceremonyYears.map((year) => encodeURI(`/ceremony/${year}`)) || [],
+    paths:
+      ceremonies?.map(({ ceremony }) => encodeURI(`/ceremony/${ceremony}`)) ||
+      [],
     fallback: 'blocking',
   }
 }
@@ -73,7 +75,7 @@ export const getStaticProps = async ({ params }) => {
       altText: public_id,
       height,
       width,
-      src: secure_url
+      src: secure_url,
     }))
     .sort((a, b) => {
       if (a.height < a.width > (b.height < b.width)) {
@@ -82,13 +84,12 @@ export const getStaticProps = async ({ params }) => {
       return -1
     })
 
-
-  console.log(photos);
+  console.log(photos)
 
   return {
     props: {
       ceremony: year,
-      photos,
+      photos: photos || null,
     },
   }
 }

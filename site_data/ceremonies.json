@@ -1,0 +1,793 @@
+{
+	"_id": {
+		"$oid": "5fc33ef5b49698881a887995"
+	},
+	"ceremony": "2005",
+	"photos": [
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a887996"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "1"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/1_mcj1wk.jpg",
+			"alt": "Ronald Casey & Stanley Smith",
+			"width": "307",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a887997"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "2"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/2_tqzn5s.jpg",
+			"alt": "Carl Williams & Charles Stanbury",
+			"width": "317",
+			"height": "472"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a887998"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "9"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/3_us7yjn.jpg",
+			"alt": "Lorraine Nonnenberg & Susan Einhorn Whyman",
+			"width": "477",
+			"height": "311"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a887999"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "3"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/4_d7ej29.jpg",
+			"alt": "Janice Davis Keener & Dr. Charles Faulk",
+			"width": "317",
+			"height": "470"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a88799a"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "10"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/5_dyaglj.jpg",
+			"alt": "2005 Hall of Fame Inductees",
+			"width": "756",
+			"height": "430"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a88799b"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "4"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/6_wmduus.jpg",
+			"alt": "Senator John Russo & Lorraine Nonnenberg",
+			"width": "317",
+			"height": "470"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a88799c"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "11"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/7_bwxpti.jpg",
+			"alt": "Thomas DeSeno & the children of Inductee the late Dr. Sebastian Vaccaro: Sam, Rosemary, & Henry Vaccaro",
+			"width": "471",
+			"height": "317"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a88799d"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "5"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/8_gvyr68.jpg",
+			"alt": "Thomas DeSeno & Marlene Howard; widow of Inductee the late Congressman James J. Howard",
+			"width": "317",
+			"height": "470"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a88799e"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "12"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/9_kbpso6.jpg",
+			"alt": "The Crystal Ballroom @ The Berkeley Carteret Hotel in Asbury Park",
+			"width": "588",
+			"height": "397"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a88799f"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "15"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/10_kfx61r.jpg",
+			"alt": "Students of Inductee Michelle Burrell, Asbury Park Technical Academy of Dance",
+			"width": "824",
+			"height": "378"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a8879a0"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "13"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/11_jzexrd.jpg",
+			"alt": "Judge Ira Kreizman & Dr. Jack Ansell",
+			"width": "471",
+			"height": "317"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a8879a1"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "14"
+			},
+			"image": "/v1606588459/asburyparkhighschoolhalloffame/Ceremony/2005/12_jtr0in.jpg",
+			"alt": "Dr. Paul Agris & Oliver Jones",
+			"width": "471",
+			"height": "317"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a8879a2"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "6"
+			},
+			"image": "/v1606588460/asburyparkhighschoolhalloffame/Ceremony/2005/13_ertiau.jpg",
+			"alt": "Reginald Fenter & Sandy Armstead",
+			"width": "290",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a8879a3"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "7"
+			},
+			"image": "/v1606588460/asburyparkhighschoolhalloffame/Ceremony/2005/14_h4jvw7.jpg",
+			"alt": "Myrna Wright & Donald Lass",
+			"width": "314",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33ef5b49698881a8879a4"
+			},
+			"year": "2005",
+			"order": {
+				"$numberInt": "8"
+			},
+			"image": "/v1606588460/asburyparkhighschoolhalloffame/Ceremony/2005/15_lzrtu3.jpg",
+			"alt": "Judge Ira Kreizman & Judge Paul Chaiet",
+			"width": "317",
+			"height": "472"
+		}
+	],
+	"__v": {
+		"$numberInt": "0"
+	}
+}
+{
+	"_id": {
+		"$oid": "5fc33f2eb49698881a8879a5"
+	},
+	"ceremony": "2010",
+	"photos": [
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879a6"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "1"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/1_gxzsfn.jpg",
+			"alt": "2010 Hall Of Fame Ceremony",
+			"width": "587",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879a7"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "2"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/2_zjqree.jpg",
+			"alt": "Don Gehring, Joe Frankel, Ira Kreizman, Frank Budd, Carl Williams, Janice Keener",
+			"width": "588",
+			"height": "399"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879a8"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "3"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/3_eotihg.jpg",
+			"alt": "Dr. Henry Jarecki, Paul Chaiet, Gloria Jarecki",
+			"width": "587",
+			"height": "399"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879a9"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "4"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/4_g9tnoo.jpg",
+			"alt": "Steve Secol, Ruth Millman, Pat Cush, Dorothy Secol, Rita Abbott Abrams",
+			"width": "588",
+			"height": "399"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879aa"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "5"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/5_lhaned.jpg",
+			"alt": "Family and friends of Inductee Judge Torkwase Sekou toast her induction and marriage on the same day.",
+			"width": "588",
+			"height": "399"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879ab"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "6"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/6_kpl2tt.jpg",
+			"alt": "Seth Kreizman, Ruth Friedland, Margo Kramer, Susan Kreizman, Joel Kreizman, David Kreizman",
+			"width": "588",
+			"height": "399"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879ac"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "7"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/7_lha4hg.jpg",
+			"alt": "The Committee: (Sitting) Joan Kreizman, Lorraine Nonnenberg, Janice Keener, Marilyn Tomaino (Standing) Ira Kreizman, Oliver Jones, Stanley Smith, Carl Williams (Missing) Paul Chaiet",
+			"width": "590",
+			"height": "401"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879ad"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "8"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/7_rbqr0e.jpg",
+			"alt": "The Committee: (Sitting) Joan Kreizman, Carl Williams, Sharon Brown, Janice Keener (Standing) Stanley Smith, Marilyn Tomaino, Ira Kreizman, Alan McKeon, Oliver Jones, Lorraine Nonnenberg, Henry Johnson",
+			"width": "590",
+			"height": "401"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879ae"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "9"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/8_hy3txh.jpg",
+			"alt": "Crystal Ballroom at the Berkeley Carteret",
+			"width": "588",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879af"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "10"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/9_gng4pq.jpg",
+			"alt": "The 2010 Hall of Fame Inductees",
+			"width": "587",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b0"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "11"
+			},
+			"image": "/v1606588516/asburyparkhighschoolhalloffame/Ceremony/2010/10_gahemm.jpg",
+			"alt": "APHS Principal Tyler Blackmore",
+			"width": "588",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b1"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "12"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/11_i3siew.jpg",
+			"alt": "Commander Ronald Casey escorts Inductee Dr. Diane Apostolos - Cappadona",
+			"width": "587",
+			"height": "399"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b2"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "17"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/12_utnr4s.jpg",
+			"alt": "Former Inductee Kent St. John escorts 2010 Inductee Marilyn Schlossbach",
+			"width": "399",
+			"height": "588"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b3"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "13"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/13_rsrkuh.jpg",
+			"alt": "Former Inductee Judge Thomas Smith escorts 2010 Inductees Judge Torkwase Sekou and Muata Weusi-Puryear",
+			"width": "588",
+			"height": "363"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b4"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "14"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/14_yr70st.jpg",
+			"alt": "Dr. Henry Jarecki addresses the guests",
+			"width": "587",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b5"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "15"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/15_auyd2o.jpg",
+			"alt": "Stanley Smith introduces Dion Warrington Lewis",
+			"width": "587",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b6"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "18"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/16_yse0yf.jpg",
+			"alt": "Judge Paul Chaiet and Freehold Director Inductee Barbara McMorrow",
+			"width": "399",
+			"height": "588"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b7"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "15"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/17_n1amrd.jpg",
+			"alt": "Michael Williams receives his plaque from Stanley Smith",
+			"width": "588",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b8"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "16"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/18_qhmzsv.jpg",
+			"alt": "Dr. Gertrude Harris speaks to the audience",
+			"width": "587",
+			"height": "400"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f2eb49698881a8879b9"
+			},
+			"year": "2010",
+			"order": {
+				"$numberInt": "19"
+			},
+			"image": "/v1606588517/asburyparkhighschoolhalloffame/Ceremony/2010/19_fj8ozc.jpg",
+			"alt": "James Daley makes his acceptance remarks",
+			"width": "399",
+			"height": "588"
+		}
+	],
+	"__v": {
+		"$numberInt": "0"
+	}
+}
+{
+	"_id": {
+		"$oid": "5fc33f54b49698881a8879ba"
+	},
+	"ceremony": "2007",
+	"photos": [
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879bb"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "1"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/1_glchdv.jpg",
+			"alt": "Janice Keener & Robin Wilson",
+			"width": "317",
+			"height": "472"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879bc"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "2"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/2_m9ro8i.jpg",
+			"alt": "Marilyn Tomaino & Madleine Ruocco",
+			"width": "317",
+			"height": "470"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879bd"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "3"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/3_w7izjx.jpg",
+			"alt": "Dr. Stephen Hoffman & Ira Kreizman",
+			"width": "317",
+			"height": "468"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879be"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "4"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/4_yaeitj.jpg",
+			"alt": "Ira Kreizman & Ronald Baron",
+			"width": "317",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879bf"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "5"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/5_n58cd3.jpg",
+			"alt": "Lorraine Nonnenberg & Judge Leah Ruskin",
+			"width": "317",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879c0"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "6"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/6_p53f0h.jpg",
+			"alt": "Oliver Jones & Kraig Sanders",
+			"width": "317",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879c1"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "8"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/7_lha4hg.jpg",
+			"alt": "2007 Inductees",
+			"width": "719",
+			"height": "431"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f54b49698881a8879c2"
+			},
+			"year": "2007",
+			"order": {
+				"$numberInt": "7"
+			},
+			"image": "/v1606588506/asburyparkhighschoolhalloffame/Ceremony/2007/8_s4oebj.jpg",
+			"alt": "The Committee: (Sitting) Joan Kreizman, Carl Williams, Sharon Brown, Janice Keener (Standing) Stanley Smith, Marilyn Tomaino, Ira Kreizman, Alan McKeon, Oliver Jones, Lorraine Nonnenberg, Henry Johnson",
+			"width": "669",
+			"height": "471"
+		}
+	],
+	"__v": {
+		"$numberInt": "0"
+	}
+}
+{
+	"_id": {
+		"$oid": "5fc33f7fb49698881a8879c3"
+	},
+	"ceremony": "2003",
+	"photos": [
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879c4"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "1"
+			},
+			"image": "/v1606588372/asburyparkhighschoolhalloffame/Ceremony/2003/15_znj3mj.jpg",
+			"alt": "Regan Almonor & Lorraine Hartigan Nonnenberg",
+			"width": "318",
+			"height": "417"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879c5"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "2"
+			},
+			"image": "/v1606588372/asburyparkhighschoolhalloffame/Ceremony/2003/14_gosesd.jpg",
+			"alt": "Master of Ceremonies, Mayor Carl Williams",
+			"width": "316",
+			"height": "417"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879c6"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "9"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/12_ylcz0k.jpg",
+			"alt": "Oliver Jones",
+			"width": "588",
+			"height": "396"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879c7"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "10"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/11_sojxa5.jpg",
+			"alt": "The Reid Table",
+			"width": "588",
+			"height": "395"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879c8"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "3"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/10_bqjvht.jpg",
+			"alt": "Dr. John Hayes & Oliver Jones",
+			"width": "317",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879c9"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "4"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/9_m9ty6u.jpg",
+			"alt": "Frank Budd & Janice Davis Keener",
+			"width": "316",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879ca"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "8"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/7_xt4pkg.jpg",
+			"alt": "Oliver Jones & Colonel Joseph Reid",
+			"width": "317",
+			"height": "412"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879cb"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "5"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/13_z3cdqk.jpg",
+			"alt": "Sandy Armstead & Jules Plangere",
+			"width": "317",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879cc"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "6"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/5_whbuqs.jpg",
+			"alt": "Dr. Phillip Schein & Judge Ira Kreizman",
+			"width": "317",
+			"height": "470"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879cd"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "7"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/4_wrydrv.jpg",
+			"alt": "Dorothy Smith & Gladys Johnson",
+			"width": "317",
+			"height": "471"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879ce"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "11"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/3_xgqrwe.jpg",
+			"alt": "Crystal Ballroom - Berkeley Carteret Hotel",
+			"width": "588",
+			"height": "396"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879cf"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "12"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/2_tkcksd.jpg",
+			"alt": "Palmer Jenkins Trio",
+			"width": "588",
+			"height": "396"
+		},
+		{
+			"_id": {
+				"$oid": "5fc33f7fb49698881a8879d0"
+			},
+			"year": "2003",
+			"order": {
+				"$numberInt": "13"
+			},
+			"image": "/v1606588371/asburyparkhighschoolhalloffame/Ceremony/2003/1_psubkj.jpg",
+			"alt": "Carl Williams, Lorraine Nonnenberg, Alan McKean, Janice Davis Keener, Ira Kreizman, Myrna Wright, Sandy Armstead, Gladys Johnson, Oliver Jones",
+			"width": "588",
+			"height": "396"
+		}
+	],
+	"__v": {
+		"$numberInt": "0"
+	}
+}
+{
+	"_id": {
+		"$oid": "609ae3dfbc0436f4618fe4f3"
+	},
+	"ceremony": "2016",
+	"photos": []
+}
+{
+	"_id": {
+		"$oid": "609c19c7bfc5ad970ced2ce9"
+	},
+	"ceremony": "2014",
+	"photos": []
+}
+{
+	"_id": {
+		"$oid": "617c57c2c92926f46aeff553"
+	},
+	"ceremony": "2021",
+	"photos": []
+}
