@@ -26,16 +26,15 @@ const HomeContainer = ({ children }) => {
             className={`${styles.subMenuTitle} ${styles.btnContainer}`}
           >
             <Link href="/">
-              <a className={`${styles.activeBtn} ${styles.subMenuBtn}`}>
+              <span className={`${styles.activeBtn} ${styles.subMenuBtn}`}>
                 Latest
-              </a>
+              </span>
             </Link>
             <Link href="/history">
-              <a className={styles.subMenuBtn}>History</a>
+              <span className={styles.subMenuBtn}>History</span>
             </Link>
-
             <Link href="/mission-statement">
-              <a className={styles.subMenuBtn}>Mission Statement</a>
+              <span className={styles.subMenuBtn}>Mission Statement</span>
             </Link>
           </Col>
         </Row>

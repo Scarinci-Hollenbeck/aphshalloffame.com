@@ -69,3 +69,7 @@ strong {
     max-width: 1300px;
   }
 }
+
+a {
+  text-decoration: none;
+}

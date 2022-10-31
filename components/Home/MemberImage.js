@@ -5,9 +5,9 @@ import figStyles from 'styles/Figures.module.css'
 import styles from 'styles/MemberGallery.module.css'
 
 const MemberImage = ({ name, slug, inducted }) => {
-  const imgBaseUrl = genCloudinaryUrl('/c_scale,h_191/', 'site/Members/');
-  const imgExtension = `${slug}.webp`;
-  
+  const imgBaseUrl = genCloudinaryUrl('/c_scale,h_191/', 'site/Members/')
+  const imgExtension = `${slug}.webp`
+
   return (
     <figure className={figStyles.memberFigure}>
       <Image
@@ -20,10 +20,10 @@ const MemberImage = ({ name, slug, inducted }) => {
       />
       <figcaption>
         <Link href={encodeURI(`/inductee/${slug}`)}>
-          <a className={styles.imgLink}>
+          <span className={styles.imgLink}>
             <h4>{name}</h4>
             <p>{`Inducted ${inducted}`}</p>
-          </a>
+          </span>
         </Link>
       </figcaption>
     </figure>

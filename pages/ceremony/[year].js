@@ -38,9 +38,9 @@ const Ceremony = ({ ceremony, photos }) => {
         title={`Asbury Park High School Hall of Fame - ${ceremony} Ceremony`}
         metaDescription={`Photos from the Asbury Park High School Hall of Fame ${ceremony} induction ceremony.`}
       />
-      {/* <Col sm={12}>
+      <Col sm={12}>
         <GallerySlider photos={photos} />
-      </Col> */}
+      </Col>
       <Col sm={12} className={pageStyle.borderTop}>
         <GalleryGrid year={ceremony} slides={photos} />
       </Col>

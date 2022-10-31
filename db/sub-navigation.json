@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Latest",
+    "url": "/"
+  },
+  {
+    "label": "History",
+    "url": "/history"
+  },
+  {
+    "label": "Mission Statement",
+    "url": "/mission-statement"
+  }
+]
