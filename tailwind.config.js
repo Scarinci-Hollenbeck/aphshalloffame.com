@@ -19,6 +19,9 @@ module.exports = {
           lightBlue: '#59a7cf',
         },
       },
+      backgroundImage: {
+        'welcome-banner': "url('/images/homepage-banner.webp')",
+      }
     },
   },
   plugins: [],

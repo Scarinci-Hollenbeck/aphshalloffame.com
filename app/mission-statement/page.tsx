@@ -1,4 +1,6 @@
 import SubLinks from '../../components/shared/SubLinks'
+import SectionTitle from '../../components/shared/SectionTitle'
+import home from '../../db/home.json'
 
 const MissionStatement = () => (
   <>
@@ -10,7 +12,10 @@ const MissionStatement = () => (
       />
     </head>
     <SubLinks />
-    Mission Statement
+    <div className="bg-gray-200 border-t-4 border-black">
+      <SectionTitle title="Mission Statement" />
+      <div className="py-6 px-7 content" dangerouslySetInnerHTML={{ __html: home?.missionStatement }} />
+    </div>
   </>
 )
 

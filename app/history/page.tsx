@@ -1,4 +1,6 @@
 import SubLinks from '../../components/shared/SubLinks'
+import SectionTitle from '../../components/shared/SectionTitle'
+import home from '../../db/home.json'
 
 const History = () => (
   <>
@@ -10,7 +12,10 @@ const History = () => (
       />
     </head>
     <SubLinks />
-    History
+    <div className="bg-gray-200 border-t-4 border-black">
+      <SectionTitle title="History" />
+      <div className="py-6 px-7 content" dangerouslySetInnerHTML={{ __html: home?.history }} />
+    </div>
   </>
 )
 
