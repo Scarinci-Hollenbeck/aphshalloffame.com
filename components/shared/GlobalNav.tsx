@@ -7,7 +7,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import navigation from '../db/navigation.json'
+import navigation from '../../db/navigation.json'
 import Link from 'next/link'
 
 const GlobalNav = () => {
@@ -15,7 +15,7 @@ const GlobalNav = () => {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 mx-2 lg:mx-8 border-b-2 py-6 border-gray-200">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -30,15 +30,17 @@ const GlobalNav = () => {
               </div>
               <div className="flex items-center justify-between w-full">
                 <div className="flex flex-col items-center">
-                  <h1 className="mt-2 mb-0 text-xl sm:text-3xl text-site-darkBlue font-black font-openSans">
-                    Asbury Park High School
-                  </h1>
-                  <h2 className="mt-0 text-base sm:text-2xl text-site-lightBlue font-merriWeather">
-                    Distinguished Alumni Hall of Fame
-                  </h2>
+                  <Link href="/">
+                    <h1 className="mt-2 mb-0 text-xl sm:text-3xl text-site-darkBlue font-black font-openSans">
+                      Asbury Park High School
+                    </h1>
+                    <h2 className="mt-0 text-base sm:text-2xl text-site-lightBlue font-merriWeather">
+                      Distinguished Alumni Hall of Fame
+                    </h2>
+                  </Link>
                 </div>
                 <div className="hidden px-2 sm:block">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 mt-4">
                     {navigation.map((item) =>
                       item.children === null ? (
                         <Link

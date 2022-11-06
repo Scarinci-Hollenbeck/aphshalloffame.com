@@ -21,7 +21,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className="bg-site-darkBlue text-site-openSans m-0 p-10">
           <Main />
           <NextScript />
         </body>
