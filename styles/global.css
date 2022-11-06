@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .content > p {
-   @apply text-xl;
-   @apply mb-4;
-   @apply tracking-wide;
-   @apply text-center;
+  @apply text-xl;
+  @apply mb-4;
+  @apply tracking-wide;
 }

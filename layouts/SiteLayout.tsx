@@ -2,7 +2,7 @@ import GlobalNav from 'components/shared/GlobalNav'
 
 const SiteLayout = ({ children }: { children: React.ReactNode[] }) => {
   const year = new Date().getFullYear()
-  console.log({ year })
+
   return (
     <>
       <div className="bg-white shadow-lg rounded max-w-7xl mx-auto">

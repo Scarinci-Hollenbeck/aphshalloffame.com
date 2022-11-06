@@ -15,7 +15,7 @@ const History = () => (
     <div className="bg-gray-200 border-t-4 border-black mx-2 lg:mx-8">
       <SectionTitle title="History" />
       <div
-        className="py-6 px-7 content"
+        className="py-6 px-7 text-center content"
         dangerouslySetInnerHTML={{ __html: home?.history }}
       />
       <MemberGallery />

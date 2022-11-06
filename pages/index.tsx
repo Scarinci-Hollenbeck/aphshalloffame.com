@@ -24,7 +24,7 @@ const Index = () => (
     </div>
     <div className="bg-gray-200 mx-2 lg:mx-8 py-8">
       <div
-        className="py-4 px-7 content"
+        className="py-4 px-7 text-center content"
         dangerouslySetInnerHTML={{ __html: home?.latest }}
       />
       <MemberGallery />

@@ -15,7 +15,7 @@ const MissionStatement = () => (
     <div className="bg-gray-200 border-t-4 border-black">
       <SectionTitle title="Mission Statement" />
       <div
-        className="py-6 px-7 mx-2 lg:mx-8 content"
+        className="py-6 px-7 mx-2 lg:mx-8 text-center content"
         dangerouslySetInnerHTML={{ __html: home?.missionStatement }}
       />
       <MemberGallery />
