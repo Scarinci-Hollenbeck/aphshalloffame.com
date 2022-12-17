@@ -55,9 +55,7 @@ const GallerySlider = ({ photos }) => {
               src={src}
               alt={altText}
               style={{
-                minHeight: '10vh',
-                width: '100%',
-                position: 'relative',
+                height: 600,
               }}
             />
           </div>

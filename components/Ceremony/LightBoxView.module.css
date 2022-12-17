@@ -1,0 +1,27 @@
+.downloadLink {
+  margin-right: 10px;
+  display: inline-block;
+  color: white;
+  font-family: 'Open Sans', serif;
+}
+.removeBtnStyles {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+}
+.zoomInLink {
+  display: inline-block;
+  margin-bottom: 1.1em;
+  margin-right: 16px;
+  color: purple;
+  font-size: 1rem;
+}
+.zoomInLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.white {
+  color: #fff !important;
+  position: relative;
+  top: 20px;
+}

@@ -1,7 +1,5 @@
 import { useEffect } from 'react'
 import kwesforms from 'kwesforms'
-import { Row, Col } from 'react-bootstrap'
-import contactStyles from 'styles/Contact.module.css'
 
 const ContactForm = () => {
   useEffect(() => {
@@ -44,14 +42,11 @@ const ContactForm = () => {
           className="p-3 rounded text-lg shadow-lg mb-6"
           name="subject"
           placeholder="Subject"
-          rules="required|max:1000"
         />
         <textarea
-          type="textarea"
           className="p-3 rounded text-lg shadow-lg mb-10 h-60"
           name="message"
           placeholder="Message"
-          rules="required|max:1000"
         />
         <button
           type="submit"

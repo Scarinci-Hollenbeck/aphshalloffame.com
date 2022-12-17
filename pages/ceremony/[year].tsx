@@ -87,8 +87,6 @@ export const getStaticProps = async ({ params }) => {
       return -1
     })
 
-  console.log(photos)
-
   return {
     props: {
       ceremony: year,

@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import styles from 'styles/GalleryGrid.module.css'
+import styles from './Grid.module.css'
 
 const LightBoxView = dynamic(() => import('./LightBoxView'), { ssr: false })
 

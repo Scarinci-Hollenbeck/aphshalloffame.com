@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
-import styles from 'styles/LightBoxView.module.css'
+import styles from './LightBoxView.module.css'
 import { fetchImageForDownload } from 'utils/helpers'
 
 const LightBoxView = ({ image, fileName }) => {
