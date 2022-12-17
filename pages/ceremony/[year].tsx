@@ -71,6 +71,7 @@ export const getStaticProps = async ({ params }) => {
       context: true,
     })
     .then((res) => res.resources)
+  console.log({ request })
   /** Serialize the response */
   const photos = request
     .filter(({ public_id }) => public_id.includes(year))

@@ -22,7 +22,6 @@ const currentUrl = (linkUrl, current) => {
 
 const GlobalNav = () => {
   const router = useRouter()
-  console.log(router?.asPath)
   return (
     <Disclosure as="nav">
       {({ open }) => (
