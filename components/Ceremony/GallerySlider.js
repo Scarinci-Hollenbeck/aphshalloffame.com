@@ -49,11 +49,12 @@ const GallerySlider = ({ photos }) => {
         />
       </Head>
       <Slider {...settings}>
-        {photos?.map(({ altText, src }) => (
-          <div key={altText}>
+        {photos?.map(({ altText, src }, index) => (
+          <div key={`slide-${index}`}>
             <img
               src={src}
               alt={altText}
+              className="mx-auto"
               style={{
                 height: 600,
               }}

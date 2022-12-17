@@ -1,4 +1,3 @@
-'use client'
 import { Disclosure } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -7,10 +6,23 @@ import {
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import navigation from '../../db/navigation.json'
+import { useRouter } from 'next/router'
+import navigation from 'db/navigation.json'
 import Link from 'next/link'
 
+const currentUrl = (linkUrl, current) => {
+  let url = linkUrl
+
+  const match =
+    linkUrl.replace(/\//g, '').toLowerCase() ===
+    current.replace(/\//g, '').toLowerCase()
+
+  return match
+}
+
 const GlobalNav = () => {
+  const router = useRouter()
+  console.log(router?.asPath)
   return (
     <Disclosure as="nav">
       {({ open }) => (
@@ -44,9 +56,13 @@ const GlobalNav = () => {
                     {navigation.map((item) =>
                       item.children === null ? (
                         <Link
-                          key={item.label}
+                          key={item.label || item.url}
                           href={item.url}
-                          className="text-site-lightBlue uppercase font-bold"
+                          className={`${
+                            currentUrl(item.url, router?.asPath)
+                              ? 'text-site-darkBlue'
+                              : 'text-site-lightBlue'
+                          } uppercase font-bold`}
                         >
                           {item.label}
                         </Link>
@@ -77,8 +93,10 @@ const GlobalNav = () => {
                             <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none p-3">
                               {item.children
                                 .sort((a, b) => (a < b ? 1 : -1))
-                                .map((year) => (
-                                  <Menu.Item key={year.toString()}>
+                                .map((year, index) => (
+                                  <Menu.Item
+                                    key={year.toString() || `year-${index}`}
+                                  >
                                     <Link
                                       href={`/ceremony/${year}`}
                                       className="block px-2 mb-1 text-lg"
@@ -99,9 +117,14 @@ const GlobalNav = () => {
           </div>
 
           <Disclosure.Panel className="lg:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3">
+            <div className="flex flex-col m-4">
               {navigation.map((item) => (
-                <Disclosure.Button key={item.label} as="a" href={item.url}>
+                <Disclosure.Button
+                  key={item.label}
+                  as="a"
+                  href={item.url}
+                  className="mb-4"
+                >
                   {item.label}
                 </Disclosure.Button>
               ))}
