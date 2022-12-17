@@ -12,7 +12,7 @@ const History = () => (
       metaDescription="In the late 90’s, Carl Williams, Mayor of Asbury Park and graduate of Asbury Park High School, conceived of a vehicle where the rich history of the high school and its graduates would be remembered and celebrated."
     />
     <SubLinks />
-    <div className="bg-gray-200 border-t-4 border-black mx-2 lg:mx-8">
+    <div className="bg-gray-200 border-t-4 border-black">
       <SectionTitle title="History" />
       <div
         className="py-6 px-7 text-center content"

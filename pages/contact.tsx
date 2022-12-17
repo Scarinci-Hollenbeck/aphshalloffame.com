@@ -1,43 +1,47 @@
 import React from 'react'
-import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import SEOHead from 'components/shared/SEOHead'
-import Title from 'components/Contact/Title'
-import ContactMembers from 'components/Contact/ContactMembers'
-import PageContainer from 'layouts/PageContainer'
-
-const { MongoClient } = require('mongodb')
+import contacts from 'db/contactMembers.json'
+import SiteLayout from 'layouts/SiteLayout'
+import PageTitle from 'components/shared/PageTitle'
+import SectionTitle from 'components/shared/SectionTitle'
+import { EnvelopeIcon } from '@heroicons/react/24/outline'
 
 const ContactForm = dynamic(() => import('components/Contact/ContactForm'))
 
-const Contact = ({ contactMembers }) => (
-  <PageContainer title="Contact">
-    <SEOHead
-      title="Contact Us - Asbury Park High School Hall of Fame"
-      metaDescription="Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame"
-    />
-    <Title />
-    <ContactMembers members={contactMembers} />
-    <ContactForm />
-  </PageContainer>
-)
+type Contact = typeof contacts[0]
 
-export const getStaticProps = async () => {
-  const connection = await MongoClient.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  const db = connection.db(process.env.DB_NAME)
-  const contactMembers = await db
-    .collection('contactMembers')
-    .find({})
-    .toArray()
-    connection.close()
-  return {
-    props: {
-      contactMembers: JSON.parse(JSON.stringify(contactMembers)),
-    },
-  }
+const Contact = () => {
+  console.log(contacts)
+
+  return (
+    <SiteLayout>
+      <SEOHead
+        title="Contact Us | Asbury Park High School Hall of Fame"
+        metaDescription="Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame"
+      />
+      <PageTitle title="Contact" />
+      <SectionTitle title="To get in touch" />
+      <p className="text-lg font-black text-center my-4">
+        Contact one of our members
+      </p>
+      <ul className="flex flex-col max-w-xl mx-auto my-12">
+        {contacts?.map((contact: Contact) => (
+          <li
+            key={contact?.name}
+            className="bg-white shadow-lg mb-5 rounded p-4 flex flex-row items-center"
+          >
+            <EnvelopeIcon className="text-gray-500 h-6 w-6 mr-6" />
+            <p className="flex flex-col text-md font-bold">
+              <span>{contact?.name}</span>
+              <a href={`mailto:${contact?.email}`}>{contact?.email}</a>
+            </p>
+          </li>
+        ))}
+      </ul>
+      <ContactForm />
+    </SiteLayout>
+  )
 }
 
 export default Contact

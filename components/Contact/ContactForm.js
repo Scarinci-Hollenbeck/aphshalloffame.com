@@ -8,80 +8,61 @@ const ContactForm = () => {
     kwesforms.init()
   }, [])
   return (
-    <Col sm={12} md={8}>
-      <div className={contactStyles.form}>
-        <p className="mb-3">
-          <strong>Or fill out the form</strong>
-        </p>
-        <form
-          name="contact"
-          className="ps-2 kwes-form"
-          action="https://kwesforms.com/api/foreign/forms/Q4NwgjLenYKwnAopWi4R"
+    <>
+      <p className="text-lg font-black text-center">Our fill out the form</p>
+      <form
+        name="contact"
+        className="kwes-form text-center flex flex-col max-w-xl mx-auto my-8"
+        action="https://kwesforms.com/api/foreign/forms/Q4NwgjLenYKwnAopWi4R"
+      >
+        <input
+          type="text"
+          className="p-3 rounded text-lg shadow-lg mb-6"
+          name="firstName"
+          placeholder="First name"
+        />
+        <input
+          type="text"
+          className="p-3 rounded text-lg shadow-lg mb-6"
+          name="lastName"
+          placeholder="Last name"
+        />
+        <input
+          type="email"
+          className="p-3 rounded text-lg shadow-lg mb-6"
+          name="email"
+          placeholder="Email"
+        />
+        <input
+          type="phone"
+          className="p-3 rounded text-lg shadow-lg mb-6"
+          name="phone"
+          placeholder="Phone"
+        />
+        <input
+          type="subject"
+          className="p-3 rounded text-lg shadow-lg mb-6"
+          name="subject"
+          placeholder="Subject"
+          rules="required|max:1000"
+        />
+        <textarea
+          type="textarea"
+          className="p-3 rounded text-lg shadow-lg mb-10 h-60"
+          name="message"
+          placeholder="Message"
+          rules="required|max:1000"
+        />
+        <button
+          type="submit"
+          className="bg-green-500 hover:bg-green-400 px-8 py-3 rounded text-white text-lg font-bold shadow-lg"
         >
-          <Row className="mb-3">
-            <Col sm={12} md={6} className="mx-0 px-1">
-              <input
-                type="text"
-                className="form-control mx-0"
-                name="firstName"
-                placeholder="First name"
-              />
-            </Col>
-            <Col sm={12} md={6} className="mx-0 px-1">
-              <input
-                type="text"
-                className="form-control mx-0"
-                name="lastName"
-                placeholder="Last name"
-              />
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col sm={12} md={6} className="mx-0 px-1">
-              <input
-                type="email"
-                className="form-control mx-0"
-                name="email"
-                placeholder="Email address"
-              />
-            </Col>
-            <Col sm={12} md={6} className="mx-0 px-1">
-              <input
-                type="phone"
-                className="form-control mx-0"
-                name="phone"
-                placeholder="Phone number"
-              />
-            </Col>
-          </Row>
-          <Row className="mb-2">
-            <Col sm={12} className="mx-0 px-1 mb-4">
-              <input
-                type="text"
-                className="form-control mx-0"
-                name="subject"
-                placeholder="Subject"
-                rules="required|max:1000"
-              />
-            </Col>
-            <Col sm={12} className="mx-0 px-1">
-              <textarea
-                type="textarea"
-                rows="8"
-                cols="4"
-                className="form-control mx-0"
-                name="message"
-                placeholder="Message"
-                rules="required|max:1000"
-              />
-            </Col>
-          </Row>
-          <button className="btn btn-success w-25 mt-2" type="submit">
-            Submit form
-          </button>
-        </form>
-      </div>
-    </Col>
+          Submit
+        </button>
+        <br />
+        <br />
+      </form>
+    </>
   )
 }
 
