@@ -1,11 +1,12 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
-import Col from 'react-bootstrap/Col'
-import pageStyle from 'styles/Ceremony.module.css'
-import PageContainer from 'layouts/PageContainer'
 import SEOHead from 'components/shared/SEOHead'
 import ceremonies from '../../db/ceremonies.json'
+import Image from 'next/image'
+import PageTitle from 'components/shared/PageTitle'
+import SiteLayout from 'layouts/SiteLayout'
+import { InferGetStaticPropsType } from 'next'
 
 const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'), {
   ssr: false,
@@ -21,7 +22,10 @@ const LoadingSpinner = dynamic(
 
 const cloudinary = require('utils/cloudinary')
 
-const Ceremony = ({ ceremony, photos }) => {
+const Ceremony = ({
+  ceremony,
+  photos,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter()
 
   if (router.isFallback) {
@@ -33,18 +37,17 @@ const Ceremony = ({ ceremony, photos }) => {
   }
 
   return (
-    <PageContainer title={`Ceremony: ${ceremony}`}>
+    <SiteLayout>
       <SEOHead
         title={`Asbury Park High School Hall of Fame - ${ceremony} Ceremony`}
         metaDescription={`Photos from the Asbury Park High School Hall of Fame ${ceremony} induction ceremony.`}
       />
-      <Col sm={12}>
+      <PageTitle title={`Ceremony: ${ceremony}`} />
+      <div className="bg-gray-200 my-0 mx-8 p-2">
         <GallerySlider photos={photos} />
-      </Col>
-      <Col sm={12} className={pageStyle.borderTop}>
         <GalleryGrid year={ceremony} slides={photos} />
-      </Col>
-    </PageContainer>
+      </div>
+    </SiteLayout>
   )
 }
 
@@ -78,7 +81,7 @@ export const getStaticProps = async ({ params }) => {
       src: secure_url,
     }))
     .sort((a, b) => {
-      if (a.height < a.width > (b.height < b.width)) {
+      if (b.height < b.width) {
         return 1
       }
       return -1

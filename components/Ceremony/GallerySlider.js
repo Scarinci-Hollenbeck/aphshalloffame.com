@@ -1,27 +1,68 @@
-import Image from 'next/image'
-import { Carousel } from 'react-bootstrap'
-import { aspectRatioConversion } from 'utils/helpers'
+/* eslint-disable @next/next/no-img-element */
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+} from '@heroicons/react/24/outline'
+import Head from 'next/head'
+import Slider from 'react-slick'
+
+const PrevArrow = ({ onClick, className }) => (
+  <ChevronDoubleLeftIcon
+    className={`${className} h-8 w-8 text-black hover:text-black`}
+    style={{ left: '-38px' }}
+    onClick={onClick}
+  />
+)
+
+const NextArrow = ({ onClick, className }) => (
+  <ChevronDoubleRightIcon
+    className={`${className} h-8 w-8 text-black hover:text-black`}
+    style={{ right: '-38px' }}
+    onClick={onClick}
+  />
+)
 
 const GallerySlider = ({ photos }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  }
+
   return (
-    <div className="mx-auto w-100 text-center my-3 my-lg-5">
-      <Carousel fade variant="dark" indicators={false}>
+    <div className="mx-auto w-100 text-center my-12 my-lg-5">
+      <Head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charset="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+      </Head>
+      <Slider {...settings}>
         {photos?.map(({ altText, src }) => (
-          <Carousel.Item key={altText}>
-            <div
-              style={{ minHeight: '60vh', width: '100%', position: 'relative' }}
-            >
-              <Image
-                src={src}
-                alt={altText}
-                layout="fill"
-                priority={true}
-                objectFit="contain"
-              />
-            </div>
-          </Carousel.Item>
+          <div key={altText}>
+            <img
+              src={src}
+              alt={altText}
+              style={{
+                minHeight: '10vh',
+                width: '100%',
+                position: 'relative',
+              }}
+            />
+          </div>
         ))}
-      </Carousel>
+      </Slider>
     </div>
   )
 }
