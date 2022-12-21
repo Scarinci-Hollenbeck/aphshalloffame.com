@@ -2,8 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import SEOHead from 'components/shared/SEOHead'
-import ceremonies from '../../db/ceremonies.json'
-import Image from 'next/image'
+import ceremonies from 'db/ceremonies.json'
 import PageTitle from 'components/shared/PageTitle'
 import SiteLayout from 'layouts/SiteLayout'
 import { InferGetStaticPropsType } from 'next'
@@ -71,7 +70,6 @@ export const getStaticProps = async ({ params }) => {
       context: true,
     })
     .then((res) => res.resources)
-  console.log({ request })
   /** Serialize the response */
   const photos = request
     .filter(({ public_id }) => public_id.includes(year))

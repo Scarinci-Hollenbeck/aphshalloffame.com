@@ -3,7 +3,6 @@ import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
 } from '@heroicons/react/24/outline'
-import Head from 'next/head'
 import Slider from 'react-slick'
 
 const PrevArrow = ({ onClick, className }) => (
@@ -35,19 +34,6 @@ const GallerySlider = ({ photos }) => {
 
   return (
     <div className="mx-auto w-100 text-center my-12 my-lg-5">
-      <Head>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charset="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
-      </Head>
       <Slider {...settings}>
         {photos?.map(({ altText, src }, index) => (
           <div key={`slide-${index}`}>

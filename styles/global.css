@@ -7,3 +7,11 @@
   @apply mb-4;
   @apply tracking-wide;
 }
+
+.content > ul {
+  @apply list-disc list-inside text-xl tracking-wide mb-4;
+}
+
+.content > ul > li {
+  @apply mb-6;
+}
