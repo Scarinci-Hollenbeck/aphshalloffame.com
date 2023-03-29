@@ -30,6 +30,10 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   }
 }
 
+export async function generateStaticParams() {
+  return members.map((c: any) => `/inductee/${c.slug}`)
+}
+
 const Inductee = async ({ params: { slug } }) => {
   const { member, profileImage } = await getMember(slug)
   return (

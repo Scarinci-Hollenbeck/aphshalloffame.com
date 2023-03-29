@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import PageTitle from 'components/shared/PageTitle'
 import cloudinary from 'utils/cloudinary'
+import ceremonies from 'db/ceremonies.json'
 import { Metadata } from 'next'
 
 const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'), {})
@@ -43,6 +44,10 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     title: `Asbury Park High School Hall of Fame - ${year} Ceremony`,
     description: `Photos from the Asbury Park High School Hall of Fame ${year} induction ceremony.`,
   }
+}
+
+export async function generateStaticParams() {
+  return ceremonies.map((c: any) => `/ceremony/${c.ceremony}`)
 }
 
 const Ceremony = async ({ params: { year } }) => {
