@@ -2,7 +2,7 @@ import PageTitle from 'components/shared/PageTitle'
 import events from 'db/events.json'
 import { Metadata } from 'next'
 
-type Content = typeof events[0]
+type Content = (typeof events)[0]
 
 export const metadata: Metadata = {
   title: 'Events | Asbury Park High School Hall of Fame',

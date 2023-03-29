@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 
 const ContactForm = dynamic(() => import('components/Contact/ContactForm'))
 
-type Contact = typeof contacts[0]
+type Contact = (typeof contacts)[0]
 
 export const metadata: Metadata = {
   title: 'Contact Us | Asbury Park High School Hall of Fame',

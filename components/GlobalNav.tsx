@@ -87,6 +87,7 @@ const GlobalNav = () => {
                         </Link>
                       ) : (
                         <Menu
+                          key={item.label || item.url}
                           as="div"
                           className="relative inline-block text-left"
                         >
