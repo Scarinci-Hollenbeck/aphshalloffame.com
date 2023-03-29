@@ -1,3 +1,4 @@
+'use client'
 import { Disclosure } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -6,33 +7,39 @@ import {
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { useRouter } from 'next/router'
+import { useSelectedLayoutSegments } from 'next/navigation'
 import navigation from 'db/navigation.json'
 import Link from 'next/link'
 
 const currentUrl = (linkUrl, current) => {
   let currentUrl = current
 
-  if (current.includes('inductee')) {
+  if (current?.includes('inductee')) {
     currentUrl = '/directory'
   }
 
-  if (current.includes('ceremony')) {
+  if (current?.includes('ceremony')) {
     currentUrl = '/ceremony'
   }
 
-  if (current.includes('history') || current.includes('mission-statement')) {
+  if (
+    current?.includes('history') ||
+    current?.includes('mission-statement') ||
+    current === undefined
+  ) {
     currentUrl = '/'
   }
 
   return (
-    linkUrl.replace(/\//g, '').toLowerCase() ===
-    currentUrl.replace(/\//g, '').toLowerCase()
+    linkUrl?.replace(/\//g, '').toLowerCase() ===
+    currentUrl?.replace(/\//g, '').toLowerCase()
   )
 }
 
 const GlobalNav = () => {
-  const router = useRouter()
+  const [selectedLayoutSegments] = useSelectedLayoutSegments()
+  console.log('selectedLayoutSegments', selectedLayoutSegments)
+
   return (
     <Disclosure as="nav">
       {({ open }) => (
@@ -69,7 +76,7 @@ const GlobalNav = () => {
                           key={item.label || item.url}
                           href={item.url}
                           className={`${
-                            currentUrl(item.url, router?.asPath)
+                            currentUrl(item.url, selectedLayoutSegments)
                               ? 'text-site-darkBlue'
                               : 'text-site-lightBlue'
                           } uppercase font-bold`}
@@ -84,7 +91,7 @@ const GlobalNav = () => {
                           <div>
                             <Menu.Button
                               className={`${
-                                currentUrl(item.url, router?.asPath)
+                                currentUrl(item.url, selectedLayoutSegments)
                                   ? 'text-site-darkBlue'
                                   : 'text-site-lightBlue'
                               } uppercase font-bold flex flex-row"`}

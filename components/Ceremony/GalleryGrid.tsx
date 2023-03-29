@@ -12,7 +12,7 @@ const GalleryGrid = ({ slides, year }) => (
         const fileName = `ceremony-${year}-photo-${index}.png`
 
         return (
-          <div key={fileName} className={styles.galleryImage}>
+          <div key={`gallery-${index}`} className={styles.galleryImage}>
             <Image
               src={src}
               alt={altText}
