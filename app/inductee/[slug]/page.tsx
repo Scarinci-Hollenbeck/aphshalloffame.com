@@ -3,9 +3,15 @@ import PageTitle from 'components/shared/PageTitle'
 import members from 'db/members.json'
 import { Metadata } from 'next'
 import cloudinary from 'utils/cloudinary'
+import prisma from '../../../prisma'
+import { Member } from '@prisma/client'
 
 async function getMember(slug) {
-  const member = members.find((member) => member?.slug === slug)
+  const member = await prisma.member.findFirst({
+    where: {
+      slug,
+    },
+  })
 
   const request = await cloudinary.search
     .expression(member?.slug)
@@ -31,7 +37,8 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return members.map((c: any) => `/inductee/${c.slug}`)
+  const data = await prisma.member.findMany()
+  return data.map((c: Member) => `/inductee/${c.slug}`)
 }
 
 const Inductee = async ({ params: { slug } }) => {
