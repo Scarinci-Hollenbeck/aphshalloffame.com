@@ -1,22 +1,22 @@
-import React from 'react'
 import dynamic from 'next/dynamic'
-import SEOHead from 'components/shared/SEOHead'
 import contacts from 'db/contactMembers.json'
-import SiteLayout from 'layouts/SiteLayout'
 import PageTitle from 'components/shared/PageTitle'
 import SectionTitle from 'components/shared/SectionTitle'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
+import { Metadata } from 'next'
 
 const ContactForm = dynamic(() => import('components/Contact/ContactForm'))
 
-type Contact = typeof contacts[0]
+type Contact = (typeof contacts)[0]
+
+export const metadata: Metadata = {
+  title: 'Contact Us | Asbury Park High School Hall of Fame',
+  description:
+    'Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame',
+}
 
 const Contact = () => (
-  <SiteLayout>
-    <SEOHead
-      title="Contact Us | Asbury Park High School Hall of Fame"
-      metaDescription="Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame"
-    />
+  <>
     <PageTitle title="Contact" />
     <SectionTitle title="To get in touch" />
     <p className="text-lg font-black text-center my-4">
@@ -37,7 +37,7 @@ const Contact = () => (
       ))}
     </ul>
     <ContactForm />
-  </SiteLayout>
+  </>
 )
 
 export default Contact

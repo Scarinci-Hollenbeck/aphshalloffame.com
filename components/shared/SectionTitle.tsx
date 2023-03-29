@@ -1,3 +1,11 @@
-const SectionTitle = ({ title }: { title: string}) => <p className="font-merriWeather text-center mt-6 text-site-darkBlue font-bold text-4xl">{title}</p>;
+import { merriWeather } from 'app/font'
 
-export default SectionTitle;
+const SectionTitle = ({ title }: { title: string }) => (
+  <p
+    className={`text-center mt-6 text-site-darkBlue font-bold text-4xl ${merriWeather.className}`}
+  >
+    {title}
+  </p>
+)
+
+export default SectionTitle

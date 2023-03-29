@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
@@ -28,7 +29,9 @@ const GallerySlider = ({ photos }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    // @ts-ignore
     nextArrow: <NextArrow />,
+    // @ts-ignore
     prevArrow: <PrevArrow />,
   }
 

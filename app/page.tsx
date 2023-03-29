@@ -1,23 +1,23 @@
-import Head from 'next/head'
 import SubLinks from 'components/shared/SubLinks'
 import MemberGallery from 'components/shared/MemberGallery'
-import SiteLayout from 'layouts/SiteLayout'
 import home from 'db/home.json'
-import SEOHead from 'components/shared/SEOHead'
+import { Metadata } from 'next'
 
-const Index = () => (
-  <SiteLayout>
-    <SEOHead
-      title="Asbury Park High School Hall of Fame"
-      metaDescription="Welcome to the Asbury Park High School Distinguished Alumni Hall of Fame. Our mission is to recognize and honor those APHS graduates who as adults in many different and varied fields."
-    />
+export const metadata: Metadata = {
+  title: 'Asbury Park High School Hall of Fame',
+  description:
+    'Welcome to the Asbury Park High School Distinguished Alumni Hall of Fame. Our mission is to recognize and honor those APHS graduates who as adults in many different and varied fields.',
+}
+
+const Home = () => (
+  <>
     <SubLinks />
     <div
       className="bg-no-repeat bg-center bg-cover bg-welcome-banner z-30 flex justify-center items-center border-t-4 border-black"
       style={{ height: 526 }}
     >
       <div className="bg-black bg-opacity-70 w-full">
-        <p className="text-white text-5xl drop-shadow	sm:text-7xl font-bold text-center p-6">
+        <p className="text-white text-5xl drop-shadow sm:text-7xl font-bold text-center p-6">
           Asbury Park High School Distinguished Alumni Hall of Fame
         </p>
       </div>
@@ -29,7 +29,7 @@ const Index = () => (
       />
       <MemberGallery />
     </div>
-  </SiteLayout>
+  </>
 )
 
-export default Index
+export default Home

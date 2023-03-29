@@ -1,3 +1,4 @@
+'use client'
 import { Disclosure } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -6,33 +7,39 @@ import {
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { useRouter } from 'next/router'
+import { useSelectedLayoutSegments } from 'next/navigation'
 import navigation from 'db/navigation.json'
 import Link from 'next/link'
+import { merriWeather } from 'app/font'
 
 const currentUrl = (linkUrl, current) => {
   let currentUrl = current
 
-  if (current.includes('inductee')) {
+  if (current?.includes('inductee')) {
     currentUrl = '/directory'
   }
 
-  if (current.includes('ceremony')) {
+  if (current?.includes('ceremony')) {
     currentUrl = '/ceremony'
   }
 
-  if (current.includes('history') || current.includes('mission-statement')) {
+  if (
+    current?.includes('history') ||
+    current?.includes('mission-statement') ||
+    current === undefined
+  ) {
     currentUrl = '/'
   }
 
   return (
-    linkUrl.replace(/\//g, '').toLowerCase() ===
-    currentUrl.replace(/\//g, '').toLowerCase()
+    linkUrl?.replace(/\//g, '').toLowerCase() ===
+    currentUrl?.replace(/\//g, '').toLowerCase()
   )
 }
 
 const GlobalNav = () => {
-  const router = useRouter()
+  const [selectedLayoutSegments] = useSelectedLayoutSegments()
+
   return (
     <Disclosure as="nav">
       {({ open }) => (
@@ -56,7 +63,9 @@ const GlobalNav = () => {
                     <h1 className="mt-2 mb-0 text-xl lg:text-3xl text-site-darkBlue font-black font-openSans">
                       Asbury Park High School
                     </h1>
-                    <h2 className="mt-0 text-base lg:text-2xl text-site-lightBlue font-merriWeather">
+                    <h2
+                      className={`mt-0 text-base lg:text-2xl text-site-lightBlue ${merriWeather.className}`}
+                    >
                       Distinguished Alumni Hall of Fame
                     </h2>
                   </Link>
@@ -69,7 +78,7 @@ const GlobalNav = () => {
                           key={item.label || item.url}
                           href={item.url}
                           className={`${
-                            currentUrl(item.url, router?.asPath)
+                            currentUrl(item.url, selectedLayoutSegments)
                               ? 'text-site-darkBlue'
                               : 'text-site-lightBlue'
                           } uppercase font-bold`}
@@ -78,13 +87,14 @@ const GlobalNav = () => {
                         </Link>
                       ) : (
                         <Menu
+                          key={item.label || item.url}
                           as="div"
                           className="relative inline-block text-left"
                         >
                           <div>
                             <Menu.Button
                               className={`${
-                                currentUrl(item.url, router?.asPath)
+                                currentUrl(item.url, selectedLayoutSegments)
                                   ? 'text-site-darkBlue'
                                   : 'text-site-lightBlue'
                               } uppercase font-bold flex flex-row"`}

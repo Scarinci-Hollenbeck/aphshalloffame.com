@@ -1,20 +1,20 @@
-import React from 'react'
-import SEOHead from 'components/shared/SEOHead'
 import PageTitle from 'components/shared/PageTitle'
-import SiteLayout from 'layouts/SiteLayout'
 import events from 'db/events.json'
+import { Metadata } from 'next'
 
-type Content = typeof events[0]
+type Content = (typeof events)[0]
+
+export const metadata: Metadata = {
+  title: 'Events | Asbury Park High School Hall of Fame',
+  description:
+    'APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020.The Ceremony dinner will be Thursday, October 14, 2021',
+}
 
 const Events = () => {
   const content = events[0] as Content
 
   return (
-    <SiteLayout>
-      <SEOHead
-        title="Events | Asbury Park High School Hall of Fame"
-        metaDescription="APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020.The Ceremony dinner will be Thursday, October 14, 2021"
-      />
+    <>
       <PageTitle title="Events" />
       <div className="p-4 text-center">
         <h4 className="text-3xl font-bold">{content?.title}</h4>
@@ -45,7 +45,7 @@ const Events = () => {
             </li>
           ))}
       </ul>
-    </SiteLayout>
+    </>
   )
 }
 
