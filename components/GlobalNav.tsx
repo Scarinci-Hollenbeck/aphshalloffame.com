@@ -10,6 +10,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import navigation from 'db/navigation.json'
 import Link from 'next/link'
+import { merriWeather } from 'app/font'
 
 const currentUrl = (linkUrl, current) => {
   let currentUrl = current
@@ -38,7 +39,6 @@ const currentUrl = (linkUrl, current) => {
 
 const GlobalNav = () => {
   const [selectedLayoutSegments] = useSelectedLayoutSegments()
-  console.log('selectedLayoutSegments', selectedLayoutSegments)
 
   return (
     <Disclosure as="nav">
@@ -63,7 +63,9 @@ const GlobalNav = () => {
                     <h1 className="mt-2 mb-0 text-xl lg:text-3xl text-site-darkBlue font-black font-openSans">
                       Asbury Park High School
                     </h1>
-                    <h2 className="mt-0 text-base lg:text-2xl text-site-lightBlue font-merriWeather">
+                    <h2
+                      className={`mt-0 text-base lg:text-2xl text-site-lightBlue ${merriWeather.className}`}
+                    >
                       Distinguished Alumni Hall of Fame
                     </h2>
                   </Link>

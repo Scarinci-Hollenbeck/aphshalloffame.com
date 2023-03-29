@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 
-export const createMarkup = (content) => ({ __html: content })
+export const createMarkup = (content: string) => ({ __html: content })
 
-export const fetchImageForDownload = (imageUrl, fileName) =>
+export const fetchImageForDownload = (imageUrl: string, fileName: string) =>
   fetch(imageUrl)
     .then((response) => response.blob())
     .then((data) => {
@@ -17,17 +17,15 @@ export const fetchImageForDownload = (imageUrl, fileName) =>
       window.URL.revokeObjectURL(url)
     })
 
-export function printDoc(doc) {
+export function printDoc(doc: string) {
   window.open(doc, 'PRINT', 'height=2000,width=1000')
 }
 
-export const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
-export const aspectRatioConversion = (width, height) => {
-  const aspectRatio = width / height;
+export const aspectRatioConversion = (width: number, height: number) => {
+  const aspectRatio = width / height
 
   return {
     width: height * aspectRatio,
-    height
+    height,
   }
 }
