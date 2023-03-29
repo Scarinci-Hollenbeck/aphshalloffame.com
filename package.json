@@ -8,7 +8,8 @@
     "start": "next start",
     "build": "next build",
     "prettier": "prettier --write .",
-    "lint": "next lint && yarn prettier"
+    "lint": "next lint && yarn prettier",
+    "seed-members": "node ./utils/seed-members.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "@emotion/react": "^11.7.1",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
+    "@prisma/client": "^4.12.0",
     "cloudinary": "^1.25.1",
     "dotenv": "^8.2.0",
     "kwesforms": "^2.1.20",
@@ -42,7 +44,8 @@
     "react-18-image-lightbox": "^5.1.4",
     "react-dom": "^18.2.0",
     "react-slick": "^0.29.0",
-    "sharp": "^0.31.2"
+    "sharp": "^0.31.2",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/node": "18.11.8",
@@ -52,6 +55,7 @@
     "eslint-config-next": "^13.2.4",
     "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.4.18",
+    "prisma": "^4.12.0",
     "tailwindcss": "^3.2.1",
     "typescript": "4.8.4"
   }
