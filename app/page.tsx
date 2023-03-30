@@ -16,8 +16,11 @@ const Home = () => (
       className="bg-no-repeat bg-center bg-cover bg-welcome-banner z-30 flex justify-center items-center border-t-4 border-black"
       style={{ height: 526 }}
     >
-      <div className="bg-black bg-opacity-70 w-full">
-        <p className="text-white text-5xl drop-shadow sm:text-7xl font-bold text-center p-6">
+      <div className="bg-black bg-opacity-40 w-full">
+        <p
+          style={{ textShadow: '2px 3px 4px #000' }}
+          className="text-white text-5xl sm:text-7xl font-bold text-center p-6"
+        >
           Asbury Park High School Distinguished Alumni Hall of Fame
         </p>
       </div>
