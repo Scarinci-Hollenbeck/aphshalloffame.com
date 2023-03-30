@@ -2,6 +2,7 @@ import SubLinks from 'components/shared/SubLinks'
 import MemberGallery from 'components/shared/MemberGallery'
 import home from 'db/home.json'
 import { Metadata } from 'next'
+import MemberGalleryQueryProvider from 'components/shared/MemberGalleryQueryProvider'
 
 export const metadata: Metadata = {
   title: 'Asbury Park High School Hall of Fame',
@@ -30,7 +31,7 @@ const Home = () => (
         className="py-4 px-7 text-center content"
         dangerouslySetInnerHTML={{ __html: home?.latest }}
       />
-      <MemberGallery />
+      <MemberGalleryQueryProvider />
     </div>
   </>
 )

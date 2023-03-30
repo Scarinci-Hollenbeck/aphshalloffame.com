@@ -11,7 +11,7 @@ export default async function handler(
 
       const data = await prisma.member.findMany({
         where: {
-          inducted: currentYear,
+          inducted: currentYear.toString(),
         },
       })
 
