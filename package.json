@@ -8,8 +8,7 @@
     "start": "next start",
     "build": "next build",
     "prettier": "prettier --write .",
-    "lint": "next lint && yarn prettier",
-    "seed-members": "node ./utils/seed-members.js"
+    "lint": "next lint && yarn prettier"
   },
   "repository": {
     "type": "git",
