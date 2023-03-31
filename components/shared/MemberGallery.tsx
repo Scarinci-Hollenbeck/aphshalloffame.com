@@ -16,7 +16,7 @@ const MemberGallery = () => {
     queryFn: () =>
       fetch('/api/years')
         .then((res) => res.json())
-        .then((data) => data?.data)
+        .then((data) => data)
         .catch((err) => err),
   })
 
@@ -31,7 +31,7 @@ const MemberGallery = () => {
         },
       })
         .then((res) => res.json())
-        .then((data) => data?.data)
+        .then((data) => data)
         .catch((err) => err),
   })
 
