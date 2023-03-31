@@ -48,7 +48,7 @@ const GlobalNav = () => {
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 right-0 flex items-center lg:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -145,16 +145,38 @@ const GlobalNav = () => {
           <Disclosure.Panel className="lg:hidden">
             <div className="flex flex-col m-4">
               {navigation.map((item) => {
-                console.log(item)
+                if (item.children === null) {
+                  return (
+                    <Disclosure.Button
+                      key={item.label}
+                      as="a"
+                      href={item.url}
+                      className="mb-4 cursor-pointer hover:underline"
+                    >
+                      {item.label}
+                    </Disclosure.Button>
+                  )
+                }
+
                 return (
-                  <Disclosure.Button
-                    key={item.label}
-                    as="a"
-                    href={item.url}
-                    className="mb-4"
-                  >
+                  <span key={item.label}>
                     {item.label}
-                  </Disclosure.Button>
+                    <div className="m-2">
+                      {item.children.map((link: number) => {
+                        const ceremony = link.toString()
+                        return (
+                          <Disclosure.Button
+                            key={ceremony}
+                            as="a"
+                            href={`/ceremony/${ceremony}`}
+                            className="mb-4 block cursor-pointer hover:underline"
+                          >
+                            {ceremony}
+                          </Disclosure.Button>
+                        )
+                      })}
+                    </div>
+                  </span>
                 )
               })}
             </div>
