@@ -19,10 +19,12 @@ export default function RootLayout({
           />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </head>
-        <body className={`bg-site-darkBlue ${openSans.className} m-0 p-10`}>
+        <body
+          className={`bg-site-darkBlue ${openSans.className} m-0 p-3 sm:p-10`}
+        >
           <div className="bg-white shadow-lg rounded max-w-7xl mx-auto">
             <GlobalNav />
-            <div className="bg-gray-200 my-0 mx-8">{children}</div>
+            <div className="bg-gray-200 my-0 mx-2 sm:mx-8">{children}</div>
             <footer className="block h-14">
               <p
                 className="mx-8 flex flex-row items-center"

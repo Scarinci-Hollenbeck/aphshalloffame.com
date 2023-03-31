@@ -16,31 +16,31 @@ const ContactForm = () => {
       >
         <input
           type="text"
-          className="p-3 rounded text-lg shadow-lg mb-6"
+          className="p-3 rounded text-lg shadow-lg mb-6 mx-4 sm:mx-0"
           name="firstName"
           placeholder="First name"
         />
         <input
           type="text"
-          className="p-3 rounded text-lg shadow-lg mb-6"
+          className="p-3 rounded text-lg shadow-lg mb-6 mx-4 sm:mx-0"
           name="lastName"
           placeholder="Last name"
         />
         <input
           type="email"
-          className="p-3 rounded text-lg shadow-lg mb-6"
+          className="p-3 rounded text-lg shadow-lg mb-6 mx-4 sm:mx-0"
           name="email"
           placeholder="Email"
         />
         <input
           type="phone"
-          className="p-3 rounded text-lg shadow-lg mb-6"
+          className="p-3 rounded text-lg shadow-lg mb-6 mx-4 sm:mx-0"
           name="phone"
           placeholder="Phone"
         />
         <input
           type="subject"
-          className="p-3 rounded text-lg shadow-lg mb-6"
+          className="p-3 rounded text-lg shadow-lg mb-6 mx-4 sm:mx-0"
           name="subject"
           placeholder="Subject"
         />

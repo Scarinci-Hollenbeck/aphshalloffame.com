@@ -58,13 +58,13 @@ const GlobalNav = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex items-center justify-between w-full">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center ml-2 sm:ml-0">
                   <Link href="/">
-                    <h1 className="mt-2 mb-0 text-xl lg:text-3xl text-site-darkBlue font-black font-openSans">
+                    <h1 className="mt-2 mb-0 text-lg sm:text-xl lg:text-3xl text-site-darkBlue font-black font-openSans">
                       Asbury Park High School
                     </h1>
                     <h2
-                      className={`mt-0 text-base lg:text-2xl text-site-lightBlue ${merriWeather.className}`}
+                      className={`mt-0 text-sm sm:text-base lg:text-2xl text-site-lightBlue ${merriWeather.className}`}
                     >
                       Distinguished Alumni Hall of Fame
                     </h2>

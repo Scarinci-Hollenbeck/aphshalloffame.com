@@ -26,7 +26,7 @@ const Contact = () => (
       {contacts?.map((contact: Contact) => (
         <li
           key={contact?.name}
-          className="bg-white shadow-lg mb-5 rounded p-4 flex flex-row items-center"
+          className="bg-white shadow-lg mb-5 mx-4 sm:mx-0 rounded p-4 flex flex-row items-center"
         >
           <EnvelopeIcon className="text-gray-500 h-6 w-6 mr-6" />
           <p className="flex flex-col text-md font-bold">
