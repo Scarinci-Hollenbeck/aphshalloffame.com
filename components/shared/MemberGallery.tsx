@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
 import SectionTitle from './SectionTitle'
 import { genCloudinaryUrl } from '../../utils/constants'
+import classNames from 'classnames'
 
 const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
@@ -38,16 +39,24 @@ const MemberGallery = () => {
     <div className="w-full">
       <SectionTitle title="Hall of Fame Members" />
       <ul className="flex flex-row flex-wrap px-4 py-8">
-        {years?.map(({ year }) => (
-          <li key={year.toString()}>
-            <button
-              onClick={() => setCurrentYear(year)}
-              className="rounded text-lg text-site-darkBlue px-4 py-1 mr-4 ring-1 ring-site-darkBlue hover:bg-site-lightBlue hover:text-white hover:ring-0 mb-3 sm:mb-0"
-            >
-              {year}
-            </button>
-          </li>
-        ))}
+        {years?.map(({ year }) => {
+          const btnClass = classNames(
+            'rounded text-lg px-4 py-1 mr-4 ring-1 hover:ring-0 mb-3 sm:mb-0',
+            {
+              'text-site-darkBlue hover:bg-site-lightBlue hover:text-white ring-site-darkBlue':
+                currentYear !== year,
+              'bg-site-lightBlue text-white ring-site-lightBlue':
+                currentYear === year,
+            }
+          )
+          return (
+            <li key={year.toString()}>
+              <button onClick={() => setCurrentYear(year)} className={btnClass}>
+                {year}
+              </button>
+            </li>
+          )
+        })}
         <li>
           <Link
             href="/directory"
