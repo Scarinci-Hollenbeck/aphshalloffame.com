@@ -42,7 +42,7 @@ const MemberGallery = () => {
           <li key={year.toString()}>
             <button
               onClick={() => setCurrentYear(year)}
-              className="rounded text-lg text-site-darkBlue px-4 py-1 mr-4 ring-1 ring-site-darkBlue hover:bg-site-lightBlue hover:text-white hover:ring-0"
+              className="rounded text-lg text-site-darkBlue px-4 py-1 mr-4 ring-1 ring-site-darkBlue hover:bg-site-lightBlue hover:text-white hover:ring-0 mb-3 sm:mb-0"
             >
               {year}
             </button>

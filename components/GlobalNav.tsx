@@ -144,16 +144,19 @@ const GlobalNav = () => {
 
           <Disclosure.Panel className="lg:hidden">
             <div className="flex flex-col m-4">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.label}
-                  as="a"
-                  href={item.url}
-                  className="mb-4"
-                >
-                  {item.label}
-                </Disclosure.Button>
-              ))}
+              {navigation.map((item) => {
+                console.log(item)
+                return (
+                  <Disclosure.Button
+                    key={item.label}
+                    as="a"
+                    href={item.url}
+                    className="mb-4"
+                  >
+                    {item.label}
+                  </Disclosure.Button>
+                )
+              })}
             </div>
           </Disclosure.Panel>
         </>
