@@ -2,9 +2,9 @@
 'use client'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import styles from './Grid.module.css'
+import styles from './GalleryGrid.module.css'
 
-const LightBoxView = dynamic(() => import('./LightBoxView'), { ssr: false })
+const LightBoxView = dynamic(() => import('../LightBoxView'))
 
 const GalleryGrid = ({ slides, year }) => (
   <div className={styles.gallery}>

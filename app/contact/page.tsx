@@ -5,7 +5,7 @@ import SectionTitle from 'components/shared/SectionTitle'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
 import { Metadata } from 'next'
 
-const ContactForm = dynamic(() => import('components/Contact/ContactForm'))
+const ContactForm = dynamic(() => import('components/ContactForm'))
 
 type Contact = (typeof contacts)[0]
 

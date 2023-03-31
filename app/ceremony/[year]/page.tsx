@@ -5,8 +5,8 @@ import { Metadata } from 'next'
 import prisma from '../../../prisma'
 import { Ceremony } from '@prisma/client'
 
-const GalleryGrid = dynamic(() => import('components/Ceremony/GalleryGrid'), {})
-const GallerySlider = dynamic(() => import('components/Ceremony/GallerySlider'))
+const GalleryGrid = dynamic(() => import('components/GalleryGrid'), {})
+const GallerySlider = dynamic(() => import('components/GallerySlider'))
 
 const getPhotos = async (year) => {
   const request = await cloudinary.api

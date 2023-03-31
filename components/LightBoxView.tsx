@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import Lightbox from 'react-18-image-lightbox'
 import 'react-18-image-lightbox/style.css'
-import styles from './LightBoxView.module.css'
 import { fetchImageForDownload } from 'utils/helpers'
 
 const LightBoxView = ({ image, fileName }) => {
@@ -13,7 +12,7 @@ const LightBoxView = ({ image, fileName }) => {
       <button
         type="button"
         onClick={() => fetchImageForDownload(image, fileName)}
-        className={`${styles.removeBtnStyles} ${styles.zoomInLink} ${styles.white}`}
+        className="inline mb-1 mr-1 text-white text-base hover:underline cursor-pointer"
       >
         Download
       </button>
@@ -25,13 +24,13 @@ const LightBoxView = ({ image, fileName }) => {
       <button
         type="button"
         onClick={() => fetchImageForDownload(image, fileName)}
-        className={`${styles.removeBtnStyles} ${styles.zoomInLink}`}
+        className="inline mb-1 mr-1 text-violet-800 text-base hover:underline cursor-pointer"
       >
         Download
       </button>
       <button
         type="button"
-        className={`${styles.removeBtnStyles} ${styles.zoomInLink}`}
+        className="inline mb-1 mr-1 text-violet-800 text-base hover:underline cursor-pointer"
         onClick={() => setOpen(true)}
       >
         Zoom In
