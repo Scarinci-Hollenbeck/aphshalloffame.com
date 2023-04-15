@@ -1,39 +1,51 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useQuery } from '@tanstack/react-query'
 import SectionTitle from './SectionTitle'
 import { genCloudinaryUrl } from '../../utils/constants'
 import classNames from 'classnames'
+import { Member, Years } from '@prisma/client'
+
+const DEFAULT_YEAR = '2021'
 
 const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
 const MemberGallery = () => {
   const [currentYear, setCurrentYear] = useState('2021')
+  const [years, setYears] = useState<Years[]>([])
+  const [members, setMembers] = useState<Member[]>([])
 
-  const { data: years } = useQuery({
-    queryKey: ['years'],
-    queryFn: () =>
-      fetch('/api/years')
-        .then((res) => res.json())
-        .then((data) => data)
-        .catch((err) => err),
-  })
+  useEffect(() => {
+    async function getYears() {
+      const req = await fetch('/api/years')
+      const data = await req?.json()
 
-  const { data: members } = useQuery({
-    queryKey: ['members', currentYear],
-    queryFn: () =>
-      fetch('/api/members-by-year', {
-        method: 'POST',
-        body: JSON.stringify(currentYear),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => data)
-        .catch((err) => err),
-  })
+      setYears(data)
+    }
+
+    if (years.length <= 0) {
+      getYears()
+    }
+  }, [years])
+
+  async function getMembers(year: string) {
+    const req = await fetch('/api/members-by-year', {
+      method: 'POST',
+      body: JSON.stringify({ currentYear: year }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    const data = await req?.json()
+    setMembers(data)
+  }
+
+  useEffect(() => {
+    if (members.length <= 0) {
+      getMembers(DEFAULT_YEAR)
+    }
+  }, [members])
 
   return (
     <div className="w-full">
@@ -51,7 +63,13 @@ const MemberGallery = () => {
           )
           return (
             <li key={year.toString()}>
-              <button onClick={() => setCurrentYear(year)} className={btnClass}>
+              <button
+                onClick={() => {
+                  setCurrentYear(year)
+                  getMembers(year)
+                }}
+                className={btnClass}
+              >
                 {year}
               </button>
             </li>
