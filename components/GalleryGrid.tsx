@@ -2,18 +2,17 @@
 'use client'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import styles from './GalleryGrid.module.css'
 
-const LightBoxView = dynamic(() => import('../LightBoxView'))
+const LightBoxView = dynamic(() => import('./LightBoxView'))
 
 const GalleryGrid = ({ slides, year }) => (
-  <div className={styles.gallery}>
+  <div className="grid grid-cols-1 lg:m-auto lg:grid-cols-3">
     {slides?.length > 0 &&
-      slides?.map(({ altText, src, height, width }, index) => {
+      slides?.map(({ altText, src, height, width }, index: number) => {
         const fileName = `ceremony-${year}-photo-${index}.png`
 
         return (
-          <div key={`gallery-${index}`} className={styles.galleryImage}>
+          <div key={fileName} className="lg:mr-3">
             <Image
               src={src}
               alt={altText}

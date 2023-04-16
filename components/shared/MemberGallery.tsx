@@ -11,22 +11,16 @@ const DEFAULT_YEAR = '2021'
 const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
 const MemberGallery = () => {
-  const [currentYear, setCurrentYear] = useState('2021')
+  const [currentYear, setCurrentYear] = useState(DEFAULT_YEAR)
   const [years, setYears] = useState<Years[]>([])
   const [members, setMembers] = useState<Member[]>([])
 
-  useEffect(() => {
-    async function getYears() {
-      const req = await fetch('/api/years')
-      const data = await req?.json()
+  async function getYears() {
+    const req = await fetch('/api/years')
+    const data = await req?.json()
 
-      setYears(data)
-    }
-
-    if (years.length <= 0) {
-      getYears()
-    }
-  }, [years])
+    setYears(data)
+  }
 
   async function getMembers(year: string) {
     const req = await fetch('/api/members-by-year', {
@@ -40,6 +34,12 @@ const MemberGallery = () => {
     const data = await req?.json()
     setMembers(data)
   }
+
+  useEffect(() => {
+    if (years.length <= 0) {
+      getYears()
+    }
+  }, [years])
 
   useEffect(() => {
     if (members.length <= 0) {
