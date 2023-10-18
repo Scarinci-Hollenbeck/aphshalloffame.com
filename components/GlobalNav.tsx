@@ -132,7 +132,7 @@ const GlobalNav = () => {
                             </Menu.Items>
                           </Transition>
                         </Menu>
-                      )
+                      ),
                     )}
                   </div>
                 </div>

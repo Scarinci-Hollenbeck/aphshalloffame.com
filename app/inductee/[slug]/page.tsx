@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import PageTitle from 'components/shared/PageTitle'
-import members from 'db/members.json'
 import { Metadata } from 'next'
 import cloudinary from 'utils/cloudinary'
 import prisma from '../../../prisma'

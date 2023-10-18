@@ -40,7 +40,7 @@ const SubLinks = () => {
             'font-bold text-site-darkBlue text-base sm:text-lg md:text-2xl mb-4 sm:mb-0 sm:mr-6',
             {
               underline: currentUrl(link.url, pathname),
-            }
+            },
           )
           return (
             <li key={link.label}>
