@@ -59,7 +59,7 @@ const MemberGallery = () => {
                 currentYear !== year,
               'bg-site-lightBlue text-white ring-site-lightBlue':
                 currentYear === year,
-            }
+            },
           )
           return (
             <li key={year.toString()}>
@@ -90,7 +90,7 @@ const MemberGallery = () => {
             {members.map((member) => {
               const imgBaseUrl = genCloudinaryUrl(
                 '/c_scale,h_191/',
-                'site/Members/'
+                'site/Members/',
               )
               const imgExtension = `${member?.slug}.webp`
 
