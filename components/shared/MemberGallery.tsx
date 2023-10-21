@@ -23,7 +23,7 @@ const MemberGallery = () => {
   }
 
   async function getMembers(year: string) {
-    const req = await fetch('/api/members-by-year', {
+    const request = await fetch('/api/members-by-year', {
       method: 'POST',
       body: JSON.stringify({ currentYear: year }),
       headers: {
@@ -31,7 +31,8 @@ const MemberGallery = () => {
       },
     })
 
-    const data = await req?.json()
+    const data = await request?.json()
+
     setMembers(data)
   }
 
