@@ -4,15 +4,19 @@ import PageTitle from 'components/shared/PageTitle'
 import SectionTitle from 'components/shared/SectionTitle'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
 import { Metadata } from 'next'
+import { getPageSEO } from 'utils/helpers'
 
 const ContactForm = dynamic(() => import('components/ContactForm'))
 
 type Contact = (typeof contacts)[0]
 
-export const metadata: Metadata = {
-  title: 'Contact Us | Asbury Park High School Hall of Fame',
-  description:
-    'Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame',
+export async function generateMetadata(): Promise<Metadata> {
+  const { title, description } = await getPageSEO('/contact')
+
+  return {
+    title,
+    description,
+  }
 }
 
 const Contact = () => (

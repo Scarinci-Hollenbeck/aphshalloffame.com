@@ -2,11 +2,15 @@ import Link from 'next/link'
 import PageTitle from 'components/shared/PageTitle'
 import members from 'db/members.json'
 import { Metadata } from 'next'
+import { getPageSEO } from 'utils/helpers'
 
-export const metadata: Metadata = {
-  title: 'Member Directory | Asbury Park High School Hall of Fame',
-  description:
-    'Here is a list of all the distinguished members of Asbury Park High School Hall of Fame',
+export async function generateMetadata(): Promise<Metadata> {
+  const { title, description } = await getPageSEO('/directory')
+
+  return {
+    title,
+    description,
+  }
 }
 
 const Directory = () => (

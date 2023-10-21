@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import PageTitle from 'components/shared/PageTitle'
 import cloudinary from 'utils/cloudinary'
 import { Metadata } from 'next'
-import prisma from '../../../prisma'
+import prisma from '../../../utils/prisma'
 import { Ceremony } from '@prisma/client'
 
 const GalleryGrid = dynamic(() => import('components/GalleryGrid'), {})

@@ -1,13 +1,17 @@
 import PageTitle from 'components/shared/PageTitle'
 import events from 'db/events.json'
 import { Metadata } from 'next'
+import { getPageSEO } from 'utils/helpers'
 
 type Content = (typeof events)[0]
 
-export const metadata: Metadata = {
-  title: 'Events | Asbury Park High School Hall of Fame',
-  description:
-    'APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020.The Ceremony dinner will be Thursday, October 14, 2021',
+export async function generateMetadata(): Promise<Metadata> {
+  const { title, description } = await getPageSEO('/events')
+
+  return {
+    title,
+    description,
+  }
 }
 
 const Events = () => {

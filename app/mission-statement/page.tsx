@@ -3,11 +3,15 @@ import SectionTitle from 'components/shared/SectionTitle'
 import home from 'db/home.json'
 import { Metadata } from 'next'
 import MemberGalleryQueryProvider from 'components/shared/MemberGalleryQueryProvider'
+import { getPageSEO } from 'utils/helpers'
 
-export const metadata: Metadata = {
-  title: 'Mission Statement | Asbury Park High School Hall of Fame',
-  description:
-    'Another and equally important portion of our mission is to instill in the current APHS students a feeling that they too can be successful adults irrespective of their often difficult backgrounds.',
+export async function generateMetadata(): Promise<Metadata> {
+  const { title, description } = await getPageSEO('/mission-statement')
+
+  return {
+    title,
+    description,
+  }
 }
 
 const MissionStatement = () => (

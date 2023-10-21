@@ -1,5 +1,6 @@
-/* eslint-disable import/prefer-default-export */
+import primsa from 'utils/prisma'
 
+/* eslint-disable import/prefer-default-export */
 export const createMarkup = (content: string) => ({ __html: content })
 
 export const fetchImageForDownload = (imageUrl: string, fileName: string) =>
@@ -27,5 +28,18 @@ export const aspectRatioConversion = (width: number, height: number) => {
   return {
     width: height * aspectRatio,
     height,
+  }
+}
+
+export const getPageSEO = async (slug: string) => {
+  const page = await primsa?.pageSEO.findFirst({
+    where: {
+      slug,
+    },
+  })
+
+  return {
+    title: page?.pageTitle,
+    description: page?.pageMetaDescription,
   }
 }

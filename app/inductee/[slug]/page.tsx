@@ -2,7 +2,7 @@ import Image from 'next/image'
 import PageTitle from 'components/shared/PageTitle'
 import { Metadata } from 'next'
 import cloudinary from 'utils/cloudinary'
-import prisma from '../../../prisma'
+import prisma from '../../../utils/prisma'
 import { Member } from '@prisma/client'
 
 async function getMember(slug) {

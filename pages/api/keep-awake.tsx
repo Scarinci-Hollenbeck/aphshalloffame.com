@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import prisma from '../../prisma'
+import prisma from '../../utils/prisma'
 
 const KEEP_ON_INT = 199
 
