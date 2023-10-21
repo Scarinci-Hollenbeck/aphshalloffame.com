@@ -1,6 +1,5 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -10,10 +9,9 @@ datasource db {
 }
 
 model Ceremony {
-  id        Int     @id @default(autoincrement())
-  ceremony  String
+  id       Int    @id @default(autoincrement())
+  ceremony String
 }
-
 
 model ContactMember {
   id    Int    @id @default(autoincrement())
@@ -22,7 +20,7 @@ model ContactMember {
 }
 
 model Member {
-  id        Int     @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   name      String
   lastName  String
   class     String
@@ -39,4 +37,12 @@ model Years {
 model keepAwake {
   keepOn Int?
   id     Int  @id @unique(map: "id") @default(autoincrement())
+}
+
+model PageSEO {
+  id                  Int    @id @default(autoincrement())
+  name                String
+  pageTitle           String
+  pageMetaDescription String
+  slug                String @unique
 }

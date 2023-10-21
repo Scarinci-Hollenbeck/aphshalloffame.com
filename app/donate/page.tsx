@@ -2,11 +2,15 @@ import PageTitle from 'components/shared/PageTitle'
 import donate from 'db/donate.json'
 import SectionTitle from 'components/shared/SectionTitle'
 import { Metadata } from 'next'
+import { getPageSEO } from 'utils/helpers'
 
-export const metadata: Metadata = {
-  title: 'Donate | Asbury Park High School Hall of Fame',
-  description:
-    'The Distinguished Hall of Fame is a 501(c)3 non-profit corporation registered with the IRS and the State of New Jersey formed.',
+export async function generateMetadata(): Promise<Metadata> {
+  const { title, description } = await getPageSEO('/donate')
+
+  return {
+    title,
+    description,
+  }
 }
 
 const Donate = () => (
