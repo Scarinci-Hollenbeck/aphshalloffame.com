@@ -1,8 +1,9 @@
-const baseUrl = 'https://res.cloudinary.com/deamre9fk/'
+const BASE_URL = 'https://res.cloudinary.com/deamre9fk/'
+export const SITE_URL = 'https://www.aphshalloffame.com'
 
 export const genCloudinaryUrl = (base: string, group: string) => {
   if (Boolean(base)) {
-    return `${baseUrl}image/upload${base}${group}`
+    return `${BASE_URL}image/upload${base}${group}`
   }
-  return `${baseUrl}${group}`
+  return `${BASE_URL}${group}`
 }

@@ -1,6 +1,7 @@
 import GlobalNav from 'components/GlobalNav'
 import { openSans } from './font'
 import './globals.css'
+import Link from 'next/link'
 
 export default function RootLayout({
   children,
@@ -25,13 +26,16 @@ export default function RootLayout({
           <div className="bg-white shadow-lg rounded max-w-7xl mx-auto">
             <GlobalNav />
             <div className="bg-gray-200 my-0 mx-2 sm:mx-8">{children}</div>
-            <footer className="block h-14">
+            <footer className="flex flex-row items-center h-14 px-6">
               <p
-                className="mx-8 flex flex-row items-center"
+                className="mx-2 flex flex-row items-center"
                 style={{ height: 45 }}
               >
                 Asbury Park High School ©️ {year}
               </p>
+              <Link href="/sitemap.xml" className="mx-2 underline">
+                Sitemap
+              </Link>
             </footer>
           </div>
         </body>

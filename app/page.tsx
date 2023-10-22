@@ -1,9 +1,7 @@
 import SubLinks from 'components/shared/SubLinks'
-import MemberGallery from 'components/shared/MemberGallery'
 import home from 'db/home.json'
 import { Metadata } from 'next'
 import MemberGalleryQueryProvider from 'components/shared/MemberGalleryQueryProvider'
-import prisma from 'utils/prisma'
 import { getPageSEO } from 'utils/helpers'
 
 export async function generateMetadata(): Promise<Metadata> {
