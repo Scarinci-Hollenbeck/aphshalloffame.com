@@ -37,15 +37,8 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const ceremonyLinks = await generateCeremonyLinks()
   const inducteeLinks = await generateInducteeLinks()
 
-  console.log(inducteeLinks)
-
+  //@ts-ignore
   return [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
     //@ts-ignore
     ...siteLinks,
     //@ts-ignore
