@@ -43,3 +43,18 @@ export const getPageSEO = async (slug: string) => {
     description: page?.pageMetaDescription,
   }
 }
+
+export const adjustProfileImageSize = async (width: number, height: number) => {
+  switch (true) {
+    case width >= 1000 && height >= 100:
+      return {
+        width: width / 2.3,
+        height: height / 2.3,
+      }
+    default:
+      return {
+        width: width / 1.2,
+        height: height / 1.2,
+      }
+  }
+}

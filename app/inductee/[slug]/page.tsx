@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import cloudinary from 'utils/cloudinary'
 import prisma from '../../../utils/prisma'
 import { Member } from '@prisma/client'
+import { adjustProfileImageSize } from 'utils/helpers'
 
 async function getMember(slug) {
   const member = await prisma.member.findFirst({
@@ -42,18 +43,22 @@ export async function generateStaticParams() {
 
 const Inductee = async ({ params: { slug } }) => {
   const { member, profileImage } = await getMember(slug)
+  const { width, height } = await adjustProfileImageSize(
+    profileImage.width,
+    profileImage.height,
+  )
   return (
     <>
       <PageTitle title="Profile" />
       <div className="bg-gray-200 my-0 mx-8 p-2">
         <div className="flex flex-col md:flex-row">
-          {profileImage && (
+          {profileImage && width && height && (
             <div className="w-full lg:w-1/2 my-6 lg:mr-6 xl:mr-0 xl:ml-8">
               <Image
                 src={profileImage?.src}
                 alt={profileImage?.alt}
-                width={profileImage?.width / 1.2}
-                height={profileImage?.height / 1.2}
+                width={width}
+                height={height}
                 priority
               />
             </div>

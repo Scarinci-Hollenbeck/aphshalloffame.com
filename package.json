@@ -10,7 +10,8 @@
     "prettier": "prettier --write .",
     "lint": "next lint && yarn prettier",
     "prod": "yarn lint && yarn build",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "bio-updater": "node ./utils/scripts/bio-updater.js"
   },
   "repository": {
     "type": "git",
