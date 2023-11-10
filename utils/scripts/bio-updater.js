@@ -5,7 +5,7 @@ const prisma = new p.PrismaClient()
 
 async function main() {
   const membersRequest = await prisma.$queryRaw`
-    Select slug, biography FROM Member WHERE LENGTH(biography) = 2000;
+    ${process.env.SQL_QUERY_ONE};
   `
 
   membersRequest.forEach((mr) => {
