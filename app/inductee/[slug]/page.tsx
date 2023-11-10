@@ -47,6 +47,8 @@ const Inductee = async ({ params: { slug } }) => {
     profileImage.width,
     profileImage.height,
   )
+  const altName = member?.name as string
+
   return (
     <>
       <PageTitle title="Profile" />
@@ -56,7 +58,7 @@ const Inductee = async ({ params: { slug } }) => {
             <div className="w-full lg:w-1/2 my-6 lg:mr-6 xl:mr-0 xl:ml-8">
               <Image
                 src={profileImage?.src}
-                alt={profileImage?.alt}
+                alt={altName}
                 width={width}
                 height={height}
                 priority
