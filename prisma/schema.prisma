@@ -25,7 +25,7 @@ model Member {
   lastName  String
   class     String
   inducted  String
-  biography String @db.VarChar(12000)
+  biography String @db.VarChar(14000)
   slug      String @unique
 }
 
