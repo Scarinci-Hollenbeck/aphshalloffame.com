@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import cloudinary from 'utils/cloudinary'
 import prisma from '../../../utils/prisma'
 import { Member } from '@prisma/client'
-import { adjustProfileImageSize } from 'utils/helpers'
+import { adjustProfileImageSize, generateMemberMetaData } from 'utils/helpers'
 
 async function getMember(slug) {
   const member = await prisma.member.findFirst({
@@ -30,10 +30,7 @@ async function getMember(slug) {
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { member } = await getMember(params.slug)
-  return {
-    title: `${member?.name} | Asbury Park High School Hall of Fame`,
-    description: `${member?.name} graduated from Asbury Park High School in ${member?.class}, and was inducted to the Asbury Park High School Hall of Fame in ${member?.inducted}.`,
-  }
+  return generateMemberMetaData(member?.name, member?.class, member?.inducted)
 }
 
 export async function generateStaticParams() {

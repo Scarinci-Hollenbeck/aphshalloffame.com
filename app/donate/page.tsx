@@ -3,6 +3,7 @@ import donate from 'db/donate.json'
 import SectionTitle from 'components/shared/SectionTitle'
 import { Metadata } from 'next'
 import { getPageSEO } from 'utils/helpers'
+import { DONATE_TITLE, DONATE_SUB_TITLE } from 'utils/constants'
 
 export async function generateMetadata(): Promise<Metadata> {
   const { title, description } = await getPageSEO('/donate')
@@ -15,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const Donate = () => (
   <>
-    <PageTitle title="Donate" />
+    <PageTitle title={DONATE_TITLE} />
     <div className="mx-2 lg:mx-8 py-4">
-      <SectionTitle title=" Help impact the lives of future hall of famers by donating now" />
+      <SectionTitle title={DONATE_SUB_TITLE} />
       <br />
       {donate?.map((donate) => (
         <span key={donate?.content}>

@@ -5,6 +5,11 @@ import SectionTitle from 'components/shared/SectionTitle'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
 import { Metadata } from 'next'
 import { getPageSEO } from 'utils/helpers'
+import {
+  CONTACT_TITLE,
+  CONTACT_SUB_TITLE,
+  CONTACT_MESSAGE,
+} from 'utils/constants'
 
 const ContactForm = dynamic(() => import('components/ContactForm'))
 
@@ -21,11 +26,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const Contact = () => (
   <>
-    <PageTitle title="Contact" />
-    <SectionTitle title="To get in touch" />
-    <p className="text-lg font-black text-center my-4">
-      Contact one of our members
-    </p>
+    <PageTitle title={CONTACT_TITLE} />
+    <SectionTitle title={CONTACT_SUB_TITLE} />
+    <p className="text-lg font-black text-center my-4">{CONTACT_MESSAGE}</p>
     <ul className="flex flex-col max-w-xl mx-auto my-12">
       {contacts?.map((contact: Contact) => (
         <li

@@ -44,6 +44,24 @@ export const getPageSEO = async (slug: string) => {
   }
 }
 
+export const generateMemberMetaData = (
+  name: string | undefined,
+  memberClass: string | undefined,
+  inducted: string | undefined,
+) => {
+  return {
+    title: `${name} | Asbury Park High School Hall of Fame`,
+    description: `${name} graduated from Asbury Park High School in ${memberClass}, and was inducted to the Asbury Park High School Hall of Fame in ${inducted}.`,
+  }
+}
+
+export const generateCeremonyMetaData = (year: string) => {
+  return {
+    title: `Asbury Park High School Hall of Fame - ${year} Ceremony`,
+    description: `Photos from the Asbury Park High School Hall of Fame ${year} induction ceremony.`,
+  }
+}
+
 export const adjustProfileImageSize = async (width: number, height: number) => {
   switch (true) {
     case width >= 1000 && height >= 100:

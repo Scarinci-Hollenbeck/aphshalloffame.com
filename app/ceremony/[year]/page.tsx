@@ -4,6 +4,7 @@ import cloudinary from 'utils/cloudinary'
 import { Metadata } from 'next'
 import prisma from '../../../utils/prisma'
 import { Ceremony } from '@prisma/client'
+import { generateCeremonyMetaData } from 'utils/helpers'
 
 const GalleryGrid = dynamic(() => import('components/GalleryGrid'), {})
 const GallerySlider = dynamic(() => import('components/GallerySlider'))
@@ -41,10 +42,7 @@ const getPhotos = async (year) => {
 export async function generateMetadata({ params }): Promise<Metadata> {
   const year = params.year
 
-  return {
-    title: `Asbury Park High School Hall of Fame - ${year} Ceremony`,
-    description: `Photos from the Asbury Park High School Hall of Fame ${year} induction ceremony.`,
-  }
+  return generateCeremonyMetaData(year)
 }
 
 export async function generateStaticParams() {
