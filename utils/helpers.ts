@@ -53,8 +53,8 @@ export const adjustProfileImageSize = async (width: number, height: number) => {
       }
     default:
       return {
-        width: width / 1.2,
-        height: height / 1.2,
+        width: width / 1.4,
+        height: height / 1.4,
       }
   }
 }

@@ -15,3 +15,9 @@
 .content > ul > li {
   @apply mb-6;
 }
+
+@media (max-width: 1024px) {
+  .bio-profile-img {
+    @apply flex flex-col items-center mt-8;
+  }
+}
