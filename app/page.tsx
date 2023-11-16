@@ -3,6 +3,7 @@ import home from 'db/home.json'
 import { Metadata } from 'next'
 import MemberGalleryQueryProvider from 'components/shared/MemberGalleryQueryProvider'
 import { getPageSEO } from 'utils/helpers'
+import { SITE_TITLE } from 'utils/constants'
 
 export async function generateMetadata(): Promise<Metadata> {
   const { title, description } = await getPageSEO('/')
@@ -26,7 +27,7 @@ const Home = () => {
             style={{ textShadow: '2px 3px 4px #000' }}
             className="text-white text-3xl sm:text-7xl font-bold text-center p-6"
           >
-            Asbury Park High School Distinguished Alumni Hall of Fame
+            {SITE_TITLE}
           </p>
         </div>
       </div>
