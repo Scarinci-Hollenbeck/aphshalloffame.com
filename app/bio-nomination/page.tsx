@@ -1,5 +1,4 @@
 import PageTitle from 'components/shared/PageTitle'
-import events from 'db/events.json'
 import bioNomination from 'db/bio-nomination.json'
 import { Metadata } from 'next'
 import { BIO_NOMINATION_TITLE } from 'utils/constants'
