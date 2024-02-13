@@ -8,6 +8,7 @@ export const DONATE_TITLE = 'Donate'
 export const CONTACT_SUB_TITLE = 'To get in touch'
 export const CONTACT_TITLE = 'Contact'
 export const CONTACT_MESSAGE = 'Contact one of our members'
+export const BIO_NOMINATION_TITLE = 'Bio Nomination'
 
 export const genCloudinaryUrl = (base: string, group: string) => {
   if (Boolean(base)) {

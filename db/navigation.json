@@ -28,5 +28,10 @@
     "label": "Directory",
     "url": "/directory",
     "children": null
+  },
+  {
+    "label": "Bio Nomination",
+    "url": "/bio-nomination",
+    "children": null
   }
 ]

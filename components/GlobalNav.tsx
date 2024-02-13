@@ -59,17 +59,17 @@ const GlobalNav = () => {
               </div>
               <div className="flex items-center justify-between w-full">
                 <div className="flex flex-col items-center ml-2 sm:ml-0">
-                  <h1 className="mt-2 mb-0 text-lg sm:text-xl lg:text-3xl text-site-darkBlue font-black font-openSans">
+                  <h1 className="mt-2 mb-0 text-lg sm:text-xl xl:text-3xl text-site-darkBlue font-black font-openSans">
                     Asbury Park High School
                   </h1>
                   <h2
-                    className={`mt-0 text-sm sm:text-base lg:text-2xl text-site-lightBlue ${merriWeather.className}`}
+                    className={`mt-0 text-sm sm:text-base xl:text-2xl text-site-lightBlue ${merriWeather.className}`}
                   >
                     Distinguished Alumni Hall of Fame
                   </h2>
                 </div>
                 <div className="hidden px-2 lg:block">
-                  <div className="flex space-x-4 mt-4">
+                  <div className="flex space-x-3 mt-4">
                     {navigation.map((item) =>
                       item.children === null ? (
                         <Link
@@ -79,7 +79,7 @@ const GlobalNav = () => {
                             currentUrl(item.url, selectedLayoutSegments)
                               ? 'text-site-darkBlue'
                               : 'text-site-lightBlue'
-                          } uppercase font-bold`}
+                          } uppercase font-bold text-xs xl:text-sm`}
                         >
                           {item.label}
                         </Link>
@@ -87,7 +87,7 @@ const GlobalNav = () => {
                         <Menu
                           key={item.label || item.url}
                           as="div"
-                          className="relative inline-block text-left"
+                          className="relative inline-block text-left text-xs xl:text-sm"
                         >
                           <div>
                             <Menu.Button
@@ -99,7 +99,7 @@ const GlobalNav = () => {
                             >
                               {item.label}
                               <ChevronDownIcon
-                                className="-mr-1 ml-1 h-4 w-4 font-bold my-1"
+                                className="xl:-mr-1 md:ml-1 xl:h-4 xl:w-4 h-3 w-3 font-bold my-1"
                                 aria-hidden="true"
                               />
                             </Menu.Button>
