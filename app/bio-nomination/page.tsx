@@ -8,7 +8,7 @@ import { getPageSEO } from 'utils/helpers'
 type Content = (typeof bioNomination)[0]
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description } = await getPageSEO('/events')
+  const { title, description } = await getPageSEO('/bio-nomination')
 
   return {
     title,
