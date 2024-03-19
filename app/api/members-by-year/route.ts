@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(request: NextRequest, response: NextResponse) {
   try {
     const req = await request.json()
-    const data = await prisma.member.findMany({
+    const data = await prisma.aphs_member.findMany({
       where: {
         inducted: req?.currentYear,
       },

@@ -3,7 +3,7 @@ import PageTitle from 'components/shared/PageTitle'
 import cloudinary from 'utils/cloudinary'
 import { Metadata } from 'next'
 import prisma from '../../../utils/prisma'
-import { Ceremony } from '@prisma/client'
+import { aphs_ceremony } from '@prisma/client'
 import { generateCeremonyMetaData } from 'utils/helpers'
 
 const GalleryGrid = dynamic(() => import('components/GalleryGrid'), {})
@@ -46,8 +46,8 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const data = await prisma.ceremony.findMany()
-  return data.map((c: Ceremony) => `/ceremony/${c.ceremony}`)
+  const data = await prisma.aphs_ceremony.findMany()
+  return data.map((c: aphs_ceremony) => `/ceremony/${c.ceremony}`)
 }
 
 const Ceremony = async ({ params: { year } }) => {

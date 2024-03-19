@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "utils/seed-members.mjs",
-    "utils/scripts/bio-updater.js"
+    ".scripts/migrations/bio-updater.js"
   ],
   "exclude": ["node_modules"]
 }

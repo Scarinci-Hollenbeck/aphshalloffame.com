@@ -8,18 +8,18 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Ceremony {
+model aphs_ceremony {
   id       Int    @id @default(autoincrement())
   ceremony String
 }
 
-model ContactMember {
+model aphs_contactMember {
   id    Int    @id @default(autoincrement())
   name  String
   email String @unique
 }
 
-model Member {
+model aphs_member {
   id        Int    @id @default(autoincrement())
   name      String
   lastName  String
@@ -29,17 +29,12 @@ model Member {
   slug      String @unique
 }
 
-model Years {
+model aphs_years {
   id   Int    @id @default(autoincrement())
   year String @unique
 }
 
-model keepAwake {
-  keepOn Int?
-  id     Int  @id @unique(map: "id") @default(autoincrement())
-}
-
-model PageSEO {
+model aphs_pageSEO {
   id                  Int    @id @default(autoincrement())
   name                String
   pageTitle           String
