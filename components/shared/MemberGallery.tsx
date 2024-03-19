@@ -4,7 +4,7 @@ import Link from 'next/link'
 import SectionTitle from './SectionTitle'
 import { genCloudinaryUrl } from '../../utils/constants'
 import classNames from 'classnames'
-import { Member, Years } from '@prisma/client'
+import { aphs_member, aphs_years } from '@prisma/client'
 
 const DEFAULT_YEAR = '2021'
 
@@ -12,8 +12,8 @@ const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
 const MemberGallery = () => {
   const [currentYear, setCurrentYear] = useState(DEFAULT_YEAR)
-  const [years, setYears] = useState<Years[]>([])
-  const [members, setMembers] = useState<Member[]>([])
+  const [years, setYears] = useState<aphs_years[]>([])
+  const [members, setMembers] = useState<aphs_member[]>([])
 
   async function getYears() {
     const req = await fetch('/api/years')

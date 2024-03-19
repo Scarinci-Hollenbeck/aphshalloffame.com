@@ -11,7 +11,9 @@
     "lint": "next lint && yarn prettier",
     "prod": "yarn lint && yarn build",
     "postinstall": "prisma generate",
-    "bio-updater": "node ./utils/scripts/bio-updater.js"
+    "bio-updater": "node ./.scripts/bio-updater.js",
+    "dump": "node ./.scripts/migrations/dumps/index.js",
+    "seed": "node ./.scripts/migrations/seed"
   },
   "repository": {
     "type": "git",

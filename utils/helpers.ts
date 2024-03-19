@@ -32,7 +32,7 @@ export const aspectRatioConversion = (width: number, height: number) => {
 }
 
 export const getPageSEO = async (slug: string) => {
-  const page = await primsa?.pageSEO.findFirst({
+  const page = await primsa?.aphs_pageSEO.findFirst({
     where: {
       slug,
     },

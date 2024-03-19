@@ -3,11 +3,11 @@ import PageTitle from 'components/shared/PageTitle'
 import { Metadata } from 'next'
 import cloudinary from 'utils/cloudinary'
 import prisma from '../../../utils/prisma'
-import { Member } from '@prisma/client'
+import { aphs_member } from '@prisma/client'
 import { adjustProfileImageSize, generateMemberMetaData } from 'utils/helpers'
 
 async function getMember(slug) {
-  const member = await prisma.member.findFirst({
+  const member = await prisma.aphs_member.findFirst({
     where: {
       slug,
     },
@@ -34,8 +34,8 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const data = await prisma.member.findMany()
-  return data.map((c: Member) => `/inductee/${c.slug}`)
+  const data = await prisma.aphs_member.findMany()
+  return data.map((c: aphs_member) => `/inductee/${c.slug}`)
 }
 
 const Inductee = async ({ params: { slug } }) => {
