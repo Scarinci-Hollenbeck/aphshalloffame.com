@@ -13,7 +13,7 @@
     "postinstall": "prisma generate",
     "bio-updater": "node ./.scripts/bio-updater.js",
     "dump": "node ./.scripts/migrations/dumps/index.js",
-    "seed": "node ./.scripts/migrations/seed"
+    "seed": "node ./.scripts/migrations/seed/index.js"
   },
   "repository": {
     "type": "git",

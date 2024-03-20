@@ -6,7 +6,7 @@ import { genCloudinaryUrl } from '../../utils/constants'
 import classNames from 'classnames'
 import { aphs_member, aphs_years } from '@prisma/client'
 
-const DEFAULT_YEAR = '2021'
+const DEFAULT_YEAR = '2024'
 
 const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
