@@ -32,6 +32,7 @@ const MemberGallery = () => {
     })
 
     const data = await request?.json()
+    console.log('data', data)
 
     setMembers(data)
   }
@@ -93,6 +94,7 @@ const MemberGallery = () => {
                 '/c_scale,h_191/',
                 'site/Members/',
               )
+              console.log('imgBaseUrl', imgBaseUrl)
               const imgExtension = `${member?.slug}.webp`
 
               return (
