@@ -10,8 +10,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
       },
     })
 
-    console.log('data', data)
-
     return NextResponse.json(data, {
       status: 200,
     })
