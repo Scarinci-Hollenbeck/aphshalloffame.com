@@ -3,7 +3,15 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
-    const data = await prisma.aphs_years.findMany()
+    const data = await prisma.aphs_years.findMany({
+      where: {
+        year: {
+          not: {
+            equals: '2024',
+          },
+        },
+      },
+    })
 
     return NextResponse.json(data, {
       status: 200,

@@ -6,7 +6,7 @@ import { genCloudinaryUrl } from '../../utils/constants'
 import classNames from 'classnames'
 import { aphs_member, aphs_years } from '@prisma/client'
 
-const DEFAULT_YEAR = '2024'
+const DEFAULT_YEAR = '2021'
 
 const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
@@ -32,8 +32,6 @@ const MemberGallery = () => {
     })
 
     const data = await request?.json()
-    console.log('data', data)
-
     setMembers(data)
   }
 
@@ -94,8 +92,9 @@ const MemberGallery = () => {
                 '/c_scale,h_191/',
                 'site/Members/',
               )
+              // https://res.cloudinary.com/deamre9fk/image/upload/v1710895109/site/Members
               console.log('imgBaseUrl', imgBaseUrl)
-              const imgExtension = `${member?.slug}.webp`
+              const imgExtension = `${member?.slug}.png`
 
               return (
                 <Link
