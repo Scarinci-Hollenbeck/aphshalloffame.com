@@ -31,7 +31,6 @@ const MemberGallery = () => {
     })
 
     const data = await request?.json()
-
     setMembers(data)
   }
 
@@ -92,8 +91,9 @@ const MemberGallery = () => {
                 '/c_scale,h_191/',
                 'site/Members/',
               )
-
-              const imgExtension = `${member?.slug}.webp`
+              // https://res.cloudinary.com/deamre9fk/image/upload/v1710895109/site/Members
+              console.log('imgBaseUrl', imgBaseUrl)
+              const imgExtension = `${member?.slug}.png`
 
               return (
                 <Link
