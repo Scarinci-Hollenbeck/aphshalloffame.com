@@ -2,6 +2,7 @@ import GlobalNav from 'components/GlobalNav'
 import { openSans } from './font'
 import './globals.css'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export default function RootLayout({
   children,
@@ -9,6 +10,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const year = new Date().getFullYear()
+
+  // Set local storage
 
   return (
     <>

@@ -6,11 +6,11 @@ import { getPageSEO } from 'utils/helpers'
 type Content = (typeof events)[0]
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description } = await getPageSEO('/events')
+  const page = await getPageSEO('/events')
 
   return {
-    title,
-    description,
+    title: page?.title,
+    description: page?.description,
   }
 }
 

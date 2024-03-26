@@ -1,9 +1,9 @@
-import prisma from '../../../utils/prisma'
+import years from 'db/years.json'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
-    const data = await prisma.aphs_years.findMany()
+    const data = years
 
     return NextResponse.json(data, {
       status: 200,
@@ -14,7 +14,5 @@ export async function GET() {
     return NextResponse.json(error, {
       status: 500,
     })
-  } finally {
-    await prisma.$disconnect()
   }
 }

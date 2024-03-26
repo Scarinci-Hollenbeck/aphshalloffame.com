@@ -1,13 +1,11 @@
 import { MetadataRoute } from 'next'
 import navigation from 'db/navigation.json'
 import { SITE_URL } from 'utils/constants'
-import prisma from 'utils/prisma'
-import { aphs_ceremony, aphs_member } from '@prisma/client'
+import members from 'db/members.json'
+import ceremonies from 'db/ceremonies.json'
 
 export async function generateCeremonyLinks() {
-  const data = await prisma.aphs_ceremony.findMany()
-
-  return data.map((c: aphs_ceremony) => ({
+  return ceremonies.map((c) => ({
     url: `${SITE_URL}/ceremony/${c.ceremony}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
@@ -16,10 +14,8 @@ export async function generateCeremonyLinks() {
 }
 
 export async function generateInducteeLinks() {
-  const data = await prisma.aphs_member.findMany()
-
-  return data.map((c: aphs_member) => ({
-    url: `${SITE_URL}/inductee/${c.slug}`,
+  return members.map((m) => ({
+    url: `${SITE_URL}/inductee/${m.slug}`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.5,

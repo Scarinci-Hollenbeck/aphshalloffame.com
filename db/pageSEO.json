@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Home",
+    "pageTitle": "Asbury Park High School Hall of Fame",
+    "pageMetaDescription": "Welcome to the Asbury Park High School Distinguished Alumni Hall of Fame. Our mission is to recognize and honor those APHS graduates who as adults in many different and varied fields.",
+    "slug": "/"
+  },
+  {
+    "id": 2,
+    "name": "Mission Statement",
+    "pageTitle": "Mission Statement | Asbury Park High School Hall of Fame",
+    "pageMetaDescription": " The mission of Asbury Park High School Distinguished Alumni Hall of Fame is to recognize and honor those APHS graduates who as adults in many different and varied fields.",
+    "slug": "/mission-statement"
+  },
+  {
+    "id": 3,
+    "name": "History",
+    "pageTitle": "History & Background | Asbury Park High School Hall of Fame",
+    "pageMetaDescription": "Carl Williams, Mayor of Asbury Park, conceived of a vehicle where the rich history of the high school and its graduates would be remembered and celebrated.",
+    "slug": "/history"
+  },
+  {
+    "id": 4,
+    "name": "Events",
+    "pageTitle": "Events | Asbury Park High School Hall of Fame",
+    "pageMetaDescription": "APHS Distinguished Alumni Hall of Fame Induction Ceremony 2020. The Ceremony dinner will be Thursday, October 14, 2021",
+    "slug": "/events"
+  },
+  {
+    "id": 5,
+    "name": "Donate",
+    "pageTitle": "Donate | Asbury Park High School Hall of Fame",
+    "pageMetaDescription": "The Distinguished Hall of Fame is a 501(c)3 non-profit corporation registered with the IRS and the State of New Jersey formed.",
+    "slug": "/donate"
+  },
+  {
+    "id": 6,
+    "name": "Member Directory",
+    "pageTitle": "Member Directory | Asbury Park High School Hall of Fame",
+    "pageMetaDescription": "Here is a list of all the distinguished members of Asbury Park High School Hall of Fame",
+    "slug": "/directory"
+  },
+  {
+    "id": 7,
+    "name": "Contact Us",
+    "pageTitle": "Contact Us | Asbury Park High School Hall of Fame",
+    "pageMetaDescription": "Get in touch to learn more about the distinguished members of Asbury Park High School Hall of Fame",
+    "slug": "/contact"
+  },
+  {
+    "id": 8,
+    "name": "Bio Nomination",
+    "pageTitle": "Bio Nomination | Asbury Park High School Hall of Fame",
+    "pageMetaDescription": "Asbury Park High School Distinguished Alumni Hall of fame bio nomination information",
+    "slug": "/bio-nomination"
+  }
+]

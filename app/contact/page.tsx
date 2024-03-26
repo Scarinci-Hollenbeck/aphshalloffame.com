@@ -16,11 +16,11 @@ const ContactForm = dynamic(() => import('components/ContactForm'))
 type Contact = (typeof contacts)[0]
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description } = await getPageSEO('/contact')
+  const page = await getPageSEO('/')
 
   return {
-    title,
-    description,
+    title: page?.title,
+    description: page?.description,
   }
 }
 

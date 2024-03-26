@@ -6,11 +6,11 @@ import { Metadata } from 'next'
 import { getPageSEO } from 'utils/helpers'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description } = await getPageSEO('/directory')
+  const page = await getPageSEO('/directory')
 
   return {
-    title,
-    description,
+    title: page?.title,
+    description: page?.description,
   }
 }
 

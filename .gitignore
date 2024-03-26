@@ -45,3 +45,5 @@ yarn-error.log*
 .dumps/*
 
 password
+
+db/*-old.json

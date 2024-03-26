@@ -1,4 +1,4 @@
-import primsa from 'utils/prisma'
+import pageSEO from 'db/pageSEO.json'
 
 /* eslint-disable import/prefer-default-export */
 export const createMarkup = (content: string) => ({ __html: content })
@@ -32,15 +32,15 @@ export const aspectRatioConversion = (width: number, height: number) => {
 }
 
 export const getPageSEO = async (slug: string) => {
-  const page = await primsa?.aphs_pageSEO.findFirst({
-    where: {
-      slug,
-    },
-  })
+  const findPage = pageSEO.filter((p) => p.slug === slug)
 
-  return {
-    title: page?.pageTitle,
-    description: page?.pageMetaDescription,
+  if (findPage.length > 0) {
+    const page = findPage[0]
+
+    return {
+      title: page?.pageTitle,
+      description: page?.pageMetaDescription,
+    }
   }
 }
 

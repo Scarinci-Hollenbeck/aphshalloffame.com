@@ -6,11 +6,11 @@ import { getPageSEO } from 'utils/helpers'
 import { SITE_TITLE } from 'utils/constants'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description } = await getPageSEO('/')
+  const page = await getPageSEO('/')
 
   return {
-    title,
-    description,
+    title: page?.title,
+    description: page?.description,
   }
 }
 

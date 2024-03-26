@@ -1,48 +1,51 @@
 import Image from 'next/image'
 import PageTitle from 'components/shared/PageTitle'
 import { Metadata } from 'next'
+import members from 'db/members.json'
 import cloudinary from 'utils/cloudinary'
-import prisma from '../../../utils/prisma'
-import { aphs_member } from '@prisma/client'
 import { adjustProfileImageSize, generateMemberMetaData } from 'utils/helpers'
 
 async function getMember(slug) {
-  const member = await prisma.aphs_member.findFirst({
-    where: {
-      slug,
-    },
-  })
+  const findMember = members.filter((m) => m.slug === slug)
 
-  const request = await cloudinary.search
-    .expression(member?.slug)
-    .execute()
-    .then((res) => res.resources)
+  if (findMember.length > 0) {
+    const member = findMember[0]
 
-  let profileImage = {
-    src: request[0]?.url.replace('png', 'webp').replace('jpg', 'webp'),
-    width: request[0]?.width,
-    height: request[0]?.height,
-    alt: request[0]?.filename,
+    const request = await cloudinary.search
+      .expression(member?.slug)
+      .execute()
+      .then((res) => res.resources)
+
+    let profileImage = {
+      src: request[0]?.url.replace('png', 'webp').replace('jpg', 'webp'),
+      width: request[0]?.width,
+      height: request[0]?.height,
+      alt: request[0]?.filename,
+    }
+
+    return { member, profileImage }
   }
-
-  return { member, profileImage }
 }
 
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const { member } = await getMember(params.slug)
+  const results = await getMember(params?.slug)
+  const member = results?.member
+
   return generateMemberMetaData(member?.name, member?.class, member?.inducted)
 }
 
 export async function generateStaticParams() {
-  const data = await prisma.aphs_member.findMany()
-  return data.map((c: aphs_member) => `/inductee/${c.slug}`)
+  return members.map((c) => `/inductee/${c.slug}`)
 }
 
 const Inductee = async ({ params: { slug } }) => {
-  const { member, profileImage } = await getMember(slug)
+  const results = await getMember(slug)
+  const member = results?.member
+  const profileImage = results?.profileImage
+
   const { width, height } = await adjustProfileImageSize(
-    profileImage.width,
-    profileImage.height,
+    profileImage?.width,
+    profileImage?.height,
   )
   const altName = member?.name as string
 

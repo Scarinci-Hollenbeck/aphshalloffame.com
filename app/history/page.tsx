@@ -6,11 +6,11 @@ import MemberGalleryQueryProvider from 'components/shared/MemberGalleryQueryProv
 import { getPageSEO } from 'utils/helpers'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description } = await getPageSEO('/history')
+  const page = await getPageSEO('/history')
 
   return {
-    title,
-    description,
+    title: page?.title,
+    description: page?.description,
   }
 }
 

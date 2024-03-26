@@ -12,7 +12,7 @@
     "prod": "yarn lint && yarn build",
     "postinstall": "prisma generate",
     "bio-updater": "node ./.scripts/bio-updater.js",
-    "dump": "node ./.scripts/migrations/dumps/index.js",
+    "dump": "node ./.scripts/migrations/SQL/dumps/index.js",
     "seed": "node ./.scripts/migrations/seed"
   },
   "repository": {
