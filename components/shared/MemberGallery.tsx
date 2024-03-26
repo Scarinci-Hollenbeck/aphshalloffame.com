@@ -5,7 +5,7 @@ import SectionTitle from './SectionTitle'
 import { genCloudinaryUrl } from '../../utils/constants'
 import classNames from 'classnames'
 
-const DEFAULT_YEAR = '2021'
+const DEFAULT_YEAR = '2024'
 
 const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
@@ -31,6 +31,7 @@ const MemberGallery = () => {
     })
 
     const data = await request?.json()
+
     setMembers(data)
   }
 
@@ -86,40 +87,41 @@ const MemberGallery = () => {
       <div className="flex flex-row flex-wrap px-4">
         {members?.length > 0 ? (
           <>
-            {members.map((member) => {
-              const imgBaseUrl = genCloudinaryUrl(
-                '/c_scale,h_191/',
-                'site/Members/',
-              )
-              // https://res.cloudinary.com/deamre9fk/image/upload/v1710895109/site/Members
-              console.log('imgBaseUrl', imgBaseUrl)
-              const imgExtension = `${member?.slug}.png`
+            {members
+              .sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
+              .map((member) => {
+                const imgBaseUrl = genCloudinaryUrl(
+                  '/c_scale,h_191/',
+                  'site/Members/',
+                )
 
-              return (
-                <Link
-                  key={member?.name}
-                  href={encodeURI(`/inductee/${member?.slug}`)}
-                >
-                  <div
-                    className="h-48 w-36 bg-cover bg-center cursor-pointer"
-                    style={{
-                      backgroundImage: `url(${imgBaseUrl}${imgExtension})`,
-                    }}
+                const imgExtension = `${member?.slug}.webp`
+
+                return (
+                  <Link
+                    key={member?.name}
+                    href={encodeURI(`/inductee/${member?.slug}`)}
                   >
-                    <div className="bg-black bg-opacity-0 w-full h-full hover:bg-opacity-40 transition-all duration-1000">
-                      <div className="opacity-0 hover:opacity-100 duration-1000 flex flex-col w-full h-full m-0 p-0 justify-center items-center text-center">
-                        <span className="text-center text-white text-sm">
-                          {member?.name}
-                        </span>
-                        <span className="text-center text-white text-sm">
-                          Inducted: {member?.inducted}
-                        </span>
+                    <div
+                      className="h-48 w-36 bg-cover bg-center cursor-pointer"
+                      style={{
+                        backgroundImage: `url(${imgBaseUrl}${imgExtension})`,
+                      }}
+                    >
+                      <div className="bg-black bg-opacity-0 w-full h-full hover:bg-opacity-40 transition-all duration-1000">
+                        <div className="opacity-0 hover:opacity-100 duration-1000 flex flex-col w-full h-full m-0 p-0 justify-center items-center text-center">
+                          <span className="text-center text-white text-sm">
+                            {member?.name}
+                          </span>
+                          <span className="text-center text-white text-sm">
+                            Inducted: {member?.inducted}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              )
-            })}
+                  </Link>
+                )
+              })}
           </>
         ) : (
           <LoadingPlaceholder />

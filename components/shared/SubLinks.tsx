@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import subNavs from '../../db/sub-navigation.json'
+import subNavs from 'db/sub-navigation.json'
 import { usePathname } from 'next/navigation'
 
 import classNames from 'classnames'
