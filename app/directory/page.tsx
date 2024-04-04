@@ -2,8 +2,8 @@ import Link from 'next/link'
 import PageTitle from 'components/shared/PageTitle'
 import directory from 'db/directory.json'
 import { Metadata } from 'next'
-import prisma from '../../utils/prisma'
 import { getPageSEO } from 'utils/helpers'
+import members from 'db/members.json'
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageSEO('/directory')
@@ -14,18 +14,10 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-async function getMembers() {
-  const members = await prisma.aphs_member.findMany({
-    orderBy: {
-      lastName: 'asc',
-    },
-  })
-
-  return members
-}
-
 const Directory = async () => {
-  const members = await getMembers()
+  const sortedMembers = members.sort((a, b) =>
+    a.lastName > b.lastName ? 1 : -1,
+  )
 
   return (
     <>
@@ -34,9 +26,9 @@ const Directory = async () => {
         <p className="text-xl">{directory.content}</p>
       </div>
       <div className="bg-gray-200 my-0 mx-8">
-        {members && (
+        {sortedMembers && (
           <ul className="py-4">
-            {members
+            {sortedMembers
               .sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
               .map((member) => (
                 <li key={member?.name} className="mb-4">

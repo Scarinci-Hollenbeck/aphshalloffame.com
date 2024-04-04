@@ -4,6 +4,8 @@ import Link from 'next/link'
 import SectionTitle from './SectionTitle'
 import { genCloudinaryUrl } from '../../utils/constants'
 import classNames from 'classnames'
+import years from 'db/years.json'
+import members_db from 'db/members.json'
 
 const DEFAULT_YEAR = '2024'
 
@@ -11,41 +13,19 @@ const LoadingPlaceholder = () => <div style={{ height: 250 }} />
 
 const MemberGallery = () => {
   const [currentYear, setCurrentYear] = useState(DEFAULT_YEAR)
-  const [years, setYears] = useState<any[]>([])
-  const [members, setMembers] = useState<any[]>([])
+  const [members, setMembers] = useState(members_db)
 
-  async function getYears() {
-    const req = await fetch('/api/years')
-    const data = await req?.json()
-
-    setYears(data)
-  }
-
-  async function getMembers(year: string) {
-    const request = await fetch('/api/members-by-year', {
-      method: 'POST',
-      body: JSON.stringify({ currentYear: year }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-
-    const data = await request?.json()
-
-    setMembers(data)
+  function getMembers(year: string) {
+    const memberByYear = members_db.filter((m) => m.inducted === year)
+    console.log(memberByYear)
+    if (memberByYear.length > 0) {
+      setMembers(memberByYear)
+    }
   }
 
   useEffect(() => {
-    if (years.length <= 0) {
-      getYears()
-    }
-  }, [years])
-
-  useEffect(() => {
-    if (members.length <= 0) {
-      getMembers(DEFAULT_YEAR)
-    }
-  }, [members])
+    getMembers(DEFAULT_YEAR)
+  }, [])
 
   return (
     <div className="w-full">
