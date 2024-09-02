@@ -79,7 +79,7 @@ const GlobalNav = () => {
                             currentUrl(item.url, selectedLayoutSegments)
                               ? 'text-site-darkBlue'
                               : 'text-site-lightBlue'
-                          } uppercase font-bold text-xs xl:text-sm`}
+                          } uppercase font-bold text-xs xl:text-sm hover:underline`}
                         >
                           {item.label}
                         </Link>
@@ -95,7 +95,7 @@ const GlobalNav = () => {
                                 currentUrl(item.url, selectedLayoutSegments)
                                   ? 'text-site-darkBlue'
                                   : 'text-site-lightBlue'
-                              } uppercase font-bold flex flex-row"`}
+                              } uppercase font-bold hover:underline flex flex-row"`}
                             >
                               {item.label}
                               <ChevronDownIcon
@@ -123,7 +123,7 @@ const GlobalNav = () => {
                                   >
                                     <Link
                                       href={`/ceremony/${year}`}
-                                      className="block px-2 mb-1 text-lg"
+                                      className="block px-2 hover:underline mb-1 text-lg"
                                     >
                                       {year}
                                     </Link>
